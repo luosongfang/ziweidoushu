@@ -1,0 +1,15 @@
+-- palace_meaning_rules
+DELETE FROM public.palace_meaning_rules WHERE school = 'sanhe';
+
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('命宫', '自我', '代表先天性格、人生格局与整体运势', '', '', '', '', '解读命宫：代表先天性格、人生格局与整体运势', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('兄弟', '手足', '代表兄弟姐妹、同事及平辈关系', '', '', '', '', '解读兄弟：代表兄弟姐妹、同事及平辈关系', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('夫妻', '配偶', '代表婚姻感情、配偶特质与恋爱模式', '', '', '', '', '解读夫妻：代表婚姻感情、配偶特质与恋爱模式', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('子女', '后代', '代表子女缘分、创造力与投资', '', '', '', '', '解读子女：代表子女缘分、创造力与投资', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('财帛', '财富', '代表赚钱能力、理财模式与物质资源', '', '', '', '', '解读财帛：代表赚钱能力、理财模式与物质资源', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('疾厄', '健康', '代表身体健康、灾厄与内在情绪', '', '', '', '', '解读疾厄：代表身体健康、灾厄与内在情绪', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('迁移', '外出', '代表外出运、社会形象与外界评价', '', '', '', '', '解读迁移：代表外出运、社会形象与外界评价', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('交友', '人际', '代表朋友、下属与人际网络', '', '', '', '', '解读交友：代表朋友、下属与人际网络', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('官禄', '事业', '代表事业发展、工作成就与社会地位', '', '', '', '', '解读官禄：代表事业发展、工作成就与社会地位', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('田宅', '不动产', '代表家庭环境、房产与内在安全感', '', '', '', '', '解读田宅：代表家庭环境、房产与内在安全感', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('福德', '精神', '代表精神世界、享受能力与福报', '', '', '', '', '解读福德：代表精神世界、享受能力与福报', 'sanhe', '2026.07.22');
+INSERT INTO public.palace_meaning_rules (palace_name, keyword, meaning, career, wealth, relationship, health, ai_prompt, school, version) VALUES ('父母', '长辈', '代表父母缘分、上司关系与遗传背景', '', '', '', '', '解读父母：代表父母缘分、上司关系与遗传背景', 'sanhe', '2026.07.22');

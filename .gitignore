@@ -1,0 +1,47 @@
+# 依赖
+node_modules/
+frontend/node_modules/
+backend/venv/
+backend/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# 环境变量（含密钥，禁止提交）
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env.local
+
+# 构建产物
+frontend/.next/
+frontend/out/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志与缓存
+*.log
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage/
+htmlcov/
+
+# 知识库原始大文件（按需取消注释）
+# knowledge/raw/**/*.pdf
+# knowledge/raw/**/*.txt

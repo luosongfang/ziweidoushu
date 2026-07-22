@@ -16,14 +16,22 @@ from app.api.v1.membership import router as membership_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """应用生命周期 — 初始化种子数据（表结构由 Alembic 管理）。"""
-    try:
-        from app.database.database import check_database_connection, init_db
+    """应用生命周期 — 初始化数据库表结构与种子数据。"""
+    import logging
 
-        if check_database_connection():
-            init_db()
-    except Exception:
-        pass
+    from app.database.database import database_status, init_db
+
+    logger = logging.getLogger("uvicorn.error")
+    init_db()
+    status = database_status()
+    if status["ready"]:
+        logger.info("Supabase/PostgreSQL 已连接，数据库就绪")
+    elif settings.is_postgres and not status["configured"]:
+        logger.error(
+            "DATABASE_URL 未配置：请编辑 backend/.env 替换 [YOUR-PASSWORD] 后重启"
+        )
+    elif settings.is_postgres:
+        logger.error("Supabase 连接失败：请检查 DATABASE_URL 密码与网络")
     yield
 
 

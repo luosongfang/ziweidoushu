@@ -53,6 +53,7 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
         solar_date: form.date,
         time: form.time,
         location: form.location || undefined,
+        persist: true,
       });
       onSuccess(data);
     } catch (err) {

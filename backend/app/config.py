@@ -5,6 +5,14 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 _BACKEND_ROOT = Path(__file__).resolve().parent.parent
 
+_PLACEHOLDER_MARKERS = (
+    "[YOUR-PASSWORD]",
+    "[your-password]",
+    "xxxxxxxxx",
+    "your_password",
+    "changeme",
+)
+
 
 class Settings(BaseSettings):
     """应用配置，从环境变量或 backend/.env 读取。"""
@@ -45,6 +53,14 @@ class Settings(BaseSettings):
     @property
     def is_postgres(self) -> bool:
         return self.database_url.startswith("postgresql")
+
+    @property
+    def database_is_configured(self) -> bool:
+        """DATABASE_URL 是否已填写真实连接信息。"""
+        if not self.is_postgres:
+            return True
+        lowered = self.database_url.lower()
+        return not any(marker.lower() in lowered for marker in _PLACEHOLDER_MARKERS)
 
 
 settings = Settings()

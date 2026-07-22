@@ -65,6 +65,16 @@ export default function ChartResultPage() {
                   <InfoChip label="五行局" value={chart.chart.five_element} />
                 </div>
               </div>
+              {chart.persisted === false && (
+                <p className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
+                  命盘未写入数据库。请检查 backend/.env 中的 DATABASE_URL 是否已配置 Supabase 密码。
+                </p>
+              )}
+              {chart.persisted && chart.chart_id && (
+                <p className="mt-4 text-xs text-white/40">
+                  已保存至 Supabase · chart_id: {chart.chart_id.slice(0, 8)}…
+                </p>
+              )}
             </CardContent>
           </Card>
 

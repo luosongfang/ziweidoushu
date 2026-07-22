@@ -68,3 +68,4 @@ class ChartCreateResponse(BaseModel):
     rules_version: str
     chart_id: Optional[str] = None
     birth_profile_id: Optional[str] = None
+    persisted: bool = False

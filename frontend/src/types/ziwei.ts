@@ -11,6 +11,7 @@ export interface ChartCreateRequest {
   time: string;
   location?: string;
   persist?: boolean;
+  user_id?: string;
 }
 
 export interface PalaceStar {
@@ -97,6 +98,8 @@ export interface ChartCreateResponse {
   engine_version: string;
   rules_version: string;
   chart_id?: string | null;
+  birth_profile_id?: string | null;
+  persisted?: boolean;
 }
 
 export interface BirthFormData {

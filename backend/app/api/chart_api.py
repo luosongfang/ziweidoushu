@@ -8,7 +8,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
-from app.database.database import get_db
+from app.config import settings
+from app.database.database import ensure_schema, get_db, is_database_ready
 from app.database.models import persist_chart
 from app.schemas.chart_schema import (
     BirthInfo,
@@ -21,6 +22,15 @@ from app.ziwei_engine.chart_builder import ChartBuilder
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/chart", tags=["chart-engine-v1"])
+
+
+def _database_error_detail() -> str:
+    if settings.is_postgres and not settings.database_is_configured:
+        return (
+            "DATABASE_URL 未配置：请在 backend/.env 填入 Supabase 连接串"
+            "（替换 [YOUR-PASSWORD]），然后重启后端并执行 alembic upgrade head"
+        )
+    return "数据库保存失败：请检查 Supabase 连接、密码与迁移状态（alembic upgrade head）"
 
 
 @router.post("/create", response_model=ChartCreateResponse)
@@ -47,9 +57,14 @@ def create_chart(
 
     chart_id = None
     birth_profile_id = None
+    persisted = False
 
     if body.persist:
+        if not is_database_ready():
+            raise HTTPException(status_code=503, detail=_database_error_detail())
+
         try:
+            ensure_schema()
             record = persist_chart(
                 db,
                 raw,
@@ -61,13 +76,12 @@ def create_chart(
             db.commit()
             chart_id = record.id
             birth_profile_id = record.birth_profile_id
+            persisted = True
+            logger.info("命盘已保存 chart_id=%s birth_profile_id=%s", chart_id, birth_profile_id)
         except SQLAlchemyError as exc:
             db.rollback()
             logger.exception("命盘持久化失败：%s", exc)
-            raise HTTPException(
-                status_code=503,
-                detail="数据库保存失败，请检查 Supabase 连接与迁移状态",
-            ) from exc
+            raise HTTPException(status_code=503, detail=_database_error_detail()) from exc
 
     return ChartCreateResponse(
         name=raw["name"],
@@ -78,4 +92,5 @@ def create_chart(
         rules_version=raw["rules_version"],
         chart_id=chart_id,
         birth_profile_id=birth_profile_id,
+        persisted=persisted,
     )

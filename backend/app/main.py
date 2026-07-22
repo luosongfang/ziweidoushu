@@ -16,10 +16,12 @@ from app.api.v1.membership import router as membership_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """应用生命周期 — 初始化 ORM 表结构。"""
+    """应用生命周期 — 初始化种子数据（表结构由 Alembic 管理）。"""
     try:
-        from app.database.database import init_db
-        init_db()
+        from app.database.database import check_database_connection, init_db
+
+        if check_database_connection():
+            init_db()
     except Exception:
         pass
     yield

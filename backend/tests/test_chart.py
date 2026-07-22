@@ -100,6 +100,7 @@ class TestChartApi:
                 "solar_date": "1990-05-20",
                 "time": "14:30",
                 "location": "北京",
+                "persist": False,
             },
         )
         assert response.status_code == 200

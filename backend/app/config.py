@@ -1,8 +1,13 @@
-from pydantic_settings import BaseSettings
+from pathlib import Path
+
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+_BACKEND_ROOT = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
-    """应用配置，从环境变量或 .env 文件读取。"""
+    """应用配置，从环境变量或 backend/.env 读取。"""
 
     app_name: str = "紫微AI API"
     debug: bool = True
@@ -10,18 +15,36 @@ class Settings(BaseSettings):
     backend_port: int = 8000
     backend_cors_origins: str = "http://localhost:3000"
 
-    supabase_url: str = ""
-    supabase_anon_key: str = ""
-    supabase_service_role_key: str = ""
+    database_url: str = Field(
+        default="sqlite:///./ziwei_dev.db",
+        validation_alias="DATABASE_URL",
+    )
+    supabase_url: str = Field(default="", validation_alias="SUPABASE_URL")
+    supabase_key: str = Field(default="", validation_alias="SUPABASE_KEY")
+    supabase_anon_key: str = Field(default="", validation_alias="SUPABASE_ANON_KEY")
+    supabase_service_role_key: str = Field(
+        default="",
+        validation_alias="SUPABASE_SERVICE_ROLE_KEY",
+    )
     auth_dev_mode: bool = True
-    database_url: str = "sqlite:///./ziwei_dev.db"
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
     openai_model: str = "gpt-4o-mini"
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+    model_config = SettingsConfigDict(
+        env_file=str(_BACKEND_ROOT / ".env"),
+        env_file_encoding="utf-8",
+        extra="ignore",
+        populate_by_name=True,
+    )
+
+    @property
+    def effective_supabase_anon_key(self) -> str:
+        return self.supabase_key or self.supabase_anon_key
+
+    @property
+    def is_postgres(self) -> bool:
+        return self.database_url.startswith("postgresql")
 
 
 settings = Settings()

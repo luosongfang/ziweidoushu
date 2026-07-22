@@ -15,7 +15,8 @@ class ChartCreateRequest(BaseModel):
     solar_date: str = Field(..., description="YYYY-MM-DD", examples=["1990-05-20"])
     time: str = Field(..., description="HH:mm", examples=["14:30"])
     location: Optional[str] = Field(default=None, examples=["北京"])
-    persist: bool = Field(default=False, description="是否写入数据库")
+    persist: bool = Field(default=True, description="是否写入 Supabase 数据库")
+    user_id: Optional[str] = Field(default=None, description="关联用户 ID（登录后传入）")
     reference_year: Optional[int] = None
 
     @field_validator("time")
@@ -66,3 +67,4 @@ class ChartCreateResponse(BaseModel):
     engine_version: str = "1.0"
     rules_version: str
     chart_id: Optional[str] = None
+    birth_profile_id: Optional[str] = None

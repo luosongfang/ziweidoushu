@@ -16,7 +16,10 @@ async def _verify_supabase_token(token: str) -> AuthUser:
         raise HTTPException(status_code=503, detail="Supabase 未配置，无法验证登录")
 
     url = f"{settings.supabase_url.rstrip('/')}/auth/v1/user"
-    api_key = settings.supabase_service_role_key or settings.supabase_anon_key
+    api_key = (
+        settings.supabase_service_role_key
+        or settings.effective_supabase_anon_key
+    )
     if not api_key:
         raise HTTPException(status_code=503, detail="Supabase API Key 未配置")
 

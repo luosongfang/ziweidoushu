@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     supabase_anon_key: str = ""
     supabase_service_role_key: str = ""
     auth_dev_mode: bool = True
+    database_url: str = "sqlite:///./ziwei_dev.db"
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
     openai_model: str = "gpt-4o-mini"

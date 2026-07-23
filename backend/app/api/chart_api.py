@@ -57,30 +57,34 @@ def create_chart(
     chart_id = None
     birth_profile_id = None
     persisted = False
+    persist_warning: str | None = None
 
     if body.persist:
         if not is_database_ready():
-            raise HTTPException(status_code=503, detail=_database_error_detail())
+            persist_warning = _database_error_detail()
+        else:
+            try:
+                ensure_schema()
+                record = persist_chart(
+                    db,
+                    chart.model_dump(mode="json"),
+                    solar_date=body.solar_date,
+                    birth_time=body.time,
+                    location=body.location,
+                    user_id=body.user_id,
+                )
+                db.commit()
+                chart_id = record.id
+                birth_profile_id = record.birth_profile_id
+                persisted = True
+                logger.info("命盘已保存 chart_id=%s birth_profile_id=%s", chart_id, birth_profile_id)
+            except SQLAlchemyError as exc:
+                db.rollback()
+                logger.exception("命盘持久化失败：%s", exc)
+                persist_warning = _database_error_detail()
 
-        try:
-            ensure_schema()
-            record = persist_chart(
-                db,
-                chart.model_dump(mode="json"),
-                solar_date=body.solar_date,
-                birth_time=body.time,
-                location=body.location,
-                user_id=body.user_id,
-            )
-            db.commit()
-            chart_id = record.id
-            birth_profile_id = record.birth_profile_id
-            persisted = True
-            logger.info("命盘已保存 chart_id=%s birth_profile_id=%s", chart_id, birth_profile_id)
-        except SQLAlchemyError as exc:
-            db.rollback()
-            logger.exception("命盘持久化失败：%s", exc)
-            raise HTTPException(status_code=503, detail=_database_error_detail()) from exc
+    if persist_warning:
+        chart.warnings = list(chart.warnings) + [persist_warning]
 
     return ChartCreateApiResponse(
         **chart.model_dump(),

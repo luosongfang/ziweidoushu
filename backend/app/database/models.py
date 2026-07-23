@@ -28,6 +28,18 @@ def _uuid() -> str:
     return str(uuid.uuid4())
 
 
+def ensure_db_user(db: Session, user_id: str | None, email: str | None = None) -> str | None:
+    """确保 Supabase 登录用户在本地 users 表存在，避免 birth_profiles 外键失败。"""
+    if not user_id:
+        return None
+    existing = db.get(User, user_id)
+    if existing:
+        return user_id
+    db.add(User(id=user_id, email=email))
+    db.flush()
+    return user_id
+
+
 class User(Base):
     __tablename__ = "users"
 
@@ -303,8 +315,10 @@ def persist_chart(
     birth = chart_data.get("birth", {})
     ming_gong, shen_gong, five_element, palaces = _extract_chart_meta(chart_data)
 
+    resolved_user_id = ensure_db_user(db, user_id)
+
     profile = BirthProfile(
-        user_id=user_id,
+        user_id=resolved_user_id,
         solar_date=solar_date,
         lunar_date=birth.get("lunar"),
         birth_time=birth_time,
@@ -318,7 +332,7 @@ def persist_chart(
     payload.setdefault("schema_version", "2.5")
 
     chart = ZiweiChart(
-        user_id=user_id,
+        user_id=resolved_user_id,
         birth_profile_id=profile.id,
         ming_gong=ming_gong,
         shen_gong=shen_gong,

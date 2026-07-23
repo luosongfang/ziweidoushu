@@ -149,6 +149,91 @@ class Order(Base):
     user: Mapped["User"] = relationship(back_populates="orders")
 
 
+class UserChart(Base):
+    """V1.2 用户云端命盘 — migration 019_user_identity.sql"""
+
+    __tablename__ = "user_charts"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    user_id: Mapped[str] = mapped_column(String(36), index=True)
+    chart_name: Mapped[str] = mapped_column(String(64), default="未命名命盘")
+    birth_date: Mapped[str | None] = mapped_column(String(10))
+    birth_time: Mapped[str | None] = mapped_column(String(8))
+    birth_place: Mapped[str | None] = mapped_column(String(128))
+    gender: Mapped[str | None] = mapped_column(String(8))
+    chart_data: Mapped[dict] = mapped_column(JSON)
+    birth_info: Mapped[dict] = mapped_column(JSON, default=dict)
+    is_default: Mapped[bool] = mapped_column(default=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+
+    # 兼容旧 API 字段名
+    @property
+    def name(self) -> str:
+        return self.chart_name
+
+
+class AnalysisHistory(Base):
+    __tablename__ = "analysis_history"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    user_id: Mapped[str] = mapped_column(String(36), index=True)
+    chart_id: Mapped[str | None] = mapped_column(String(36), index=True)
+    question: Mapped[str] = mapped_column(Text, default="")
+    analysis_type: Mapped[str] = mapped_column(String(32), default="overview")
+    summary: Mapped[str] = mapped_column(Text, default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+
+
+class GrowthProfile(Base):
+    __tablename__ = "growth_profile"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    user_id: Mapped[str] = mapped_column(String(36), unique=True, index=True)
+    interest_tags: Mapped[list] = mapped_column(JSON, default=list)
+    career_focus: Mapped[str | None] = mapped_column(Text)
+    decision_style: Mapped[str | None] = mapped_column(Text)
+    growth_notes: Mapped[str | None] = mapped_column(Text)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+
+
+class UserReport(Base):
+    __tablename__ = "user_reports"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    user_id: Mapped[str] = mapped_column(String(36), index=True)
+    chart_id: Mapped[str | None] = mapped_column(String(36), index=True)
+    report_type: Mapped[str] = mapped_column(String(32), default="life_profile")
+    engine_version: Mapped[str] = mapped_column(String(16), default="5.6")
+    report_json: Mapped[dict] = mapped_column(JSON, default=dict)
+    summary: Mapped[str] = mapped_column(Text, default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+
+
+class UserGrowthGoal(Base):
+    __tablename__ = "user_growth_goals"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    user_id: Mapped[str] = mapped_column(String(36), index=True)
+    goal_type: Mapped[str] = mapped_column(String(32))
+    goal_content: Mapped[str] = mapped_column(Text, default="")
+    progress: Mapped[str] = mapped_column(String(32), default="planned")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+
+
+class ReportFeedback(Base):
+    __tablename__ = "report_feedback"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    user_id: Mapped[str] = mapped_column(String(36), index=True)
+    report_id: Mapped[str] = mapped_column(String(36), index=True)
+    helpful: Mapped[bool] = mapped_column(default=True)
+    feedback_type: Mapped[str] = mapped_column(String(32), default="general")
+    comment: Mapped[str] = mapped_column(Text, default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
+
+
 def seed_four_hua_rules(db: Session) -> None:
     """写入十天干四化规则（幂等）。"""
     existing = db.scalar(select(FourHuaRule).limit(1))
@@ -166,6 +251,45 @@ def seed_four_hua_rules(db: Session) -> None:
         )
 
 
+def _flatten_palace_stars(palace: dict) -> list[dict]:
+    """兼容 V1 chart.palaces 与 V2 palace 星曜结构。"""
+    if palace.get("stars"):
+        return palace["stars"]
+
+    stars: list[dict] = []
+    for key, category in (
+        ("main_stars", "main"),
+        ("lucky_stars", "lucky"),
+        ("sha_stars", "sha"),
+        ("za_stars", "za"),
+    ):
+        for star in palace.get(key, []):
+            entry = dict(star)
+            entry.setdefault("category", category)
+            stars.append(entry)
+    return stars
+
+
+def _extract_chart_meta(chart_data: dict) -> tuple[str, str, str, list[dict]]:
+    """从 V1 或 V2 chart_data 提取命宫/身宫/五行局与宫位列表。"""
+    if chart_data.get("schema_version") in ("2.0", "2.5"):
+        meta = chart_data.get("meta", {})
+        return (
+            meta.get("mingGong", ""),
+            meta.get("shenGong", ""),
+            meta.get("wuxingJu", ""),
+            chart_data.get("palaces", []),
+        )
+
+    chart_info = chart_data.get("chart", {})
+    return (
+        chart_info.get("ming_gong", ""),
+        chart_info.get("shen_gong", ""),
+        chart_info.get("five_element", ""),
+        chart_info.get("palaces", []),
+    )
+
+
 def persist_chart(
     db: Session,
     chart_data: dict,
@@ -177,7 +301,7 @@ def persist_chart(
 ) -> ZiweiChart:
     """将出生资料与命盘 JSON 持久化到 Supabase PostgreSQL。"""
     birth = chart_data.get("birth", {})
-    chart_info = chart_data.get("chart", {})
+    ming_gong, shen_gong, five_element, palaces = _extract_chart_meta(chart_data)
 
     profile = BirthProfile(
         user_id=user_id,
@@ -190,26 +314,30 @@ def persist_chart(
     db.add(profile)
     db.flush()
 
+    payload = dict(chart_data)
+    payload.setdefault("schema_version", "2.5")
+
     chart = ZiweiChart(
         user_id=user_id,
         birth_profile_id=profile.id,
-        ming_gong=chart_info.get("ming_gong", ""),
-        shen_gong=chart_info.get("shen_gong", ""),
-        five_element=chart_info.get("five_element", ""),
-        chart_json=chart_data,
+        ming_gong=ming_gong,
+        shen_gong=shen_gong,
+        five_element=five_element,
+        chart_json=payload,
     )
     db.add(chart)
     db.flush()
 
-    for palace in chart_info.get("palaces", []):
+    for palace in palaces:
         position = palace.get("branch") or str(palace.get("position", ""))
+        transformations = palace.get("transformations", [])
         db.add(
             ChartPalace(
                 chart_id=chart.id,
                 palace_name=palace.get("name", ""),
                 position=position,
-                stars=palace.get("stars", []),
-                transformations=palace.get("transformations", []),
+                stars=_flatten_palace_stars(palace),
+                transformations=transformations,
             )
         )
 

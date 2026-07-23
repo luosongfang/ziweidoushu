@@ -124,16 +124,12 @@ class KnowledgeLoader:
     def get_question_model(
         cls, question_type: str, db: Session | None = None
     ) -> dict[str, Any] | None:
-        own = db is None
-        db = db or cls.session()
-        try:
+        if db is not None:
             row = db.scalar(
                 select(LifeQuestionModel).where(LifeQuestionModel.question_type == question_type)
             )
             return _row_to_dict(row) if row else None
-        finally:
-            if own:
-                db.close()
+        return _cached_question_model(question_type)
 
     @classmethod
     def list_question_models(cls, db: Session | None = None) -> list[dict[str, Any]]:
@@ -148,14 +144,10 @@ class KnowledgeLoader:
 
     @classmethod
     def list_safety_rules(cls, db: Session | None = None) -> list[dict[str, Any]]:
-        own = db is None
-        db = db or cls.session()
-        try:
+        if db is not None:
             rows = db.scalars(select(SafetyExpressionRule)).all()
             return [_row_to_dict(r) for r in rows]
-        finally:
-            if own:
-                db.close()
+        return list(_cached_safety_rules_rows())
 
     @classmethod
     def get_four_transform(cls, stem: str, db: Session | None = None) -> dict[str, Any] | None:
@@ -172,14 +164,42 @@ class KnowledgeLoader:
 
     @classmethod
     def list_theory(cls, db: Session | None = None) -> list[dict[str, Any]]:
-        own = db is None
-        db = db or cls.session()
-        try:
+        if db is not None:
             rows = db.scalars(select(TheoryKnowledge)).all()
             return [_row_to_dict(r) for r in rows]
-        finally:
-            if own:
-                db.close()
+        return list(_cached_theory_rows())
+
+
+@lru_cache(maxsize=1)
+def _cached_safety_rules_rows() -> tuple[dict[str, Any], ...]:
+    db = SessionLocal()
+    try:
+        rows = db.scalars(select(SafetyExpressionRule)).all()
+        return tuple(_row_to_dict(r) for r in rows)
+    finally:
+        db.close()
+
+
+@lru_cache(maxsize=1)
+def _cached_theory_rows() -> tuple[dict[str, Any], ...]:
+    db = SessionLocal()
+    try:
+        rows = db.scalars(select(TheoryKnowledge)).all()
+        return tuple(_row_to_dict(r) for r in rows)
+    finally:
+        db.close()
+
+
+@lru_cache(maxsize=32)
+def _cached_question_model(question_type: str) -> dict[str, Any] | None:
+    db = SessionLocal()
+    try:
+        row = db.scalar(
+            select(LifeQuestionModel).where(LifeQuestionModel.question_type == question_type)
+        )
+        return _row_to_dict(row) if row else None
+    finally:
+        db.close()
 
 
 @lru_cache(maxsize=1)

@@ -3,22 +3,12 @@
 from __future__ import annotations
 
 import json
-import os
-from pathlib import Path
+from functools import lru_cache
 from typing import Any
 
-from dotenv import load_dotenv
-from sqlalchemy import create_engine, text
+from sqlalchemy import text
 
-BACKEND = Path(__file__).resolve().parents[3]
-
-
-def _engine():
-    load_dotenv(BACKEND / ".env", override=True)
-    url = os.environ.get("DATABASE_URL", "")
-    if url.startswith("postgresql") and "sslmode=" not in url:
-        url = f"{url}{'&' if '?' in url else '?'}sslmode=require"
-    return create_engine(url, pool_pre_ping=True)
+from app.database.database import engine
 
 
 def _norm_ref(ref: Any) -> dict[str, Any]:
@@ -36,8 +26,34 @@ def _overlap(tags: list[str], wanted: set[str]) -> int:
     return sum(1 for t in tags if t in wanted)
 
 
+@lru_cache(maxsize=1)
+def _cached_knowledge_chunks() -> tuple[dict[str, Any], ...]:
+    """全库 chunk 候选集（进程内缓存，避免每次分析新建连接）。"""
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SET statement_timeout = '30s'"))
+            rows = conn.execute(
+                text(
+                    """
+                    SELECT id, content, page_number, source_reference,
+                           star_tags, palace_tags, pattern_tags, keywords
+                    FROM public.knowledge_chunks
+                    WHERE content IS NOT NULL AND length(content) > 20
+                    LIMIT 200
+                    """
+                )
+            ).mappings().all()
+            return tuple(dict(r) for r in rows)
+    except Exception:
+        return ()
+
+
 class KnowledgeSelector:
     """Select related knowledge_chunks for a theory route."""
+
+    @classmethod
+    def warm_cache(cls) -> None:
+        _cached_knowledge_chunks()
 
     @classmethod
     def select(
@@ -57,24 +73,8 @@ class KnowledgeSelector:
                 palace_tags.append(p[:-1])
         wanted = set(stars + palace_tags + patterns)
 
-        eng = _engine()
-        candidates: list[dict[str, Any]] = []
-        try:
-            with eng.connect() as conn:
-                conn.execute(text("SET statement_timeout = '30s'"))
-                rows = conn.execute(
-                    text(
-                        """
-                        SELECT id, content, page_number, source_reference,
-                               star_tags, palace_tags, pattern_tags, keywords
-                        FROM public.knowledge_chunks
-                        WHERE content IS NOT NULL AND length(content) > 20
-                        LIMIT 200
-                        """
-                    )
-                ).mappings().all()
-                candidates = [dict(r) for r in rows]
-        except Exception:
+        candidates = list(_cached_knowledge_chunks())
+        if not candidates:
             return []
 
         scored: list[tuple[int, dict[str, Any]]] = []

@@ -22,7 +22,9 @@ export default function AnalysisCard({
       </p>
 
       {loading ? (
-        <p className="mt-6 text-sm text-paper/50">正在结合知识库生成分析…</p>
+        <p className="mt-6 text-sm text-paper/50">
+          正在结合知识库生成分析，首次约需 1–2 分钟，请稍候…
+        </p>
       ) : (
         <div className="mt-5 space-y-5">
           <Block label="传统依据" items={traditional} empty="暂无传统依据摘录" />

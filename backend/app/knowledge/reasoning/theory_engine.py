@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 from typing import Any
 
 from sqlalchemy import select
@@ -20,6 +21,16 @@ def _row_to_dict(obj: Any) -> dict[str, Any]:
             val = str(val)
         data[col.name] = val
     return data
+
+
+@lru_cache(maxsize=1)
+def _cached_theory_rules() -> tuple[dict[str, Any], ...]:
+    db = SessionLocal()
+    try:
+        rows = db.scalars(select(ZiweiTheoryRule)).all()
+        return tuple(_row_to_dict(r) for r in rows)
+    finally:
+        db.close()
 
 
 class TheoryEngine:
@@ -45,20 +56,17 @@ class TheoryEngine:
         categories: list[str] | None = None,
         db: Session | None = None,
     ) -> list[dict[str, Any]]:
-        own = db is None
-        db = db or SessionLocal()
-        try:
+        if db is not None:
             rows = db.scalars(select(ZiweiTheoryRule)).all()
             out = [_row_to_dict(r) for r in rows]
-            if scope:
-                out = [r for r in out if scope in (r.get("application_scope") or [])]
-            if categories:
-                cats = set(categories)
-                out = [r for r in out if r.get("category") in cats]
-            return out
-        finally:
-            if own:
-                db.close()
+        else:
+            out = list(_cached_theory_rules())
+        if scope:
+            out = [r for r in out if scope in (r.get("application_scope") or [])]
+        if categories:
+            cats = set(categories)
+            out = [r for r in out if r.get("category") in cats]
+        return out
 
     @classmethod
     def match_for_question(

@@ -19,12 +19,12 @@ const display = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE.name} · ${SITE.positioning}`,
-  description: SITE.subtitle,
-  keywords: ["紫微斗数", "传统文化", "人生规划", "自我认知", "AI导师"],
+  title: `${SITE.name} · ${SITE.nameZh}`,
+  description: SITE.heroDescription,
+  keywords: ["紫微斗数", "传统文化", "自我认知", "AI导师", "人生规划"],
   openGraph: {
     title: `${SITE.name} · ${SITE.tagline}`,
-    description: SITE.subtitle,
+    description: SITE.heroDescription,
     locale: "zh_CN",
     type: "website",
   },

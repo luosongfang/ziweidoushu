@@ -1,0 +1,20 @@
+{
+  "id": "SC-06",
+  "description": "千禧日子时 — 2000-01-01 00:00 男",
+  "level": "partial",
+  "input": {
+    "name": "千禧子时男盘",
+    "gender": "male",
+    "date": "2000-01-01",
+    "time": "00:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {
+    "ganzhi": {
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "hour": "壬子"
+    }
+  }
+}

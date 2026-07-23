@@ -10,4 +10,4 @@ class BrightnessEngine:
 
     @staticmethod
     def get_brightness(star_name: str, branch: str, school: str = RulesLoader.SCHOOL) -> str:
-        return RulesLoader.get_brightness(star_name, branch, school=school)
+        return RulesLoader.get_star_brightness_rule(star_name, branch, school=school)

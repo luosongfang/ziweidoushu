@@ -1,0 +1,20 @@
+{
+  "id": "SC-02",
+  "description": "立春边界 — 1984-02-04 08:00 女",
+  "level": "partial",
+  "input": {
+    "name": "立春边界女盘",
+    "gender": "female",
+    "date": "1984-02-04",
+    "time": "08:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {
+    "ganzhi": {
+      "year": "甲子",
+      "month": "丙寅",
+      "day": "戊辰",
+      "hour": "丙辰"
+    }
+  }
+}

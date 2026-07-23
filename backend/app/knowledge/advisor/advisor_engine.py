@@ -101,6 +101,28 @@ _REFLECTIONS: dict[str, list[str]] = {
 }
 
 
+@lru_cache(maxsize=32)
+def _cached_template(question_type: str) -> dict[str, Any] | None:
+    tmpl_type = _QTYPE_TO_TEMPLATE.get(question_type, question_type)
+    db = SessionLocal()
+    try:
+        row = db.scalar(
+            select(AdvisorQuestionTemplate).where(
+                AdvisorQuestionTemplate.question_type == tmpl_type
+            )
+        )
+        if row:
+            return _row_to_dict(row)
+        row = db.scalar(
+            select(AdvisorQuestionTemplate).where(
+                AdvisorQuestionTemplate.question_type == question_type
+            )
+        )
+        return _row_to_dict(row) if row else None
+    finally:
+        db.close()
+
+
 class AdvisorEngine:
     """
     输入 chart_data + question + reasoning_result
@@ -113,10 +135,8 @@ class AdvisorEngine:
 
     @classmethod
     def get_template(cls, question_type: str, db: Session | None = None) -> dict[str, Any] | None:
-        tmpl_type = _QTYPE_TO_TEMPLATE.get(question_type, question_type)
-        own = db is None
-        db = db or cls._session()
-        try:
+        if db is not None:
+            tmpl_type = _QTYPE_TO_TEMPLATE.get(question_type, question_type)
             row = db.scalar(
                 select(AdvisorQuestionTemplate).where(
                     AdvisorQuestionTemplate.question_type == tmpl_type
@@ -124,16 +144,13 @@ class AdvisorEngine:
             )
             if row:
                 return _row_to_dict(row)
-            # fallback try raw
             row = db.scalar(
                 select(AdvisorQuestionTemplate).where(
                     AdvisorQuestionTemplate.question_type == question_type
                 )
             )
             return _row_to_dict(row) if row else None
-        finally:
-            if own:
-                db.close()
+        return _cached_template(question_type)
 
     @classmethod
     def list_dimensions(

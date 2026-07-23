@@ -1,0 +1,21 @@
+{
+  "id": "SC-05",
+  "description": "五月初巳时男盘 — 1992-06-15 10:00",
+  "level": "partial",
+  "input": {
+    "name": "五月初男盘",
+    "gender": "male",
+    "date": "1992-06-15",
+    "time": "10:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {
+    "mingGong": "丑",
+    "shenGong": "亥",
+    "wuxingJu": "木三局",
+    "mingGongGanZhi": "癸丑",
+    "mingZhu": "巨门",
+    "shenZhu": "天机",
+    "palaceBranches": ["丑", "子", "亥", "戌", "酉", "申", "未", "午", "巳", "辰", "卯", "寅"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "SC-10",
+  "description": "戌时女盘 — 1996-04-08 20:00 女",
+  "level": "pending_stars",
+  "input": {
+    "name": "戌时女盘",
+    "gender": "female",
+    "date": "1996-04-08",
+    "time": "20:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {},
+  "notes": "修复阶段运行 ChartGenerator 快照后补全期望字段。"
+}

@@ -12,16 +12,18 @@ class TestRulesCache:
     def test_build_all_rules_complete(self):
         rules = build_all_rules()
         assert len(rules["nayin_rules"]) == 60
-        assert len(rules["ziwei_position_rules"]) == 180  # 6×30
+        assert len(rules["ziwei_position_rules"]) == 150  # 5×30
         assert len(rules["four_transform_rules"]) == 10
         assert len(rules["daxian_rules"]) == 4
         assert len(rules["brightness_rules"]) == 168  # 14×12
         assert len(rules["star_combination_rules"]) >= 20
         assert len(rules["palace_meaning_rules"]) == 12
         assert len(rules["star_lookup_rules"]) >= 5
+        assert len(rules["auxiliary_star_rules"]) == 9
+        assert len(rules["star_brightness_rules"]) == 168  # 14×12
 
     def test_rules_version(self):
-        assert RulesLoader.rules_version() == "2026.07.22"
+        assert RulesLoader.rules_version() == "2026.07.23"
 
 
 class TestNayinRules:

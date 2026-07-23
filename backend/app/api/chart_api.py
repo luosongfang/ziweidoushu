@@ -11,12 +11,9 @@ from sqlalchemy.orm import Session
 from app.config import settings
 from app.database.database import ensure_schema, get_db, is_database_ready
 from app.database.models import persist_chart
-from app.schemas.chart_schema import (
-    BirthInfo,
-    ChartCreateRequest,
-    ChartCreateResponse,
-    ChartInfo,
-)
+from app.schemas.chart_schema import ChartCreateRequest
+from app.ziwei.core.chart_normalizer import ChartNormalizer
+from app.ziwei.core.chart_schema_v2 import ChartCreateApiResponse
 from app.ziwei_engine.chart_builder import ChartBuilder
 
 logger = logging.getLogger(__name__)
@@ -33,15 +30,15 @@ def _database_error_detail() -> str:
     return "数据库保存失败：请检查 Supabase 连接、密码与迁移状态（alembic upgrade head）"
 
 
-@router.post("/create", response_model=ChartCreateResponse)
+@router.post("/create", response_model=ChartCreateApiResponse)
 def create_chart(
     body: ChartCreateRequest,
     db: Session = Depends(get_db),
-) -> ChartCreateResponse:
+) -> ChartCreateApiResponse:
     """
-    生成紫微斗数命盘（Engine V1.0）并写入 Supabase PostgreSQL。
+    生成紫微斗数命盘（StandardChartSchema V2）并写入 Supabase PostgreSQL。
 
-    流程：出生资料 → 排盘引擎 → 持久化 birth_profiles / ziwei_charts / chart_palaces → 返回结果
+    流程：出生资料 → ChartBuilder → ChartNormalizer → 持久化 → 返回 V2 标准结构
     """
     try:
         raw = ChartBuilder.build(
@@ -55,6 +52,8 @@ def create_chart(
     except Exception as exc:
         raise HTTPException(status_code=422, detail=f"排盘失败：{exc}") from exc
 
+    chart = ChartNormalizer.normalize(raw)
+
     chart_id = None
     birth_profile_id = None
     persisted = False
@@ -67,7 +66,7 @@ def create_chart(
             ensure_schema()
             record = persist_chart(
                 db,
-                raw,
+                chart.model_dump(mode="json"),
                 solar_date=body.solar_date,
                 birth_time=body.time,
                 location=body.location,
@@ -83,13 +82,8 @@ def create_chart(
             logger.exception("命盘持久化失败：%s", exc)
             raise HTTPException(status_code=503, detail=_database_error_detail()) from exc
 
-    return ChartCreateResponse(
-        name=raw["name"],
-        gender=raw["gender"],
-        birth=BirthInfo(**raw["birth"]),
-        chart=ChartInfo(**raw["chart"]),
-        engine_version=raw["engine_version"],
-        rules_version=raw["rules_version"],
+    return ChartCreateApiResponse(
+        **chart.model_dump(),
         chart_id=chart_id,
         birth_profile_id=birth_profile_id,
         persisted=persisted,

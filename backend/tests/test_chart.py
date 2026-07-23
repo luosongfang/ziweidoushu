@@ -105,6 +105,8 @@ class TestChartApi:
         )
         assert response.status_code == 200
         data = response.json()
+        assert data["schema_version"] == "2.5"
         assert data["birth"]["year_gan"] == "庚"
-        assert data["chart"]["ming_gong"] == "戌"
-        assert len(data["chart"]["palaces"]) == 12
+        assert data["meta"]["mingGong"] == "戌"
+        assert len(data["palaces"]) == 12
+        assert len(data["stars"]["main"]) == 14

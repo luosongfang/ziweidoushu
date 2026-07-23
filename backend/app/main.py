@@ -17,6 +17,10 @@ from app.api.v1.membership import router as membership_router
 from app.api.v1.knowledge_analyze import router as knowledge_analyze_router
 from app.api.v1.decision_feedback import router as decision_feedback_router
 from app.api.v1.evaluation import router as evaluation_router
+from app.api.v1.user_account import router as user_account_router
+from app.api.v1.memory import router as memory_router
+from app.report.report_api import router as report_router
+from app.api.v1.system_health import router as system_health_router
 
 
 @asynccontextmanager
@@ -31,6 +35,11 @@ async def lifespan(app: FastAPI):
     status = database_status()
     if status["ready"]:
         logger.info("Supabase/PostgreSQL 已连接，数据库就绪")
+        import threading
+
+        from app.knowledge.cache_warmup import warm_knowledge_caches
+
+        threading.Thread(target=warm_knowledge_caches, daemon=True).start()
     elif settings.is_postgres and not status["configured"]:
         logger.error(
             "DATABASE_URL 未配置：请编辑 backend/.env 替换 [YOUR-PASSWORD] 后重启"
@@ -69,6 +78,11 @@ app.include_router(membership_router, prefix="/api/v1")
 app.include_router(knowledge_analyze_router, prefix="/api/v1")
 app.include_router(decision_feedback_router, prefix="/api/v1")
 app.include_router(evaluation_router, prefix="/api/v1")
+app.include_router(user_account_router, prefix="/api/v1")
+app.include_router(user_account_router, prefix="/api")
+app.include_router(memory_router, prefix="/api/v1")
+app.include_router(report_router, prefix="/api/v1")
+app.include_router(system_health_router, prefix="/api/v1")
 
 
 @app.get("/")

@@ -1,14 +1,19 @@
 import axios, { AxiosError } from "axios";
+import { getAuthHeaders } from "@/lib/auth/authService";
 import type { ChartCreateRequest, ChartCreateResponse } from "@/types/ziwei";
 import type { KnowledgeAnalyzeRequest, KnowledgeAnalyzeResponse } from "@/types/analysis";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const ANALYZE_TIMEOUT_MS = 180_000;
 
-const client = axios.create({
-  baseURL: API_BASE,
-  headers: { "Content-Type": "application/json" },
-  timeout: 90000,
-});
+async function buildClient() {
+  const authHeaders = await getAuthHeaders();
+  return axios.create({
+    baseURL: API_BASE,
+    headers: { "Content-Type": "application/json", ...authHeaders },
+    timeout: 90000,
+  });
+}
 
 export class ApiError extends Error {
   status?: number;
@@ -22,6 +27,9 @@ export class ApiError extends Error {
 
 function wrapError(err: unknown, fallback: string): never {
   if (err instanceof AxiosError) {
+    if (err.code === "ECONNABORTED" || err.message.includes("timeout")) {
+      throw new ApiError("分析耗时较长，请稍后重试或切换网络后再试", err.response?.status);
+    }
     const detail =
       (err.response?.data as { detail?: string; error?: string })?.detail ??
       (err.response?.data as { error?: string })?.error ??
@@ -35,6 +43,7 @@ function wrapError(err: unknown, fallback: string): never {
 /** Phase 2 排盘引擎 */
 export async function createChart(data: ChartCreateRequest): Promise<ChartCreateResponse> {
   try {
+    const client = await buildClient();
     const response = await client.post<ChartCreateResponse>("/api/chart/create", data);
     return response.data;
   } catch (err) {
@@ -47,6 +56,8 @@ export async function analyzeKnowledge(
   data: KnowledgeAnalyzeRequest,
 ): Promise<KnowledgeAnalyzeResponse> {
   try {
+    const client = await buildClient();
+    client.defaults.timeout = ANALYZE_TIMEOUT_MS;
     const response = await client.post<KnowledgeAnalyzeResponse>(
       "/api/v1/knowledge/analyze",
       data,
@@ -59,6 +70,7 @@ export async function analyzeKnowledge(
 
 export async function fetchMembershipPlans(): Promise<unknown[]> {
   try {
+    const client = await buildClient();
     const response = await client.get("/api/v1/membership/plans");
     return Array.isArray(response.data) ? response.data : [];
   } catch {

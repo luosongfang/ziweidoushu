@@ -5,11 +5,13 @@ import Link from "next/link";
 import Logo from "./Logo";
 import { Button } from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
+import { useAuth } from "@/contexts/AuthContext";
 import { useMembership } from "@/context/MembershipContext";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { points, planId, hydrated } = useMembership();
+  const { user, isAuthenticated, isGuest } = useAuth();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-paper/10 bg-ink/75 backdrop-blur-xl">
@@ -29,13 +31,28 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          {hydrated && (
-            <span className="rounded-full border border-paper/10 px-3 py-1 text-xs text-paper/55">
-              {planId.toUpperCase()} · 积分 {points}
-            </span>
+          {hydrated && !isGuest && user && (
+            <Link
+              href="/profile"
+              className="flex items-center gap-2 rounded-full border border-paper/10 py-1 pl-1 pr-3 text-xs text-paper/55 hover:border-gold/30"
+            >
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/15 font-display text-sm text-gold">
+                {user.nickname.slice(0, 1)}
+              </span>
+              {user.nickname}
+            </Link>
+          )}
+          {isGuest ? (
+            <Button href="/login" variant="outline" size="sm">
+              登录
+            </Button>
+          ) : (
+            <Button href="/profile" variant="outline" size="sm">
+              档案
+            </Button>
           )}
           <Button href="/chart" variant="gold" size="sm">
-            立即排盘
+            生成命盘
           </Button>
         </div>
 
@@ -62,8 +79,16 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button href="/chart" variant="gold" size="md" className="mt-2 w-full">
-              立即排盘
+            <Button
+              href={isGuest ? "/login" : "/profile"}
+              variant="outline"
+              size="md"
+              className="mt-2 w-full"
+            >
+              {isGuest ? "登录" : "我的档案"}
+            </Button>
+            <Button href="/chart" variant="gold" size="md" className="w-full">
+              生成命盘
             </Button>
           </nav>
         </div>

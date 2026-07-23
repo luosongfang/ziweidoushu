@@ -43,7 +43,7 @@ class RulesLoader:
     Sprint 2+：优先 Supabase 查询，缓存失效时回退内存。
     """
 
-    RULES_VERSION = "2026.07.22"
+    RULES_VERSION = "2026.07.23"
     SCHOOL = "sanhe"
 
     @classmethod
@@ -148,6 +148,24 @@ class RulesLoader:
             if row["star_name"] == star_name and row["school"] == school:
                 return row
         return None
+
+    @classmethod
+    def get_auxiliary_star_rules(cls, school: str = SCHOOL) -> list[dict]:
+        return [
+            row for row in cls._cache().get("auxiliary_star_rules", [])
+            if row.get("school", school) == school and row.get("enabled", True)
+        ]
+
+    @classmethod
+    def get_star_brightness_rule(cls, star_name: str, branch: str, school: str = SCHOOL) -> str:
+        for row in cls._cache().get("star_brightness_rules", []):
+            if (
+                row["star_name"] == star_name
+                and row["branch"] == branch
+                and row.get("school", school) == school
+            ):
+                return row["brightness"]
+        return cls.get_brightness(star_name, branch, school=school)
 
     @classmethod
     def rules_version(cls) -> str:

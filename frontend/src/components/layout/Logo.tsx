@@ -7,9 +7,9 @@ interface LogoProps {
 }
 
 const sizeMap = {
-  sm: { mark: "h-8 w-8 text-sm", title: "text-base" },
-  md: { mark: "h-10 w-10 text-base", title: "text-lg" },
-  lg: { mark: "h-12 w-12 text-lg", title: "text-2xl" },
+  sm: { mark: "h-8 w-8 text-sm", title: "text-base", zh: "text-[10px]" },
+  md: { mark: "h-10 w-10 text-base", title: "text-lg", zh: "text-[11px]" },
+  lg: { mark: "h-12 w-12 text-lg", title: "text-2xl", zh: "text-xs" },
 };
 
 export default function Logo({ size = "md", showSubtitle = false }: LogoProps) {
@@ -25,8 +25,9 @@ export default function Logo({ size = "md", showSubtitle = false }: LogoProps) {
         <div className={`${s.title} font-display font-semibold tracking-wide text-paper`}>
           {SITE.name}
         </div>
+        <div className={`${s.zh} tracking-wider text-gold/70`}>{SITE.nameZh}</div>
         {showSubtitle && (
-          <div className="text-[11px] tracking-wider text-ink-mid">{SITE.positioning}</div>
+          <div className="mt-0.5 text-[11px] text-paper/40">{SITE.tagline}</div>
         )}
       </div>
     </Link>

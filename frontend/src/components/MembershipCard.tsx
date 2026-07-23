@@ -20,10 +20,11 @@ export default function MembershipCard({ plan, current, onSelect }: MembershipCa
     >
       {plan.recommended && (
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-0.5 text-[11px] font-semibold text-ink">
-          推荐
+          年度推荐
         </span>
       )}
-      <h3 className="font-display text-xl font-semibold text-paper">{plan.name}</h3>
+      <p className="text-xs font-medium uppercase tracking-wider text-gold/70">{plan.name}</p>
+      <h3 className="mt-1 font-display text-xl font-semibold text-paper">{plan.nameZh}</h3>
       <div className="mt-3 flex items-baseline gap-1">
         <span className="font-display text-3xl font-bold text-gold-light">¥{plan.price}</span>
         <span className="text-sm text-paper/45">/{plan.period}</span>

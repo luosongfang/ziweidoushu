@@ -32,21 +32,24 @@ export default function PalaceCard({
   const otherStars = palace.stars.filter((s) => s.category && s.category !== "main" && s.category !== "daxian");
 
   return (
-    <motion.button
-      type="button"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.04, duration: 0.35 }}
-      whileHover={{ scale: 1.08, zIndex: 20 }}
-      onClick={() => onSelect?.(palace)}
-      className={cn(
-        "absolute left-1/2 top-1/2 text-left transition-shadow",
-        compact ? "w-[88px]" : "w-[108px]",
-      )}
+    <div
+      className="absolute left-1/2 top-1/2 z-[1] hover:z-20"
       style={{
         transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
       }}
     >
+      <motion.button
+        type="button"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: index * 0.04, duration: 0.35 }}
+        whileHover={{ scale: 1.08 }}
+        onClick={() => onSelect?.(palace)}
+        className={cn(
+          "block text-left transition-shadow",
+          compact ? "w-[88px]" : "w-[108px]",
+        )}
+      >
       <div
         className={cn(
           "rounded-xl border p-2 backdrop-blur-md transition-all",
@@ -91,6 +94,7 @@ export default function PalaceCard({
           </div>
         )}
       </div>
-    </motion.button>
+      </motion.button>
+    </div>
   );
 }

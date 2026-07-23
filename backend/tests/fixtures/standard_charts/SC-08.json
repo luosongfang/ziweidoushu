@@ -1,0 +1,14 @@
+{
+  "id": "SC-08",
+  "description": "夏令日午时 — 1988-07-15 12:30 女",
+  "level": "pending_stars",
+  "input": {
+    "name": "夏令午时女盘",
+    "gender": "female",
+    "date": "1988-07-15",
+    "time": "12:30",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {},
+  "notes": "修复阶段运行 ChartGenerator 快照后补全 ganzhi / 十四主星 / 四化期望。"
+}

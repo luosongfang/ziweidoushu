@@ -5,10 +5,15 @@ from __future__ import annotations
 from datetime import datetime
 
 from app.ziwei.constants import EARTHLY_BRANCHES, MING_ZHU_BY_BRANCH, SHEN_ZHU_BY_YEAR_BRANCH
+from app.ziwei.engines.auxiliary_star_engine import AuxiliaryStarEngine
 from app.ziwei.engines.calendar_engine import CalendarEngine
+from app.ziwei.engines.fortune_engine import FortuneEngine
 from app.ziwei.engines.palace_engine import PalaceEngine
 from app.ziwei.engines.star_placement_engine import StarPlacementEngine, StarPlacementResult
+from app.ziwei.fortune.xiaoxian import XiaoxianCalculator
 from app.ziwei.rules.loader import RulesLoader
+from app.ziwei.transformation.daxian_hua import DaxianTransformCalculator
+from app.ziwei.transformation.liunian_hua import LiunianTransformCalculator
 from app.ziwei_engine.calendar.ganzhi import GanzhiCalculator
 from app.ziwei_engine.calendar.lunar_converter import LunarConverter
 from app.ziwei_engine.fortune.da_xian import DaXianCalculator
@@ -17,9 +22,7 @@ from app.ziwei_engine.palace.five_element import FiveElementCalculator
 from app.ziwei_engine.palace.ming_gong import MingGongCalculator
 from app.ziwei_engine.palace.shen_gong import ShenGongCalculator
 from app.ziwei_engine.palace.twelve_palace import Palace, TwelvePalaceBuilder
-from app.ziwei_engine.stars.evil_stars import EvilStarsCalculator
 from app.ziwei_engine.stars.fourteen_stars import FourteenStarsCalculator
-from app.ziwei_engine.stars.lucky_stars import LuckyStarsCalculator
 from app.ziwei_engine.stars.tianfu import TianfuStarCalculator
 from app.ziwei_engine.stars.ziwei import ZiweiStarCalculator
 from app.ziwei_engine.transformation.four_hua import FourHuaCalculator
@@ -27,9 +30,9 @@ from app.ziwei_engine.transformation.four_hua import FourHuaCalculator
 
 class ChartBuilder:
     """
-    紫微斗数命盘组装器 V1.0。
+    紫微斗数命盘组装器 V1.2。
 
-    编排：历法 → 干支 → 十二宫 → 五行局 → 主星/辅煞 → 四化 → 运限。
+    编排：历法 → 干支 → 十二宫 → 五行局 → 主星/辅煞 → 杂曜 → 四化 → 运限。
     算法源：app.ziwei 引擎 + RulesLoader（DB 规则驱动）。
     """
 
@@ -73,32 +76,12 @@ class ChartBuilder:
         )
         star_to_palace = placement.star_to_palace(branch_to_palace)
 
-        main_stars = FourteenStarsCalculator.calculate(
-            palace_results,
-            cal.lunar_day,
-            five_element.bureau_number,
-            cal.year_stem,
-            cal.year_branch,
-            cal.shichen_index,
-            cal.lunar_month,
-        )
-        lucky = LuckyStarsCalculator.calculate(
-            palace_results,
-            cal.lunar_day,
-            five_element.bureau_number,
-            cal.year_stem,
-            cal.year_branch,
-            cal.shichen_index,
-            cal.lunar_month,
-        )
-        evil = EvilStarsCalculator.calculate(
-            palace_results,
-            cal.lunar_day,
-            five_element.bureau_number,
-            cal.year_stem,
-            cal.year_branch,
-            cal.shichen_index,
-            cal.lunar_month,
+        main_stars = cls._main_stars_from_placement(placement, branch_to_palace)
+        lucky = cls._lucky_stars_from_placement(placement)
+        evil = cls._evil_stars_from_placement(placement)
+
+        auxiliary = AuxiliaryStarEngine.compute(
+            palace_results, cal.lunar_month, cal.year_branch
         )
 
         four_hua = FourHuaCalculator.calculate(cal.year_stem, star_to_palace)
@@ -106,12 +89,37 @@ class ChartBuilder:
             palace_results, five_element.bureau_number, cal.year_stem, gender
         )
         ref_year = reference_year or datetime.now().year
+        ref_dt = datetime(ref_year, true_dt.month, true_dt.day, true_dt.hour, true_dt.minute)
         liu_nian = LiuNianCalculator.calculate(palace_results, ref_year)
+
+        daxian_map, _ = FortuneEngine.calc_daxian(
+            palace_results, five_element.bureau_number, cal.year_stem, gender
+        )
+        virtual_age = FortuneEngine._calc_age(true_dt, ref_dt)  # noqa: SLF001
+
+        xiaoxian = XiaoxianCalculator.compute(
+            palace_results, gender, cal.year_stem, true_dt, reference=ref_dt
+        )
+        daxian_transform = DaxianTransformCalculator.compute(
+            palace_results, daxian_map, star_to_palace, gender, cal.year_stem, virtual_age
+        )
+        annual_transform = LiunianTransformCalculator.compute(ref_year, star_to_palace)
 
         _, _, palaces = TwelvePalaceBuilder.build(
             cal.lunar_month, cal.shichen_index, cal.year_stem
         )
         cls._attach_stars_to_palaces(palaces, placement, four_hua, daxian_ranges)
+
+        trace_steps = [
+            {"engine": "calendar", "output": {"yearGanzhi": cal.year_ganzhi}},
+            {"engine": "palace", "output": {"mingGong": ming_branch, "shenGong": shen_branch}},
+            {"engine": "star_placement", "output": {"mainStarCount": len(main_stars)}},
+            {"engine": "auxiliary_star", "output": {"count": len(auxiliary)}},
+            {"engine": "four_transform", "output": {"yearStem": cal.year_stem}},
+            {"engine": "xiaoxian", "output": xiaoxian.trace},
+            {"engine": "daxian_transform", "output": daxian_transform.trace if daxian_transform else {}},
+            {"engine": "annual_transform", "output": annual_transform.trace},
+        ]
 
         return {
             "name": name,
@@ -139,9 +147,10 @@ class ChartBuilder:
                 "shen_zhu": SHEN_ZHU_BY_YEAR_BRANCH.get(cal.year_branch, ""),
                 "ziwei": ziwei.to_dict(),
                 "tianfu": tianfu.to_dict(),
-                "main_stars": FourteenStarsCalculator.to_dict_list(main_stars),
+                "main_stars": main_stars,
                 "lucky_stars": lucky,
                 "evil_stars": evil,
+                "auxiliary_stars": AuxiliaryStarEngine.to_dict_list(auxiliary),
                 "four_hua": four_hua.to_dict(),
                 "daxian_direction": daxian_direction,
                 "daxian_ranges": [
@@ -152,12 +161,48 @@ class ChartBuilder:
                     "year": liu_nian.year,
                     "branch": liu_nian.branch,
                     "palace": liu_nian.palace,
+                    "annual_transform": annual_transform.to_dict(),
                 },
+                "xiaoxian": xiaoxian.to_dict(),
+                "daxian_transform": daxian_transform.to_dict() if daxian_transform else None,
                 "palaces": [p.to_dict() for p in palaces],
             },
-            "engine_version": "1.0",
+            "trace_steps": trace_steps,
+            "engine_version": "1.2",
             "rules_version": RulesLoader.RULES_VERSION,
         }
+
+    @staticmethod
+    def _main_stars_from_placement(
+        placement: StarPlacementResult,
+        branch_to_palace: dict[str, str],
+    ) -> list[dict]:
+        stars: list[dict] = []
+        for name in FourteenStarsCalculator.MAIN_STAR_NAMES:
+            branch = placement.star_branches.get(name)
+            if branch:
+                stars.append({
+                    "name": name,
+                    "branch": branch,
+                    "palace": branch_to_palace.get(branch, ""),
+                })
+        return stars
+
+    @staticmethod
+    def _lucky_stars_from_placement(placement: StarPlacementResult) -> list[dict]:
+        result: list[dict] = []
+        for palace_name, star_list in placement.aux_stars.items():
+            for star in star_list:
+                result.append({"name": star["name"], "palace": palace_name})
+        return result
+
+    @staticmethod
+    def _evil_stars_from_placement(placement: StarPlacementResult) -> list[dict]:
+        result: list[dict] = []
+        for palace_name, star_list in placement.sha_stars.items():
+            for star in star_list:
+                result.append({"name": star["name"], "palace": palace_name})
+        return result
 
     @staticmethod
     def _attach_stars_to_palaces(

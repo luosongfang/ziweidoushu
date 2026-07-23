@@ -7,6 +7,7 @@ export interface KnowledgeAnalyzeRequest {
   chart_data?: Record<string, unknown> | null;
   engine_version?: string;
   persist_memory?: boolean;
+  persist_growth_memory?: boolean;
   user_id?: string | null;
 }
 

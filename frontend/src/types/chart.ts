@@ -61,8 +61,10 @@ export interface DaXian {
 export interface Palace {
   name: PalaceName;
   branch: EarthlyBranch;
+  ganzhi?: string;
   mainStars: Star[];
   auxStars: Star[];
+  shaStars?: Star[];
   daxian: DaXian;
   /** 是否为命宫 */
   isMingGong?: boolean;

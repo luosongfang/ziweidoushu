@@ -1,0 +1,20 @@
+{
+  "id": "SC-03",
+  "description": "立春前晚子时 — 1984-02-03 23:30 男",
+  "level": "partial",
+  "input": {
+    "name": "晚子时男盘",
+    "gender": "male",
+    "date": "1984-02-03",
+    "time": "23:30",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {
+    "ganzhi": {
+      "year": "甲子",
+      "month": "乙丑",
+      "day": "丁卯",
+      "hour": "壬子"
+    }
+  }
+}

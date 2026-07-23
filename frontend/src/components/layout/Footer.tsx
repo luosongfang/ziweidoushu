@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-paper/10 pt-6 text-center text-xs text-paper/30">
-          © {new Date().getFullYear()} {SITE.name}. 传统文化学习 · 人生规划辅助
+          © {new Date().getFullYear()} {SITE.name} · {SITE.nameZh}. 传统智慧学习 · AI 人生导师
         </div>
       </div>
     </footer>

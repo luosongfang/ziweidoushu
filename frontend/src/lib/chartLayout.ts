@@ -1,20 +1,35 @@
-import type { GridPosition, PalaceName } from "@/types/chart";
+import type { EarthlyBranch, GridPosition, PalaceName } from "@/types/chart";
 
 /**
- * 传统紫微斗数专业排盘布局
+ * 传统天盘地支定位（4×4 外圈，中心 2×2 为信息区）
  *
- * 4×4 外圈十二宫，中心 2×2 合并为信息区。
- * 宫位名称与格子位置固定对应（顺逆布宫只影响地支与星曜，不改变格子名称）。
- *
- * ┌──────┬──────┬──────┬──────┐
- * │ 兄弟 │ 命宫 │ 父母 │ 福德 │
- * ├──────┼──────┴──────┼──────┤
- * │ 官禄 │   中心信息   │ 田宅 │
- * ├──────┤              ├──────┤
- * │ 交友 │              │ 夫妻 │
- * ├──────┼──────┬──────┼──────┤
- * │ 迁移 │ 疾厄 │ 财帛 │ 子女 │
- * └──────┴──────┴──────┴──────┘
+ * ┌────┬────┬────┬────┐
+ * │ 巳 │ 午 │ 未 │ 申 │
+ * ├────┼────┴────┼────┤
+ * │ 辰 │  中心   │ 酉 │
+ * ├────┤         ├────┤
+ * │ 卯 │         │ 戌 │
+ * ├────┼────┬────┼────┤
+ * │ 寅 │ 丑 │ 子 │ 亥 │
+ * └────┴────┴────┴────┘
+ */
+export const BRANCH_GRID: Record<EarthlyBranch, GridPosition> = {
+  巳: { row: 0, col: 0 },
+  午: { row: 0, col: 1 },
+  未: { row: 0, col: 2 },
+  申: { row: 0, col: 3 },
+  辰: { row: 1, col: 0 },
+  酉: { row: 1, col: 3 },
+  卯: { row: 2, col: 0 },
+  戌: { row: 2, col: 3 },
+  寅: { row: 3, col: 0 },
+  丑: { row: 3, col: 1 },
+  子: { row: 3, col: 2 },
+  亥: { row: 3, col: 3 },
+};
+
+/**
+ * @deprecated 按宫名定位；排盘 UI 应使用 BRANCH_GRID
  */
 export const PALACE_GRID: Record<PalaceName, GridPosition> = {
   兄弟: { row: 0, col: 0 },

@@ -1,0 +1,21 @@
+{
+  "id": "SC-07",
+  "description": "同 SC-04 男盘 — 大限逆排对照",
+  "level": "partial",
+  "input": {
+    "name": "正月男盘",
+    "gender": "male",
+    "date": "1985-03-08",
+    "time": "06:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {
+    "mingGong": "亥",
+    "shenGong": "巳",
+    "wuxingJu": "土五局",
+    "mingGongGanZhi": "丁亥",
+    "palaceBranches": ["亥", "戌", "酉", "申", "未", "午", "巳", "辰", "卯", "寅", "丑", "子"],
+    "daxianDirection": "backward"
+  },
+  "notes": "与 SC-04 同出生时刻，仅性别不同；用于验证阳男阴女 / 阴男阳女大限顺逆规则。"
+}

@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 from app.ziwei.constants import EARTHLY_BRANCHES
+from app.ziwei.rules.auxiliary_star_rules import generate_auxiliary_star_rules
 
-RULES_VERSION = "2026.07.22"
+RULES_VERSION = "2026.07.23"
 SCHOOL = "sanhe"
 
 # 六十甲子纳音全名
@@ -383,6 +384,22 @@ def generate_palace_meaning_rules() -> list[dict]:
     return rows
 
 
+def generate_star_brightness_rules() -> list[dict]:
+    """十四主星亮度 — 与 brightness_rules / migration 022 一致。"""
+    rows = []
+    for star, branches in MAIN_STAR_BRIGHTNESS.items():
+        for branch, brightness in branches.items():
+            rows.append({
+                "star_name": star,
+                "branch": branch,
+                "brightness": brightness,
+                "source": "sanhe_traditional",
+                "school": SCHOOL,
+                "version": "2026.07.23",
+            })
+    return rows
+
+
 def build_all_rules() -> dict:
     """构建完整规则缓存（与 DB seeds 一致）。"""
     return {
@@ -403,4 +420,6 @@ def build_all_rules() -> dict:
         "stars": generate_stars_metadata(),
         "star_combination_rules": generate_star_combination_rules(),
         "palace_meaning_rules": generate_palace_meaning_rules(),
+        "auxiliary_star_rules": generate_auxiliary_star_rules(),
+        "star_brightness_rules": generate_star_brightness_rules(),
     }

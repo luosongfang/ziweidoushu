@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 from typing import Any
 
 from sqlalchemy import select
@@ -41,6 +42,36 @@ _DIM_BY_QTYPE: dict[str, str] = {
 }
 
 
+@lru_cache(maxsize=1)
+def _cached_star_combos() -> tuple[dict[str, Any], ...]:
+    db = SessionLocal()
+    try:
+        return tuple(_row_to_dict(r) for r in db.scalars(select(StarCombinationMatrix)).all())
+    finally:
+        db.close()
+
+
+@lru_cache(maxsize=8)
+def _cached_palace_rows(dimension: str) -> tuple[dict[str, Any], ...]:
+    db = SessionLocal()
+    try:
+        rows = db.scalars(
+            select(PalaceDimensionMatrix).where(PalaceDimensionMatrix.dimension == dimension)
+        ).all()
+        return tuple(_row_to_dict(r) for r in rows)
+    finally:
+        db.close()
+
+
+@lru_cache(maxsize=1)
+def _cached_four_transform_rows() -> tuple[dict[str, Any], ...]:
+    db = SessionLocal()
+    try:
+        return tuple(_row_to_dict(r) for r in db.scalars(select(FourTransformMatrix)).all())
+    finally:
+        db.close()
+
+
 class MatrixEngine:
     """综合判断矩阵：星曜组合 + 宫位维度 + 四化。"""
 
@@ -50,13 +81,9 @@ class MatrixEngine:
 
     @classmethod
     def list_star_combos(cls, db: Session | None = None) -> list[dict[str, Any]]:
-        own = db is None
-        db = db or cls._session()
-        try:
+        if db is not None:
             return [_row_to_dict(r) for r in db.scalars(select(StarCombinationMatrix)).all()]
-        finally:
-            if own:
-                db.close()
+        return list(_cached_star_combos())
 
     @classmethod
     def match_star_combinations(cls, stars: list[str]) -> list[dict[str, Any]]:
@@ -75,9 +102,7 @@ class MatrixEngine:
         dimension: str,
         db: Session | None = None,
     ) -> list[dict[str, Any]]:
-        own = db is None
-        db = db or cls._session()
-        try:
+        if db is not None:
             rows = db.scalars(
                 select(PalaceDimensionMatrix).where(
                     PalaceDimensionMatrix.dimension == dimension
@@ -85,9 +110,8 @@ class MatrixEngine:
             ).all()
             wanted = set(palaces)
             return [_row_to_dict(r) for r in rows if r.palace_name in wanted]
-        finally:
-            if own:
-                db.close()
+        wanted = set(palaces)
+        return [r for r in _cached_palace_rows(dimension) if r.get("palace_name") in wanted]
 
     @classmethod
     def four_transforms(
@@ -96,24 +120,21 @@ class MatrixEngine:
         transform_types: list[str] | None = None,
         db: Session | None = None,
     ) -> list[dict[str, Any]]:
-        own = db is None
-        db = db or cls._session()
-        try:
+        if db is not None:
             rows = [_row_to_dict(r) for r in db.scalars(select(FourTransformMatrix)).all()]
-            if year_stem:
-                stemmed = [r for r in rows if r.get("year_stem") == year_stem]
-                if stemmed:
-                    rows = stemmed
-                else:
-                    rows = [r for r in rows if r.get("year_stem") is None]
+        else:
+            rows = list(_cached_four_transform_rows())
+        if year_stem:
+            stemmed = [r for r in rows if r.get("year_stem") == year_stem]
+            if stemmed:
+                rows = stemmed
             else:
                 rows = [r for r in rows if r.get("year_stem") is None]
-            if transform_types:
-                rows = [r for r in rows if r.get("transform_type") in transform_types]
-            return rows
-        finally:
-            if own:
-                db.close()
+        else:
+            rows = [r for r in rows if r.get("year_stem") is None]
+        if transform_types:
+            rows = [r for r in rows if r.get("transform_type") in transform_types]
+        return rows
 
     @classmethod
     def analyze(

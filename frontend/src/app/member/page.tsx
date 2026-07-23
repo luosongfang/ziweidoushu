@@ -8,7 +8,7 @@ import { FREE_BENEFITS, FREE_LIMITS, MEMBERSHIP_PLANS } from "@/lib/constants";
 import { useMembership, type PlanId } from "@/context/MembershipContext";
 
 export default function MemberPage() {
-  const { planId, points, setPlan } = useMembership();
+  const { planId, planLabel, points, setPlan } = useMembership();
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function MemberPage() {
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <div className="surface-panel p-5">
-              <h2 className="font-display text-lg text-paper">免费用户</h2>
+              <h2 className="font-display text-lg text-paper">Free · 免费</h2>
               <ul className="mt-3 space-y-2 text-sm text-paper/65">
                 {FREE_BENEFITS.map((b) => (
                   <li key={b}>✓ {b}</li>
@@ -38,7 +38,7 @@ export default function MemberPage() {
               <Button
                 className="mt-5"
                 variant={planId === "free" ? "gold" : "outline"}
-                onClick={() => setPlan("free")}
+                onClick={() => void setPlan("free")}
               >
                 {planId === "free" ? "当前为免费方案" : "切换为免费预览"}
               </Button>
@@ -46,7 +46,7 @@ export default function MemberPage() {
             <div className="surface-panel p-5">
               <h2 className="font-display text-lg text-paper">当前状态</h2>
               <p className="mt-3 text-sm text-paper/60">
-                方案：<span className="text-gold">{planId.toUpperCase()}</span>
+                方案：<span className="text-gold">{planLabel}</span>
               </p>
               <p className="mt-1 text-sm text-paper/60">积分余额：{points}</p>
               <p className="mt-4 text-xs leading-relaxed text-paper/40">
@@ -55,15 +55,21 @@ export default function MemberPage() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {MEMBERSHIP_PLANS.map((plan) => (
-              <MembershipCard
-                key={plan.id}
-                plan={plan}
-                current={planId === plan.id}
-                onSelect={(id) => setPlan(id as PlanId)}
-              />
-            ))}
+          <div className="mt-10">
+            <p className="section-label">付费方案</p>
+            <p className="mt-2 text-sm text-paper/45">
+              推荐 SVIP 年度方案 — 无限解盘与 AI 交流，适合长期自我探索
+            </p>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              {MEMBERSHIP_PLANS.map((plan) => (
+                <MembershipCard
+                  key={plan.id}
+                  plan={plan}
+                  current={planId === plan.id}
+                  onSelect={(id) => void setPlan(id as PlanId)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </main>

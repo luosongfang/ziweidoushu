@@ -1,8 +1,10 @@
-/** Phase 2/3 紫微命盘 API 类型 — 对齐 POST /api/chart/create */
+/** StandardChartSchema V2 — 对齐 POST /api/chart/create */
 
 export type Gender = "male" | "female";
 export type CalendarType = "solar" | "lunar";
 export type SiHuaType = "禄" | "权" | "科" | "忌";
+export type StarCategory = "main" | "lucky" | "sha" | "za";
+export type StarType = "main" | "lucky" | "lu_cun" | "sha" | "za";
 
 export interface ChartCreateRequest {
   name: string;
@@ -12,52 +14,43 @@ export interface ChartCreateRequest {
   location?: string;
   persist?: boolean;
   user_id?: string;
+  reference_year?: number;
 }
 
-export interface PalaceStar {
+export interface StarV2 {
   name: string;
-  category?: "main" | "aux" | "sha" | "za" | "daxian" | string;
+  palace: string;
+  branch: string;
+  category: StarCategory;
+  type: StarType;
+  brightness?: string;
   sihua?: SiHuaType;
+  isMain?: boolean;
 }
 
-export interface PalaceTransformation {
-  star: string;
-  type: SiHuaType;
-}
-
-/** 单宫结构 */
-export interface Palace {
+export interface PalaceV2 {
   name: string;
-  position: number;
   branch: string;
   ganzhi?: string;
-  stars: PalaceStar[];
-  transformations: PalaceTransformation[];
-  is_ming_gong?: boolean;
-  is_shen_gong?: boolean;
+  position: number;
+  opposite: string;
+  sanhe: string[];
+  is_ming_gong: boolean;
+  is_shen_gong: boolean;
+  main_stars: StarV2[];
+  lucky_stars: StarV2[];
+  sha_stars: StarV2[];
+  za_stars: StarV2[];
+  transformations: Array<{ star: string; type: SiHuaType }>;
+  daxian?: { palace: string; startAge: number; endAge: number } | null;
 }
 
-/** 命盘核心结构 */
-export interface ZiweiChart {
-  ming_gong: string;
-  shen_gong: string;
-  five_element: string;
-  ming_zhu?: string;
-  shen_zhu?: string;
-  palaces: Palace[];
-  four_hua?: FourHuaSummary;
-  main_stars?: Array<{ name: string; palace?: string; branch?: string }>;
-  daxian_direction?: string;
-  daxian_ranges?: Array<{ palace: string; start_age: number; end_age: number }>;
-  liu_nian?: { year?: number; branch?: string; palace?: string };
-}
-
-export interface FourHuaSummary {
-  year_gan: string;
-  hua_lu: { star: string; palace: string; type: string };
-  hua_quan: { star: string; palace: string; type: string };
-  hua_ke: { star: string; palace: string; type: string };
-  hua_ji: { star: string; palace: string; type: string };
+export interface FourTransformV2 {
+  yearStem: string;
+  lu: { star: string; palace: string; type: SiHuaType };
+  quan: { star: string; palace: string; type: SiHuaType };
+  ke: { star: string; palace: string; type: SiHuaType };
+  ji: { star: string; palace: string; type: SiHuaType };
 }
 
 export interface BirthInfo {
@@ -81,22 +74,53 @@ export interface BirthInfo {
     hour_gan: string;
     hour_zhi: string;
   };
-  shichen: string;
+  shichen: string | { name: string; branch?: string };
 }
 
+export interface MetaV2 {
+  name: string;
+  gender: Gender;
+  mingGong: string;
+  shenGong: string;
+  mingGongGanZhi?: string;
+  wuxingJu: string;
+  bureauNumber?: number;
+  mingZhu?: string;
+  shenZhu?: string;
+  nayinElement?: string;
+}
+
+/** POST /api/chart/create 响应 — StandardChartSchema V2 */
 export interface ChartCreateResponse {
+  schema_version: "2.0";
   name: string;
   gender: Gender;
   birth: BirthInfo;
-  chart: ZiweiChart & {
-    five_element_detail?: Record<string, unknown>;
-    ziwei?: Record<string, unknown>;
-    tianfu?: Record<string, unknown>;
-    lucky_stars?: Array<{ name: string; palace: string }>;
-    evil_stars?: Array<{ name: string; palace: string }>;
+  meta: MetaV2;
+  palaces: PalaceV2[];
+  stars: {
+    main: StarV2[];
+    lucky: StarV2[];
+    lu_cun: StarV2[];
+    sha: StarV2[];
+    za: StarV2[];
+    all: StarV2[];
   };
+  four_transform: FourTransformV2;
+  brightness: Record<string, string>;
+  sanhe: Record<string, string[]>;
+  opposite: Record<string, string>;
+  daxian: {
+    direction: "forward" | "backward";
+    ranges: Array<{ palace: string; startAge: number; endAge: number }>;
+  };
+  liunian: { year: number; branch: string; palace: string };
+  xiaoxian: { enabled: boolean };
+  trace: { traceId: string; steps: unknown[]; rulesVersion: string; source: string };
+  warnings: string[];
   engine_version: string;
   rules_version: string;
+  school: string;
   chart_id?: string | null;
   birth_profile_id?: string | null;
   persisted?: boolean;
@@ -109,4 +133,16 @@ export interface BirthFormData {
   date: string;
   time: string;
   location: string;
+}
+
+/** @deprecated V1 宫位结构，仅用于本地缓存迁移 */
+export interface Palace {
+  name: string;
+  position: number;
+  branch: string;
+  ganzhi?: string;
+  stars: Array<{ name: string; category?: string; sihua?: SiHuaType }>;
+  transformations: Array<{ star: string; type: SiHuaType }>;
+  is_ming_gong?: boolean;
+  is_shen_gong?: boolean;
 }

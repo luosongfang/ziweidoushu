@@ -14,28 +14,35 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useChart } from "@/context/ChartContext";
-import type { ChartCreateResponse, Palace } from "@/types/ziwei";
+import type { ChartCreateResponse } from "@/types/ziwei";
 
 const PLACEHOLDER = `命宫：紫微天府
 官禄宫：武曲天相
 财帛宫：天府`;
 
 function formatChartAsText(data: ChartCreateResponse): string {
+  const shichen = typeof data.birth?.shichen === "string"
+    ? data.birth.shichen
+    : data.birth?.shichen?.name ?? "";
   const lines: string[] = [
     `姓名：${data.name}`,
     `性别：${data.gender === "male" ? "男" : "女"}`,
     `公历：${data.birth?.solar ?? ""}`,
     `农历：${data.birth?.lunar ?? ""}`,
-    `命宫：${data.chart?.ming_gong ?? ""}`,
-    `身宫：${data.chart?.shen_gong ?? ""}`,
-    `五行局：${data.chart?.five_element ?? ""}`,
+    `命宫：${data.meta?.mingGong ?? ""}`,
+    `身宫：${data.meta?.shenGong ?? ""}`,
+    `五行局：${data.meta?.wuxingJu ?? ""}`,
     "",
     "【十二宫】",
   ];
 
-  const palaces = data.chart?.palaces ?? [];
-  for (const p of palaces as Palace[]) {
-    const stars = (p.stars ?? []).map((s) => s.name).join("、") || "无主星标注";
+  for (const p of data.palaces ?? []) {
+    const stars = [
+      ...p.main_stars.map((s) => s.name),
+      ...p.lucky_stars.map((s) => s.name),
+      ...p.sha_stars.map((s) => s.name),
+      ...p.za_stars.map((s) => s.name),
+    ].join("、") || "无主星标注";
     const hua = (p.transformations ?? [])
       .map((t) => `${t.star}化${t.type}`)
       .join("、");

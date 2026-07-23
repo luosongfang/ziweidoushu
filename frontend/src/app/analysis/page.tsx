@@ -6,12 +6,38 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AnalysisCard from "@/components/AnalysisCard";
 import KnowledgeSource from "@/components/KnowledgeSource";
+import PrivacyNotice from "@/components/PrivacyNotice";
 import { Button } from "@/components/ui/Button";
 import { ANALYSIS_MODULES, SITE } from "@/lib/constants";
+import { saveLocalAnalysisHistory } from "@/lib/analysisHistory";
 import { useChart } from "@/context/ChartContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { useMembership } from "@/context/MembershipContext";
 import { analyzeKnowledge, ApiError } from "@/lib/api";
 import type { KnowledgeAnalyzeResponse } from "@/types/analysis";
+import type { ChartCreateResponse } from "@/types/ziwei";
+
+function chartPayloadForAnalysis(chart: ChartCreateResponse): Record<string, unknown> {
+  const palaces = chart.palaces ?? [];
+  const byName: Record<string, unknown> = {};
+  for (const p of palaces) {
+    byName[p.name] = {
+      stars: [
+        ...p.main_stars.map((s) => s.name),
+        ...p.lucky_stars.map((s) => s.name),
+        ...p.sha_stars.map((s) => s.name),
+        ...p.za_stars.map((s) => s.name),
+      ],
+      branch: p.branch,
+    };
+  }
+  return {
+    chart_id: chart.chart_id,
+    name: chart.name,
+    chart: { palaces, ming_gong: chart.meta?.mingGong, five_element: chart.meta?.wuxingJu },
+    ...byName,
+  };
+}
 
 function pickStrings(res: KnowledgeAnalyzeResponse | null): {
   traditional: string[];
@@ -56,7 +82,8 @@ function pickStrings(res: KnowledgeAnalyzeResponse | null): {
 
 export default function AnalysisPage() {
   const { chart, isHydrated } = useChart();
-  const { planId, freeAnalysisUsed, markAnalysisUsed } = useMembership();
+  const { user, isGuest } = useAuth();
+  const { planId, freeAnalysisUsed, markAnalysisUsed, isGuest: membershipGuest } = useMembership();
   const [active, setActive] = useState<string>(ANALYSIS_MODULES[0].id);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -73,7 +100,7 @@ export default function AnalysisPage() {
 
     (async () => {
       if (planId === "free" && freeAnalysisUsed && Object.keys(cache).length > 0) {
-        setError("免费专业解盘已使用。升级会员可继续查看更多模块。");
+        setError("免费专业解读已使用。登录并升级会员可继续查看更多模块。");
         return;
       }
       setLoading(true);
@@ -82,12 +109,21 @@ export default function AnalysisPage() {
         const res = await analyzeKnowledge({
           question: module.question,
           chart_id: chart.chart_id,
-          chart_data: chart as unknown as Record<string, unknown>,
+          chart_data: chartPayloadForAnalysis(chart),
           engine_version: "5.1",
+          user_id: user?.id ?? null,
+          persist_memory: false,
+          persist_growth_memory: false,
         });
         if (cancelled) return;
         setCache((c) => ({ ...c, [active]: res }));
-        if (planId === "free") markAnalysisUsed();
+        saveLocalAnalysisHistory(user?.id ?? null, {
+          question: module.question,
+          question_type: module.id,
+          topic: module.label,
+          suggestions: res.suggestions ?? [],
+        });
+        if (membershipGuest && planId === "free") markAnalysisUsed();
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof ApiError ? err.message : "分析失败");
@@ -100,22 +136,33 @@ export default function AnalysisPage() {
     return () => {
       cancelled = true;
     };
-  }, [active, chart, isHydrated, cache, module.question, planId, freeAnalysisUsed, markAnalysisUsed]);
+  }, [active, chart, isHydrated, cache, module.question, module.id, module.label, planId, freeAnalysisUsed, markAnalysisUsed, membershipGuest, user?.id]);
 
   return (
     <>
       <Header />
       <main className="min-h-screen px-4 pb-20 pt-24 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <p className="section-label">AI 解盘</p>
-          <h1 className="mt-2 font-display text-3xl font-bold text-paper">人生六大模块</h1>
-          <p className="mt-2 max-w-2xl text-sm text-paper/50">{SITE.notice}</p>
+          <p className="section-label">深度分析</p>
+          <h1 className="mt-2 font-display text-3xl font-bold text-paper">六大人生模块</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-paper/50">{SITE.notice}</p>
+          <PrivacyNotice className="mt-2" />
+
+          {isGuest && (
+            <p className="mt-3 text-sm text-paper/45">
+              游客可体验基础排盘与一次免费分析。
+              <Link href="/login" className="ml-1 text-gold/80 hover:underline">
+                登录
+              </Link>
+              后可保存命盘与成长记录。
+            </p>
+          )}
 
           {!chart && isHydrated && (
             <div className="mt-8 surface-panel p-6">
-              <p className="text-paper/70">请先完成排盘，再进行专业解盘。</p>
+              <p className="text-paper/70">请先创建个人星盘，再进行专业解读。</p>
               <Button href="/chart" variant="gold" className="mt-4">
-                去排盘
+                创建星盘
               </Button>
             </div>
           )}
@@ -128,16 +175,20 @@ export default function AnalysisPage() {
                     key={m.id}
                     type="button"
                     onClick={() => setActive(m.id)}
-                    className={`shrink-0 rounded-full px-4 py-1.5 text-sm ${
+                    className={`shrink-0 rounded-full px-4 py-1.5 text-sm transition ${
                       active === m.id
                         ? "bg-gold text-ink"
-                        : "border border-paper/15 text-paper/60"
+                        : "border border-paper/15 text-paper/60 hover:border-gold/30"
                     }`}
                   >
                     {m.label}
                   </button>
                 ))}
               </div>
+
+              <p className="mt-4 text-xs text-paper/35">
+                每个模块：传统依据 → 现代解释 → 行动建议
+              </p>
 
               {error && (
                 <p className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
@@ -154,10 +205,7 @@ export default function AnalysisPage() {
                   loading={loading}
                 />
                 <div className="space-y-4">
-                  <KnowledgeSource
-                    sources={result?.sources}
-                    locked={sourcesLocked}
-                  />
+                  <KnowledgeSource sources={result?.sources} locked={sourcesLocked} />
                   <div className="flex flex-wrap gap-3">
                     <Button href="/advisor" variant="gold">
                       继续向导师提问

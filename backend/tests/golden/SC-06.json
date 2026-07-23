@@ -1,0 +1,3285 @@
+{
+  "schema_version": "2.5",
+  "name": "千禧子时男盘",
+  "gender": "male",
+  "birth": {
+    "solar": "2000-01-01T00:00:00",
+    "lunar": "一九九九年冬廿五",
+    "lunar_detail": {
+      "lunar_year": 1999,
+      "lunar_month": 11,
+      "lunar_day": 25,
+      "is_leap": false
+    },
+    "year_gan": "己",
+    "year_zhi": "卯",
+    "ganzhi": {
+      "year_gan": "己",
+      "year_zhi": "卯",
+      "month_gan": "丙",
+      "month_zhi": "子",
+      "day_gan": "戊",
+      "day_zhi": "午",
+      "hour_gan": "壬",
+      "hour_zhi": "子"
+    },
+    "shichen": {
+      "name": "子时",
+      "branch": "子"
+    }
+  },
+  "meta": {
+    "name": "千禧子时男盘",
+    "gender": "male",
+    "mingGong": "子",
+    "shenGong": "子",
+    "mingGongGanZhi": "丙子",
+    "wuxingJu": "水二局",
+    "bureauNumber": 2,
+    "mingZhu": "贪狼",
+    "shenZhu": "天同",
+    "nayinElement": "水",
+    "ziweiBranch": "丑",
+    "tianfuBranch": "未"
+  },
+  "palaces": [
+    {
+      "name": "命宫",
+      "branch": "子",
+      "ganzhi": "丙子",
+      "position": 1,
+      "opposite": "迁移",
+      "sanhe": [
+        "财帛",
+        "官禄"
+      ],
+      "is_ming_gong": true,
+      "is_shen_gong": true,
+      "main_stars": [
+        {
+          "name": "天机",
+          "palace": "命宫",
+          "branch": "子",
+          "category": "main",
+          "type": "main",
+          "brightness": "庙",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "天梁",
+          "palace": "命宫",
+          "branch": "子",
+          "category": "main",
+          "type": "main",
+          "brightness": "庙",
+          "sihua": "科",
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [
+        {
+          "name": "右弼",
+          "palace": "命宫",
+          "branch": "子",
+          "category": "lucky",
+          "type": "lucky",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "天魁",
+          "palace": "命宫",
+          "branch": "子",
+          "category": "lucky",
+          "type": "lucky",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "sha_stars": [],
+      "za_stars": [],
+      "auxiliary_stars": [
+        {
+          "name": "红鸾",
+          "palace": "命宫",
+          "branch": "子",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_offset",
+            "rule_expression": {
+              "base_branch": "卯",
+              "direction": "backward",
+              "offset": 0,
+              "by": "year_branch"
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [
+        {
+          "star": "天梁",
+          "type": "科"
+        }
+      ],
+      "daxian": {
+        "palace": "命宫",
+        "startAge": 2,
+        "endAge": 11
+      }
+    },
+    {
+      "name": "兄弟",
+      "branch": "亥",
+      "ganzhi": "乙亥",
+      "position": 2,
+      "opposite": "交友",
+      "sanhe": [
+        "疾厄",
+        "田宅"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [
+        {
+          "name": "天相",
+          "palace": "兄弟",
+          "branch": "亥",
+          "category": "main",
+          "type": "main",
+          "brightness": "得",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [],
+      "sha_stars": [
+        {
+          "name": "地空",
+          "palace": "兄弟",
+          "branch": "亥",
+          "category": "sha",
+          "type": "sha",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "地劫",
+          "palace": "兄弟",
+          "branch": "亥",
+          "category": "sha",
+          "type": "sha",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "za_stars": [],
+      "auxiliary_stars": [
+        {
+          "name": "天姚",
+          "palace": "兄弟",
+          "branch": "亥",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_offset",
+            "rule_expression": {
+              "base_branch": "丑",
+              "direction": "forward",
+              "offset": 0,
+              "by": "lunar_month"
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [],
+      "daxian": {
+        "palace": "兄弟",
+        "startAge": 112,
+        "endAge": 121
+      }
+    },
+    {
+      "name": "夫妻",
+      "branch": "戌",
+      "ganzhi": "甲戌",
+      "position": 3,
+      "opposite": "官禄",
+      "sanhe": [
+        "迁移",
+        "福德"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [
+        {
+          "name": "太阳",
+          "palace": "夫妻",
+          "branch": "戌",
+          "category": "main",
+          "type": "main",
+          "brightness": "不得",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "巨门",
+          "palace": "夫妻",
+          "branch": "戌",
+          "category": "main",
+          "type": "main",
+          "brightness": "陷",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [
+        {
+          "name": "文昌",
+          "palace": "夫妻",
+          "branch": "戌",
+          "category": "lucky",
+          "type": "lucky",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "sha_stars": [
+        {
+          "name": "铃星",
+          "palace": "夫妻",
+          "branch": "戌",
+          "category": "sha",
+          "type": "sha",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "za_stars": [],
+      "auxiliary_stars": [],
+      "transformations": [],
+      "daxian": {
+        "palace": "夫妻",
+        "startAge": 102,
+        "endAge": 111
+      }
+    },
+    {
+      "name": "子女",
+      "branch": "酉",
+      "ganzhi": "癸酉",
+      "position": 4,
+      "opposite": "田宅",
+      "sanhe": [
+        "交友",
+        "父母"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [
+        {
+          "name": "武曲",
+          "palace": "子女",
+          "branch": "酉",
+          "category": "main",
+          "type": "main",
+          "brightness": "利",
+          "sihua": "禄",
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "贪狼",
+          "palace": "子女",
+          "branch": "酉",
+          "category": "main",
+          "type": "main",
+          "brightness": "利",
+          "sihua": "权",
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [],
+      "sha_stars": [
+        {
+          "name": "火星",
+          "palace": "子女",
+          "branch": "酉",
+          "category": "sha",
+          "type": "sha",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "za_stars": [],
+      "auxiliary_stars": [
+        {
+          "name": "天哭",
+          "palace": "子女",
+          "branch": "酉",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_offset",
+            "rule_expression": {
+              "base_branch": "午",
+              "direction": "forward",
+              "offset": 0,
+              "by": "year_branch"
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [
+        {
+          "star": "武曲",
+          "type": "禄"
+        },
+        {
+          "star": "贪狼",
+          "type": "权"
+        }
+      ],
+      "daxian": {
+        "palace": "子女",
+        "startAge": 92,
+        "endAge": 101
+      }
+    },
+    {
+      "name": "财帛",
+      "branch": "申",
+      "ganzhi": "壬申",
+      "position": 5,
+      "opposite": "福德",
+      "sanhe": [
+        "命宫",
+        "官禄"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [
+        {
+          "name": "天同",
+          "palace": "财帛",
+          "branch": "申",
+          "category": "main",
+          "type": "main",
+          "brightness": "旺",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "太阴",
+          "palace": "财帛",
+          "branch": "申",
+          "category": "main",
+          "type": "main",
+          "brightness": "得",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [
+        {
+          "name": "天钺",
+          "palace": "财帛",
+          "branch": "申",
+          "category": "lucky",
+          "type": "lucky",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "sha_stars": [],
+      "za_stars": [],
+      "auxiliary_stars": [],
+      "transformations": [],
+      "daxian": {
+        "palace": "财帛",
+        "startAge": 82,
+        "endAge": 91
+      }
+    },
+    {
+      "name": "疾厄",
+      "branch": "未",
+      "ganzhi": "辛未",
+      "position": 6,
+      "opposite": "父母",
+      "sanhe": [
+        "兄弟",
+        "田宅"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [
+        {
+          "name": "天府",
+          "palace": "疾厄",
+          "branch": "未",
+          "category": "main",
+          "type": "main",
+          "brightness": "庙",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [],
+      "sha_stars": [
+        {
+          "name": "擎羊",
+          "palace": "疾厄",
+          "branch": "未",
+          "category": "sha",
+          "type": "sha",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "za_stars": [],
+      "auxiliary_stars": [
+        {
+          "name": "华盖",
+          "palace": "疾厄",
+          "branch": "未",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_group",
+            "rule_expression": {
+              "by": "year_branch",
+              "mapping": {
+                "寅午戌": "戌",
+                "申子辰": "辰",
+                "巳酉丑": "丑",
+                "亥卯未": "未"
+              }
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [],
+      "daxian": {
+        "palace": "疾厄",
+        "startAge": 72,
+        "endAge": 81
+      }
+    },
+    {
+      "name": "迁移",
+      "branch": "午",
+      "ganzhi": "庚午",
+      "position": 7,
+      "opposite": "命宫",
+      "sanhe": [
+        "夫妻",
+        "福德"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [],
+      "lucky_stars": [
+        {
+          "name": "禄存",
+          "palace": "迁移",
+          "branch": "午",
+          "category": "lucky",
+          "type": "lu_cun",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "sha_stars": [],
+      "za_stars": [],
+      "auxiliary_stars": [
+        {
+          "name": "天喜",
+          "palace": "迁移",
+          "branch": "午",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "opposite_branch",
+            "rule_expression": {
+              "base_star": "红鸾",
+              "offset": 6
+            },
+            "source": "sanhe_traditional"
+          }
+        },
+        {
+          "name": "天刑",
+          "palace": "迁移",
+          "branch": "午",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_offset",
+            "rule_expression": {
+              "base_branch": "酉",
+              "direction": "backward",
+              "offset": 0,
+              "by": "year_branch"
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [],
+      "daxian": {
+        "palace": "迁移",
+        "startAge": 62,
+        "endAge": 71
+      }
+    },
+    {
+      "name": "交友",
+      "branch": "巳",
+      "ganzhi": "己巳",
+      "position": 8,
+      "opposite": "兄弟",
+      "sanhe": [
+        "子女",
+        "父母"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [
+        {
+          "name": "廉贞",
+          "palace": "交友",
+          "branch": "巳",
+          "category": "main",
+          "type": "main",
+          "brightness": "平",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "破军",
+          "palace": "交友",
+          "branch": "巳",
+          "category": "main",
+          "type": "main",
+          "brightness": "平",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [],
+      "sha_stars": [
+        {
+          "name": "陀罗",
+          "palace": "交友",
+          "branch": "巳",
+          "category": "sha",
+          "type": "sha",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "za_stars": [
+        {
+          "name": "天马",
+          "palace": "交友",
+          "branch": "巳",
+          "category": "za",
+          "type": "za",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "auxiliary_stars": [
+        {
+          "name": "孤辰",
+          "palace": "交友",
+          "branch": "巳",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_group",
+            "rule_expression": {
+              "by": "year_branch",
+              "mapping": {
+                "寅卯辰": "巳",
+                "巳午未": "申",
+                "申酉戌": "亥",
+                "亥子丑": "寅"
+              }
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [],
+      "daxian": {
+        "palace": "交友",
+        "startAge": 52,
+        "endAge": 61
+      }
+    },
+    {
+      "name": "官禄",
+      "branch": "辰",
+      "ganzhi": "戊辰",
+      "position": 9,
+      "opposite": "夫妻",
+      "sanhe": [
+        "命宫",
+        "财帛"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [],
+      "lucky_stars": [
+        {
+          "name": "文曲",
+          "palace": "官禄",
+          "branch": "辰",
+          "category": "lucky",
+          "type": "lucky",
+          "brightness": "",
+          "sihua": "忌",
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "sha_stars": [],
+      "za_stars": [],
+      "auxiliary_stars": [],
+      "transformations": [
+        {
+          "star": "文曲",
+          "type": "忌"
+        }
+      ],
+      "daxian": {
+        "palace": "官禄",
+        "startAge": 42,
+        "endAge": 51
+      }
+    },
+    {
+      "name": "田宅",
+      "branch": "卯",
+      "ganzhi": "丁卯",
+      "position": 10,
+      "opposite": "子女",
+      "sanhe": [
+        "兄弟",
+        "疾厄"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [],
+      "lucky_stars": [],
+      "sha_stars": [],
+      "za_stars": [],
+      "auxiliary_stars": [
+        {
+          "name": "天虚",
+          "palace": "田宅",
+          "branch": "卯",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_offset",
+            "rule_expression": {
+              "base_branch": "午",
+              "direction": "backward",
+              "offset": 0,
+              "by": "year_branch"
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [],
+      "daxian": {
+        "palace": "田宅",
+        "startAge": 32,
+        "endAge": 41
+      }
+    },
+    {
+      "name": "福德",
+      "branch": "寅",
+      "ganzhi": "丙寅",
+      "position": 11,
+      "opposite": "财帛",
+      "sanhe": [
+        "夫妻",
+        "迁移"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [],
+      "lucky_stars": [
+        {
+          "name": "左辅",
+          "palace": "福德",
+          "branch": "寅",
+          "category": "lucky",
+          "type": "lucky",
+          "brightness": "",
+          "sihua": null,
+          "isMain": false,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "sha_stars": [],
+      "za_stars": [],
+      "auxiliary_stars": [],
+      "transformations": [],
+      "daxian": {
+        "palace": "福德",
+        "startAge": 22,
+        "endAge": 31
+      }
+    },
+    {
+      "name": "父母",
+      "branch": "丑",
+      "ganzhi": "丁丑",
+      "position": 12,
+      "opposite": "疾厄",
+      "sanhe": [
+        "子女",
+        "交友"
+      ],
+      "is_ming_gong": false,
+      "is_shen_gong": false,
+      "main_stars": [
+        {
+          "name": "紫微",
+          "palace": "父母",
+          "branch": "丑",
+          "category": "main",
+          "type": "main",
+          "brightness": "庙",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        },
+        {
+          "name": "七杀",
+          "palace": "父母",
+          "branch": "丑",
+          "category": "main",
+          "type": "main",
+          "brightness": "庙",
+          "sihua": null,
+          "isMain": true,
+          "source": "star_placement_rules",
+          "trace": {}
+        }
+      ],
+      "lucky_stars": [],
+      "sha_stars": [],
+      "za_stars": [],
+      "auxiliary_stars": [
+        {
+          "name": "寡宿",
+          "palace": "父母",
+          "branch": "丑",
+          "category": "auxiliary",
+          "source": "sanhe_traditional",
+          "trace": {
+            "engine": "auxiliary_star",
+            "rule_type": "branch_group",
+            "rule_expression": {
+              "by": "year_branch",
+              "mapping": {
+                "寅卯辰": "丑",
+                "巳午未": "辰",
+                "申酉戌": "未",
+                "亥子丑": "戌"
+              }
+            },
+            "source": "sanhe_traditional"
+          }
+        }
+      ],
+      "transformations": [],
+      "daxian": {
+        "palace": "父母",
+        "startAge": 12,
+        "endAge": 21
+      }
+    }
+  ],
+  "stars": {
+    "main": [
+      {
+        "name": "天机",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天梁",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": "科",
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天相",
+        "palace": "兄弟",
+        "branch": "亥",
+        "category": "main",
+        "type": "main",
+        "brightness": "得",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "太阳",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "main",
+        "type": "main",
+        "brightness": "不得",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "巨门",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "main",
+        "type": "main",
+        "brightness": "陷",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "武曲",
+        "palace": "子女",
+        "branch": "酉",
+        "category": "main",
+        "type": "main",
+        "brightness": "利",
+        "sihua": "禄",
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "贪狼",
+        "palace": "子女",
+        "branch": "酉",
+        "category": "main",
+        "type": "main",
+        "brightness": "利",
+        "sihua": "权",
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天同",
+        "palace": "财帛",
+        "branch": "申",
+        "category": "main",
+        "type": "main",
+        "brightness": "旺",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "太阴",
+        "palace": "财帛",
+        "branch": "申",
+        "category": "main",
+        "type": "main",
+        "brightness": "得",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天府",
+        "palace": "疾厄",
+        "branch": "未",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "廉贞",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "main",
+        "type": "main",
+        "brightness": "平",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "破军",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "main",
+        "type": "main",
+        "brightness": "平",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "紫微",
+        "palace": "父母",
+        "branch": "丑",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "七杀",
+        "palace": "父母",
+        "branch": "丑",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      }
+    ],
+    "lucky": [
+      {
+        "name": "右弼",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天魁",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "文昌",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天钺",
+        "palace": "财帛",
+        "branch": "申",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "文曲",
+        "palace": "官禄",
+        "branch": "辰",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": "忌",
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "左辅",
+        "palace": "福德",
+        "branch": "寅",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      }
+    ],
+    "lu_cun": [
+      {
+        "name": "禄存",
+        "palace": "迁移",
+        "branch": "午",
+        "category": "lucky",
+        "type": "lu_cun",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      }
+    ],
+    "sha": [
+      {
+        "name": "地空",
+        "palace": "兄弟",
+        "branch": "亥",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "地劫",
+        "palace": "兄弟",
+        "branch": "亥",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "铃星",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "火星",
+        "palace": "子女",
+        "branch": "酉",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "擎羊",
+        "palace": "疾厄",
+        "branch": "未",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "陀罗",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      }
+    ],
+    "za": [
+      {
+        "name": "天马",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "za",
+        "type": "za",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      }
+    ],
+    "auxiliary": [
+      {
+        "name": "红鸾",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_offset",
+          "rule_expression": {
+            "base_branch": "卯",
+            "direction": "backward",
+            "offset": 0,
+            "by": "year_branch"
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "天喜",
+        "palace": "迁移",
+        "branch": "午",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "opposite_branch",
+          "rule_expression": {
+            "base_star": "红鸾",
+            "offset": 6
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "天姚",
+        "palace": "兄弟",
+        "branch": "亥",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_offset",
+          "rule_expression": {
+            "base_branch": "丑",
+            "direction": "forward",
+            "offset": 0,
+            "by": "lunar_month"
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "天刑",
+        "palace": "迁移",
+        "branch": "午",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_offset",
+          "rule_expression": {
+            "base_branch": "酉",
+            "direction": "backward",
+            "offset": 0,
+            "by": "year_branch"
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "天虚",
+        "palace": "田宅",
+        "branch": "卯",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_offset",
+          "rule_expression": {
+            "base_branch": "午",
+            "direction": "backward",
+            "offset": 0,
+            "by": "year_branch"
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "天哭",
+        "palace": "子女",
+        "branch": "酉",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_offset",
+          "rule_expression": {
+            "base_branch": "午",
+            "direction": "forward",
+            "offset": 0,
+            "by": "year_branch"
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "孤辰",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_group",
+          "rule_expression": {
+            "by": "year_branch",
+            "mapping": {
+              "寅卯辰": "巳",
+              "巳午未": "申",
+              "申酉戌": "亥",
+              "亥子丑": "寅"
+            }
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "寡宿",
+        "palace": "父母",
+        "branch": "丑",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_group",
+          "rule_expression": {
+            "by": "year_branch",
+            "mapping": {
+              "寅卯辰": "丑",
+              "巳午未": "辰",
+              "申酉戌": "未",
+              "亥子丑": "戌"
+            }
+          },
+          "source": "sanhe_traditional"
+        }
+      },
+      {
+        "name": "华盖",
+        "palace": "疾厄",
+        "branch": "未",
+        "category": "auxiliary",
+        "source": "sanhe_traditional",
+        "trace": {
+          "engine": "auxiliary_star",
+          "rule_type": "branch_group",
+          "rule_expression": {
+            "by": "year_branch",
+            "mapping": {
+              "寅午戌": "戌",
+              "申子辰": "辰",
+              "巳酉丑": "丑",
+              "亥卯未": "未"
+            }
+          },
+          "source": "sanhe_traditional"
+        }
+      }
+    ],
+    "all": [
+      {
+        "name": "天机",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天梁",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": "科",
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "右弼",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天魁",
+        "palace": "命宫",
+        "branch": "子",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天相",
+        "palace": "兄弟",
+        "branch": "亥",
+        "category": "main",
+        "type": "main",
+        "brightness": "得",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "地空",
+        "palace": "兄弟",
+        "branch": "亥",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "地劫",
+        "palace": "兄弟",
+        "branch": "亥",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "太阳",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "main",
+        "type": "main",
+        "brightness": "不得",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "巨门",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "main",
+        "type": "main",
+        "brightness": "陷",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "文昌",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "铃星",
+        "palace": "夫妻",
+        "branch": "戌",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "武曲",
+        "palace": "子女",
+        "branch": "酉",
+        "category": "main",
+        "type": "main",
+        "brightness": "利",
+        "sihua": "禄",
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "贪狼",
+        "palace": "子女",
+        "branch": "酉",
+        "category": "main",
+        "type": "main",
+        "brightness": "利",
+        "sihua": "权",
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "火星",
+        "palace": "子女",
+        "branch": "酉",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天同",
+        "palace": "财帛",
+        "branch": "申",
+        "category": "main",
+        "type": "main",
+        "brightness": "旺",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "太阴",
+        "palace": "财帛",
+        "branch": "申",
+        "category": "main",
+        "type": "main",
+        "brightness": "得",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天钺",
+        "palace": "财帛",
+        "branch": "申",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天府",
+        "palace": "疾厄",
+        "branch": "未",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "擎羊",
+        "palace": "疾厄",
+        "branch": "未",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "禄存",
+        "palace": "迁移",
+        "branch": "午",
+        "category": "lucky",
+        "type": "lu_cun",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "廉贞",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "main",
+        "type": "main",
+        "brightness": "平",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "破军",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "main",
+        "type": "main",
+        "brightness": "平",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "陀罗",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "sha",
+        "type": "sha",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "天马",
+        "palace": "交友",
+        "branch": "巳",
+        "category": "za",
+        "type": "za",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "文曲",
+        "palace": "官禄",
+        "branch": "辰",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": "忌",
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "左辅",
+        "palace": "福德",
+        "branch": "寅",
+        "category": "lucky",
+        "type": "lucky",
+        "brightness": "",
+        "sihua": null,
+        "isMain": false,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "紫微",
+        "palace": "父母",
+        "branch": "丑",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      },
+      {
+        "name": "七杀",
+        "palace": "父母",
+        "branch": "丑",
+        "category": "main",
+        "type": "main",
+        "brightness": "庙",
+        "sihua": null,
+        "isMain": true,
+        "source": "star_placement_rules",
+        "trace": {}
+      }
+    ]
+  },
+  "four_transform": {
+    "yearStem": "己",
+    "lu": {
+      "star": "武曲",
+      "palace": "子女",
+      "type": "禄"
+    },
+    "quan": {
+      "star": "贪狼",
+      "palace": "子女",
+      "type": "权"
+    },
+    "ke": {
+      "star": "天梁",
+      "palace": "命宫",
+      "type": "科"
+    },
+    "ji": {
+      "star": "文曲",
+      "palace": "官禄",
+      "type": "忌"
+    }
+  },
+  "daxian_transform": {
+    "period": "22-31",
+    "stem": "丙",
+    "palace": "福德",
+    "year": 0,
+    "branch": "",
+    "lu": {
+      "star": "天同",
+      "palace": "财帛",
+      "type": "禄"
+    },
+    "quan": {
+      "star": "天机",
+      "palace": "命宫",
+      "type": "权"
+    },
+    "ke": {
+      "star": "文昌",
+      "palace": "夫妻",
+      "type": "科"
+    },
+    "ji": {
+      "star": "廉贞",
+      "palace": "交友",
+      "type": "忌"
+    },
+    "source": "four_transform_rules",
+    "trace": {
+      "engine": "daxian_transform",
+      "source": "four_transform_rules",
+      "stem": "丙",
+      "palace": "福德",
+      "period": "22-31",
+      "gender": "male",
+      "year_stem": "己",
+      "virtual_age": 26
+    }
+  },
+  "brightness": {
+    "天机": "庙",
+    "天梁": "庙",
+    "天相": "得",
+    "太阳": "不得",
+    "巨门": "陷",
+    "武曲": "利",
+    "贪狼": "利",
+    "天同": "旺",
+    "太阴": "得",
+    "天府": "庙",
+    "廉贞": "平",
+    "破军": "平",
+    "紫微": "庙",
+    "七杀": "庙"
+  },
+  "sanhe": {
+    "命宫": [
+      "财帛",
+      "官禄"
+    ],
+    "兄弟": [
+      "疾厄",
+      "田宅"
+    ],
+    "夫妻": [
+      "迁移",
+      "福德"
+    ],
+    "子女": [
+      "交友",
+      "父母"
+    ],
+    "财帛": [
+      "命宫",
+      "官禄"
+    ],
+    "疾厄": [
+      "兄弟",
+      "田宅"
+    ],
+    "迁移": [
+      "夫妻",
+      "福德"
+    ],
+    "交友": [
+      "子女",
+      "父母"
+    ],
+    "官禄": [
+      "命宫",
+      "财帛"
+    ],
+    "田宅": [
+      "兄弟",
+      "疾厄"
+    ],
+    "福德": [
+      "夫妻",
+      "迁移"
+    ],
+    "父母": [
+      "子女",
+      "交友"
+    ]
+  },
+  "opposite": {
+    "命宫": "迁移",
+    "兄弟": "交友",
+    "夫妻": "官禄",
+    "子女": "田宅",
+    "财帛": "福德",
+    "疾厄": "父母",
+    "迁移": "命宫",
+    "交友": "兄弟",
+    "官禄": "夫妻",
+    "田宅": "子女",
+    "福德": "财帛",
+    "父母": "疾厄"
+  },
+  "daxian": {
+    "direction": "backward",
+    "ranges": [
+      {
+        "palace": "命宫",
+        "startAge": 2,
+        "endAge": 11
+      },
+      {
+        "palace": "兄弟",
+        "startAge": 112,
+        "endAge": 121
+      },
+      {
+        "palace": "夫妻",
+        "startAge": 102,
+        "endAge": 111
+      },
+      {
+        "palace": "子女",
+        "startAge": 92,
+        "endAge": 101
+      },
+      {
+        "palace": "财帛",
+        "startAge": 82,
+        "endAge": 91
+      },
+      {
+        "palace": "疾厄",
+        "startAge": 72,
+        "endAge": 81
+      },
+      {
+        "palace": "迁移",
+        "startAge": 62,
+        "endAge": 71
+      },
+      {
+        "palace": "交友",
+        "startAge": 52,
+        "endAge": 61
+      },
+      {
+        "palace": "官禄",
+        "startAge": 42,
+        "endAge": 51
+      },
+      {
+        "palace": "田宅",
+        "startAge": 32,
+        "endAge": 41
+      },
+      {
+        "palace": "福德",
+        "startAge": 22,
+        "endAge": 31
+      },
+      {
+        "palace": "父母",
+        "startAge": 12,
+        "endAge": 21
+      }
+    ]
+  },
+  "liunian": {
+    "year": 2026,
+    "branch": "午",
+    "palace": "迁移",
+    "annual_transform": {
+      "period": "",
+      "stem": "丙",
+      "palace": "",
+      "year": 2026,
+      "branch": "午",
+      "lu": {
+        "star": "天同",
+        "palace": "财帛",
+        "type": "禄"
+      },
+      "quan": {
+        "star": "天机",
+        "palace": "命宫",
+        "type": "权"
+      },
+      "ke": {
+        "star": "文昌",
+        "palace": "夫妻",
+        "type": "科"
+      },
+      "ji": {
+        "star": "廉贞",
+        "palace": "交友",
+        "type": "忌"
+      },
+      "source": "four_transform_rules",
+      "trace": {
+        "engine": "annual_transform",
+        "source": "four_transform_rules",
+        "year": 2026,
+        "stem": "丙",
+        "branch": "午"
+      }
+    }
+  },
+  "xiaoxian": {
+    "enabled": true,
+    "current_age": 27,
+    "current_palace": "福德",
+    "current_branch": "寅",
+    "direction": "backward",
+    "yearly_cycle": [
+      {
+        "age": 1,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 2,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 3,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 4,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 5,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 6,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 7,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 8,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 9,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 10,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 11,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 12,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 13,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 14,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 15,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 16,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 17,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 18,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 19,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 20,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 21,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 22,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 23,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 24,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 25,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 26,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 27,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 28,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 29,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 30,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 31,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 32,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 33,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 34,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 35,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 36,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 37,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 38,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 39,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 40,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 41,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 42,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 43,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 44,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 45,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 46,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 47,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 48,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 49,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 50,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 51,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 52,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 53,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 54,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 55,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 56,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 57,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 58,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 59,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 60,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 61,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 62,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 63,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 64,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 65,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 66,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 67,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 68,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 69,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 70,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 71,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 72,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 73,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 74,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 75,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 76,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 77,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 78,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 79,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 80,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 81,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 82,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 83,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 84,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 85,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 86,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 87,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 88,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 89,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 90,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 91,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 92,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 93,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 94,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 95,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 96,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 97,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 98,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 99,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 100,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 101,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 102,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 103,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 104,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 105,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 106,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 107,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 108,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 109,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 110,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 111,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 112,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 113,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 114,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 115,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 116,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 117,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 118,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 119,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 120,
+        "palace": "兄弟",
+        "branch": "亥"
+      }
+    ],
+    "ranges": [
+      {
+        "age": 1,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 2,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 3,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 4,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 5,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 6,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 7,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 8,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 9,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 10,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 11,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 12,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 13,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 14,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 15,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 16,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 17,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 18,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 19,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 20,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 21,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 22,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 23,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 24,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 25,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 26,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 27,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 28,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 29,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 30,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 31,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 32,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 33,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 34,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 35,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 36,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 37,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 38,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 39,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 40,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 41,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 42,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 43,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 44,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 45,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 46,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 47,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 48,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 49,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 50,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 51,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 52,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 53,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 54,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 55,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 56,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 57,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 58,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 59,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 60,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 61,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 62,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 63,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 64,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 65,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 66,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 67,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 68,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 69,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 70,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 71,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 72,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 73,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 74,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 75,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 76,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 77,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 78,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 79,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 80,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 81,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 82,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 83,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 84,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 85,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 86,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 87,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 88,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 89,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 90,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 91,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 92,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 93,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 94,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 95,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 96,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 97,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 98,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 99,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 100,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 101,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 102,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 103,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 104,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 105,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 106,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 107,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 108,
+        "palace": "兄弟",
+        "branch": "亥"
+      },
+      {
+        "age": 109,
+        "palace": "命宫",
+        "branch": "子"
+      },
+      {
+        "age": 110,
+        "palace": "父母",
+        "branch": "丑"
+      },
+      {
+        "age": 111,
+        "palace": "福德",
+        "branch": "寅"
+      },
+      {
+        "age": 112,
+        "palace": "田宅",
+        "branch": "卯"
+      },
+      {
+        "age": 113,
+        "palace": "官禄",
+        "branch": "辰"
+      },
+      {
+        "age": 114,
+        "palace": "交友",
+        "branch": "巳"
+      },
+      {
+        "age": 115,
+        "palace": "迁移",
+        "branch": "午"
+      },
+      {
+        "age": 116,
+        "palace": "疾厄",
+        "branch": "未"
+      },
+      {
+        "age": 117,
+        "palace": "财帛",
+        "branch": "申"
+      },
+      {
+        "age": 118,
+        "palace": "子女",
+        "branch": "酉"
+      },
+      {
+        "age": 119,
+        "palace": "夫妻",
+        "branch": "戌"
+      },
+      {
+        "age": 120,
+        "palace": "兄弟",
+        "branch": "亥"
+      }
+    ],
+    "trace": {
+      "engine": "xiaoxian",
+      "source": "daxian_rules",
+      "rule": "阳男阴女顺，阴男阳女逆；命宫起 1 岁",
+      "ming_palace": "命宫",
+      "gender": "male",
+      "year_stem": "己"
+    }
+  },
+  "trace": {
+    "traceId": "e9799554-39e4-4d63-a2b7-c285ba7602c9",
+    "steps": [
+      {
+        "engine": "calendar",
+        "output": {
+          "yearGanzhi": "己卯"
+        }
+      },
+      {
+        "engine": "palace",
+        "output": {
+          "mingGong": "子",
+          "shenGong": "子"
+        }
+      },
+      {
+        "engine": "star_placement",
+        "output": {
+          "mainStarCount": 14
+        }
+      },
+      {
+        "engine": "auxiliary_star",
+        "output": {
+          "count": 9
+        }
+      },
+      {
+        "engine": "four_transform",
+        "output": {
+          "yearStem": "己"
+        }
+      },
+      {
+        "engine": "xiaoxian",
+        "output": {
+          "engine": "xiaoxian",
+          "source": "daxian_rules",
+          "rule": "阳男阴女顺，阴男阳女逆；命宫起 1 岁",
+          "ming_palace": "命宫",
+          "gender": "male",
+          "year_stem": "己"
+        }
+      },
+      {
+        "engine": "daxian_transform",
+        "output": {
+          "engine": "daxian_transform",
+          "source": "four_transform_rules",
+          "stem": "丙",
+          "palace": "福德",
+          "period": "22-31",
+          "gender": "male",
+          "year_stem": "己",
+          "virtual_age": 26
+        }
+      },
+      {
+        "engine": "annual_transform",
+        "output": {
+          "engine": "annual_transform",
+          "source": "four_transform_rules",
+          "year": 2026,
+          "stem": "丙",
+          "branch": "午"
+        }
+      }
+    ],
+    "rulesVersion": "2026.07.22",
+    "source": "chart_builder"
+  },
+  "warnings": [],
+  "engine_version": "1.2",
+  "rules_version": "2026.07.22",
+  "school": "sanhe"
+}

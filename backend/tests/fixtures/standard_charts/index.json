@@ -1,0 +1,17 @@
+{
+  "version": "2026.07.23",
+  "school": "sanhe",
+  "purpose": "Ziwei Core Engine regression fixtures — Audit V1.0",
+  "charts": [
+    { "id": "SC-01", "file": "SC-01.json", "level": "full", "description": "基准男盘 — 1990-05-15 14:30 深圳（真太阳时）" },
+    { "id": "SC-02", "file": "SC-02.json", "level": "partial", "description": "立春边界 — 1984-02-04 08:00 女" },
+    { "id": "SC-03", "file": "SC-03.json", "level": "partial", "description": "立春前晚子时 — 1984-02-03 23:30 男" },
+    { "id": "SC-04", "file": "SC-04.json", "level": "partial", "description": "正月卯时女盘 — 1985-03-08 06:00" },
+    { "id": "SC-05", "file": "SC-05.json", "level": "partial", "description": "五月初巳时男盘 — 1992-06-15 10:00" },
+    { "id": "SC-06", "file": "SC-06.json", "level": "partial", "description": "千禧日子时 — 2000-01-01 00:00 男" },
+    { "id": "SC-07", "file": "SC-07.json", "level": "partial", "description": "同 SC-04 男盘 — 大限逆排对照" },
+    { "id": "SC-08", "file": "SC-08.json", "level": "pending_stars", "description": "夏令日午时 — 1988-07-15 12:30 女" },
+    { "id": "SC-09", "file": "SC-09.json", "level": "pending_stars", "description": "秋冬申时 — 1978-11-23 16:00 男" },
+    { "id": "SC-10", "file": "SC-10.json", "level": "pending_stars", "description": "戌时女盘 — 1996-04-08 20:00 女" }
+  ]
+}

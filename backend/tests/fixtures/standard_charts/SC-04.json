@@ -1,0 +1,22 @@
+{
+  "id": "SC-04",
+  "description": "正月卯时女盘 — 1985-03-08 06:00",
+  "level": "partial",
+  "input": {
+    "name": "正月女盘",
+    "gender": "female",
+    "date": "1985-03-08",
+    "time": "06:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {
+    "mingGong": "亥",
+    "shenGong": "巳",
+    "wuxingJu": "土五局",
+    "mingGongGanZhi": "丁亥",
+    "mingZhu": "巨门",
+    "shenZhu": "天梁",
+    "palaceBranches": ["亥", "戌", "酉", "申", "未", "午", "巳", "辰", "卯", "寅", "丑", "子"],
+    "daxianDirection": "forward"
+  }
+}

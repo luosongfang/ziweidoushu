@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 from typing import Any
 
 from sqlalchemy import select
@@ -68,21 +69,29 @@ _REFLECTION: dict[str, list[str]] = {
 }
 
 
+@lru_cache(maxsize=32)
+def _cached_life_scenario(scenario_name: str) -> dict[str, Any] | None:
+    db = SessionLocal()
+    try:
+        row = db.scalar(
+            select(LifeScenarioModel).where(LifeScenarioModel.scenario_name == scenario_name)
+        )
+        return _row_to_dict(row) if row else None
+    finally:
+        db.close()
+
+
 class LifeAdvisorEngine:
     """把紫微分析转换为人生建议（非宿命判决）。"""
 
     @classmethod
     def get_scenario(cls, scenario_name: str, db: Session | None = None) -> dict[str, Any] | None:
-        own = db is None
-        db = db or SessionLocal()
-        try:
+        if db is not None:
             row = db.scalar(
                 select(LifeScenarioModel).where(LifeScenarioModel.scenario_name == scenario_name)
             )
             return _row_to_dict(row) if row else None
-        finally:
-            if own:
-                db.close()
+        return _cached_life_scenario(scenario_name)
 
     @classmethod
     def resolve_scenario(cls, question_type: str) -> dict[str, Any]:

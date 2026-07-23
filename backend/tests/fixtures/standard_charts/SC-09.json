@@ -1,0 +1,14 @@
+{
+  "id": "SC-09",
+  "description": "秋冬申时 — 1978-11-23 16:00 男",
+  "level": "pending_stars",
+  "input": {
+    "name": "秋冬申时男盘",
+    "gender": "male",
+    "date": "1978-11-23",
+    "time": "16:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "expected": {},
+  "notes": "修复阶段运行 ChartGenerator 快照后补全期望字段。"
+}

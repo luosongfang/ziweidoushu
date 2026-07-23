@@ -95,8 +95,14 @@ class PalaceEngine:
     @staticmethod
     def _sanhe_palace_names(branch: str, branch_to_palace: dict[str, str]) -> list[str]:
         group = BRANCH_SANHE[branch]
-        names = [branch_to_palace[b] for b in group if b in branch_to_palace]
-        return [n for n in names if branch_to_palace.get(branch) != n or len(names) <= 1][:2]
+        self_palace = branch_to_palace.get(branch)
+        names = [
+            branch_to_palace[b]
+            for b in group
+            if b in branch_to_palace and branch_to_palace[b] != self_palace
+        ]
+        order = {name: i for i, name in enumerate(PALACE_NAMES)}
+        return sorted(names, key=lambda n: order.get(n, 99))[:2]
 
     @classmethod
     def build_twelve_palaces(

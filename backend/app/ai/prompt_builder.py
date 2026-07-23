@@ -85,3 +85,108 @@ class PromptBuilder:
 
         lines.append("\n请输出结构化 Markdown 解读。")
         return "\n".join(lines)
+
+
+KNOWLEDGE_CORE_SYSTEM_PROMPT = """你是一名东方人生规划 AI 助手。
+
+你必须严格基于「Ziwei Knowledge Core」提供的数据进行分析，不得自行编造紫微解释。
+
+定位：
+传统文化分析参考 + 自我认知工具 + 人生规划辅助。
+不是算命，不做绝对预测。
+
+禁止：一定、必然、注定、百分百、灾难恐吓、疾病诊断、死亡预测、财富保证。
+请使用：倾向、可能、优势、建议。
+
+请只输出一个 JSON 对象（不要 Markdown 代码块），字段如下：
+{
+  "summary": "核心观察",
+  "traditional_view": "传统紫微理论解释（仅基于给定知识）",
+  "strengths": ["优势"],
+  "challenges": ["需要注意"],
+  "suggestions": ["成长建议"],
+  "risk_warning": "风险提示",
+  "disclaimer": "本分析基于传统文化理论，仅作为自我认知和人生规划参考，不代表确定预测"
+}
+"""
+
+
+class KnowledgeCorePromptBuilder:
+    """Knowledge Core V1.0 Prompt 构建器。"""
+
+    @classmethod
+    def build(cls, question: str, context: dict[str, Any]) -> list[dict[str, str]]:
+        return [
+            {"role": "system", "content": KNOWLEDGE_CORE_SYSTEM_PROMPT},
+            {"role": "user", "content": cls._user_prompt(question, context)},
+        ]
+
+    @classmethod
+    def _user_prompt(cls, question: str, context: dict[str, Any]) -> str:
+        import json
+
+        payload = {
+            "question": question,
+            "question_type": context.get("question_type"),
+            "question_model": {
+                "analysis_logic": (context.get("question_model") or {}).get("analysis_logic"),
+                "safety_notice": (context.get("question_model") or {}).get("safety_notice"),
+                "required_palaces": context.get("required_palaces"),
+            },
+            "chart_stars": context.get("chart_stars"),
+            "stars_knowledge": [
+                {
+                    "star_name": s.get("star_name"),
+                    "basic_meaning": s.get("basic_meaning"),
+                    "traditional_description": s.get("traditional_description"),
+                    "personality_positive": s.get("personality_positive"),
+                    "personality_challenge": s.get("personality_challenge"),
+                    "career_strength": s.get("career_strength"),
+                    "growth_advice": s.get("growth_advice"),
+                    "ai_prompt": s.get("ai_prompt"),
+                }
+                for s in (context.get("stars") or [])
+            ],
+            "palace_knowledge": [
+                {
+                    "palace_name": p.get("palace_name"),
+                    "basic_meaning": p.get("basic_meaning"),
+                    "positive_expression": p.get("positive_expression"),
+                    "challenge_expression": p.get("challenge_expression"),
+                    "development_direction": p.get("development_direction"),
+                    "ai_prompt": p.get("ai_prompt"),
+                }
+                for p in (context.get("palaces") or [])
+            ],
+            "patterns": [
+                {
+                    "pattern_name": p.get("pattern_name"),
+                    "traditional_meaning": p.get("traditional_meaning"),
+                    "advantages": p.get("advantages"),
+                    "challenges": p.get("challenges"),
+                    "career_analysis": p.get("career_analysis"),
+                    "growth_advice": p.get("growth_advice"),
+                    "ai_prompt": p.get("ai_prompt"),
+                }
+                for p in (context.get("patterns") or [])
+            ],
+            "theory": [
+                {
+                    "topic": t.get("topic"),
+                    "summary": t.get("summary"),
+                    "content": t.get("content"),
+                }
+                for t in (context.get("theory") or [])[:5]
+            ],
+            "safety_rules": [
+                {
+                    "forbidden_expression": r.get("forbidden_expression"),
+                    "safe_expression": r.get("safe_expression"),
+                }
+                for r in (context.get("safety_rules") or [])
+            ],
+        }
+        return (
+            "请仅基于下列 Knowledge Core JSON 回答用户问题，不得添加未提供的紫微结论：\n"
+            + json.dumps(payload, ensure_ascii=False)
+        )

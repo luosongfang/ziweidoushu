@@ -1,0 +1,104 @@
+{
+  "books": 16,
+  "pages": 3218,
+  "characters": 1714656,
+  "output_dir": "E:\\ziweixai\\knowledge\\books\\extracted_text",
+  "books_detail": [
+    {
+      "book_name": "⑨、紫微斗数全书【完整版】",
+      "file_name": "⑨、紫微斗数全书【完整版】.pdf",
+      "pages": 141,
+      "characters": 69796
+    },
+    {
+      "book_name": "天纪--紫微斗数",
+      "file_name": "天纪--紫微斗数.pdf",
+      "pages": 84,
+      "characters": 34156
+    },
+    {
+      "book_name": "紫微",
+      "file_name": "紫微.pdf",
+      "pages": 10,
+      "characters": 16764
+    },
+    {
+      "book_name": "紫微斗数 张开卷",
+      "file_name": "紫微斗数 张开卷.pdf",
+      "pages": 96,
+      "characters": 0
+    },
+    {
+      "book_name": "紫微斗数 涂曾生",
+      "file_name": "紫微斗数 涂曾生.pdf",
+      "pages": 182,
+      "characters": 0
+    },
+    {
+      "book_name": "紫微斗数 股票预测",
+      "file_name": "紫微斗数 股票预测.pdf",
+      "pages": 161,
+      "characters": 0
+    },
+    {
+      "book_name": "紫微斗数 蔡明宏",
+      "file_name": "紫微斗数 蔡明宏.pdf",
+      "pages": 608,
+      "characters": 0
+    },
+    {
+      "book_name": "紫微斗数-结构与概念班讲义",
+      "file_name": "紫微斗数-结构与概念班讲义.pdf",
+      "pages": 67,
+      "characters": 37902
+    },
+    {
+      "book_name": "紫微斗数内部讲义",
+      "file_name": "紫微斗数内部讲义.pdf",
+      "pages": 43,
+      "characters": 41408
+    },
+    {
+      "book_name": "紫微斗数原理与宫位说明",
+      "file_name": "紫微斗数原理与宫位说明.pdf",
+      "pages": 165,
+      "characters": 47779
+    },
+    {
+      "book_name": "紫微斗数命理学",
+      "file_name": "紫微斗数命理学.pdf",
+      "pages": 437,
+      "characters": 318429
+    },
+    {
+      "book_name": "紫微斗数精成",
+      "file_name": "紫微斗数精成.pdf",
+      "pages": 704,
+      "characters": 686791
+    },
+    {
+      "book_name": "紫微斗数集成全书",
+      "file_name": "紫微斗数集成全书.pdf",
+      "pages": 30,
+      "characters": 65753
+    },
+    {
+      "book_name": "紫微斗數南北派斷訣 (朱雲山)",
+      "file_name": "紫微斗數南北派斷訣 (朱雲山).pdf",
+      "pages": 138,
+      "characters": 135325
+    },
+    {
+      "book_name": "钦天四化紫微斗数命理学",
+      "file_name": "钦天四化紫微斗数命理学.pdf",
+      "pages": 55,
+      "characters": 41768
+    },
+    {
+      "book_name": "陆斌兆紫微斗数斗数讲义评注",
+      "file_name": "陆斌兆紫微斗数斗数讲义评注.pdf",
+      "pages": 297,
+      "characters": 218785
+    }
+  ]
+}

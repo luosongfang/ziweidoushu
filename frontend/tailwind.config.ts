@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+/** Ziwei AI V1.0 — 深蓝 / 米白 / 金色 · 东方智慧 + 现代 AI */
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,40 +10,52 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: {
-          DEFAULT: "#050508",
-          50: "#0a0a12",
-          100: "#0f0f1a",
-          200: "#141422",
+        ink: {
+          DEFAULT: "#0D1B2A",
+          soft: "#1B263B",
+          mid: "#415A77",
         },
-        purple: {
-          glow: "#8b5cf6",
-          deep: "#4c1d95",
-          mist: "#a78bfa",
+        paper: {
+          DEFAULT: "#E0E1DD",
+          soft: "#F4F5F2",
+          muted: "#C5C7C0",
         },
         gold: {
-          DEFAULT: "#d4a853",
-          light: "#f0d78c",
-          dark: "#b8860b",
+          DEFAULT: "#C9A227",
+          light: "#E4C65A",
+          dark: "#A6841A",
+        },
+        // legacy aliases during migration
+        void: {
+          DEFAULT: "#0D1B2A",
+          50: "#122033",
+          100: "#1B263B",
+          200: "#243447",
+        },
+        purple: {
+          glow: "#415A77",
+          deep: "#1B263B",
+          mist: "#8FA3B8",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-noto)", "var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "hero-glow":
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139,92,246,0.25), transparent)",
+          "radial-gradient(ellipse 70% 55% at 70% 20%, rgba(201,162,39,0.14), transparent 60%)",
+        "page-glow":
+          "radial-gradient(ellipse 80% 40% at 50% -10%, rgba(65,90,119,0.35), transparent)",
         "gold-shimmer":
-          "linear-gradient(135deg, #d4a853 0%, #f0d78c 50%, #b8860b 100%)",
+          "linear-gradient(135deg, #A6841A 0%, #C9A227 45%, #E4C65A 100%)",
       },
       animation: {
-        "fade-in": "fadeIn 0.8s ease-out forwards",
+        "fade-in": "fadeIn 0.7s ease-out forwards",
         "fade-in-up": "fadeInUp 0.8s ease-out forwards",
-        float: "float 6s ease-in-out infinite",
-        twinkle: "twinkle 3s ease-in-out infinite",
-        "pulse-glow": "pulseGlow 4s ease-in-out infinite",
+        float: "float 7s ease-in-out infinite",
+        "pulse-soft": "pulseSoft 5s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -50,26 +63,22 @@ const config: Config = {
           "100%": { opacity: "1" },
         },
         fadeInUp: {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-12px)" },
+          "50%": { transform: "translateY(-10px)" },
         },
-        twinkle: {
-          "0%, 100%": { opacity: "0.3" },
-          "50%": { opacity: "1" },
-        },
-        pulseGlow: {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
+        pulseSoft: {
+          "0%, 100%": { opacity: "0.45" },
+          "50%": { opacity: "0.85" },
         },
       },
       boxShadow: {
-        glow: "0 0 40px rgba(139, 92, 246, 0.3)",
-        "glow-gold": "0 0 30px rgba(212, 168, 83, 0.4)",
-        glass: "0 8px 32px rgba(0, 0, 0, 0.4)",
+        soft: "0 12px 40px rgba(13, 27, 42, 0.35)",
+        gold: "0 8px 28px rgba(201, 162, 39, 0.28)",
+        panel: "0 1px 0 rgba(224,225,221,0.06) inset, 0 16px 48px rgba(0,0,0,0.28)",
       },
     },
   },

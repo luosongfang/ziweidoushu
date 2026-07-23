@@ -14,9 +14,14 @@ sqlalchemy>=2.0.0
 psycopg2-binary>=2.9.9
 alembic>=1.13.0
 
-# AI / RAG（阶段 4 启用）
-# openai>=1.12.0
+# AI / RAG
+openai>=1.12.0
 # langchain>=0.1.0
+
+# PDF knowledge acquisition (raw extract only)
+pymupdf>=1.24.0
+pdfplumber>=0.11.0
+# paddleocr  # OCR 预留，扫描件阶段再启用
 
 # 测试
 pytest>=8.0.0

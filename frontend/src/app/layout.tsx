@@ -1,28 +1,30 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_SC } from "next/font/google";
+import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
+import { SITE } from "@/lib/constants";
 
-const inter = Inter({
+const sans = Noto_Sans_SC({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
   display: "swap",
 });
 
-const notoSansSC = Noto_Sans_SC({
+const display = Noto_Serif_SC({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-noto",
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "AI紫微 - 东方智慧AI分析平台",
-  description: "智能紫微斗数排盘与人生趋势分析",
-  keywords: ["紫微斗数", "AI", "命盘", "人生规划", "东方智慧"],
+  title: `${SITE.name} · ${SITE.positioning}`,
+  description: SITE.subtitle,
+  keywords: ["紫微斗数", "传统文化", "人生规划", "自我认知", "AI导师"],
   openGraph: {
-    title: "AI紫微 - 东方智慧AI分析平台",
-    description: "智能紫微斗数排盘与人生趋势分析",
+    title: `${SITE.name} · ${SITE.tagline}`,
+    description: SITE.subtitle,
     locale: "zh_CN",
     type: "website",
   },
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-CN" className={`${inter.variable} ${notoSansSC.variable}`}>
+    <html lang="zh-CN" className={`${sans.variable} ${display.variable}`}>
       <body className="font-sans">
         <Providers>{children}</Providers>
       </body>

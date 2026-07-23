@@ -35,10 +35,6 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim()) {
-      setError("请输入姓名");
-      return;
-    }
     if (form.calendarType === "lunar") {
       setError("农历输入即将上线，请暂时使用公历日期");
       return;
@@ -48,7 +44,7 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
     setError(null);
     try {
       const data = await createChart({
-        name: form.name.trim(),
+        name: form.name.trim() || "访客",
         gender: form.gender,
         solar_date: form.date,
         time: form.time,
@@ -64,10 +60,12 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
   };
 
   return (
-    <Card className="mx-auto max-w-lg border-purple-glow/20">
+    <Card className="mx-auto max-w-lg border-paper/10 bg-ink-soft/80">
       <CardHeader>
-        <CardTitle className="text-gradient-gold">出生信息</CardTitle>
-        <CardDescription>填写资料后，将调用 Phase 2 排盘引擎实时计算命盘</CardDescription>
+        <CardTitle className="text-gold-light">出生信息</CardTitle>
+        <CardDescription className="text-paper/45">
+          姓名可选。日期、时间、地点与性别用于生成基础命盘结构。
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -81,8 +79,8 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
                 className={cn(
                   "flex-1 rounded-lg py-2 text-sm transition-all",
                   form.calendarType === type
-                    ? "bg-purple-glow/30 text-white"
-                    : "text-white/40 hover:text-white/70",
+                    ? "bg-gold/20 text-gold-light"
+                    : "text-paper/40 hover:text-paper/70",
                 )}
               >
                 {type === "solar" ? "公历" : "农历"}
@@ -177,7 +175,7 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
                 正在排盘…
               </>
             ) : (
-              "生成紫微命盘"
+              "生成我的命盘"
             )}
           </Button>
         </form>

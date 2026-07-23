@@ -7,51 +7,26 @@ interface LogoProps {
 }
 
 const sizeMap = {
-  sm: { icon: "h-7 w-7", title: "text-base", sub: "text-[10px]" },
-  md: { icon: "h-9 w-9", title: "text-lg", sub: "text-xs" },
-  lg: { icon: "h-12 w-12", title: "text-2xl", sub: "text-sm" },
+  sm: { mark: "h-8 w-8 text-sm", title: "text-base" },
+  md: { mark: "h-10 w-10 text-base", title: "text-lg" },
+  lg: { mark: "h-12 w-12 text-lg", title: "text-2xl" },
 };
 
-export default function Logo({ size = "md", showSubtitle = true }: LogoProps) {
+export default function Logo({ size = "md", showSubtitle = false }: LogoProps) {
   const s = sizeMap[size];
-
   return (
     <Link href="/" className="group flex items-center gap-3">
-      {/* 星象 Logo 图标 */}
       <div
-        className={`${s.icon} relative flex shrink-0 items-center justify-center rounded-xl border border-gold/30 bg-gradient-to-br from-purple-deep/60 to-void-100 shadow-glow-gold transition-transform duration-300 group-hover:scale-105`}
+        className={`${s.mark} flex items-center justify-center rounded-full border border-gold/40 bg-ink-soft font-display font-semibold text-gold transition group-hover:border-gold`}
       >
-        <svg
-          viewBox="0 0 32 32"
-          fill="none"
-          className="h-[55%] w-[55%]"
-          aria-hidden
-        >
-          <polygon
-            points="16,4 19,13 28,13 21,19 24,28 16,22 8,28 11,19 4,13 13,13"
-            fill="url(#goldGrad)"
-            stroke="#f0d78c"
-            strokeWidth="0.5"
-          />
-          <circle cx="16" cy="16" r="3" fill="#8b5cf6" opacity="0.8" />
-          <defs>
-            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f0d78c" />
-              <stop offset="100%" stopColor="#b8860b" />
-            </linearGradient>
-          </defs>
-        </svg>
+        紫
       </div>
-
-      <div className="flex flex-col">
-        <span className={`${s.title} font-display font-semibold tracking-wide text-white`}>
+      <div>
+        <div className={`${s.title} font-display font-semibold tracking-wide text-paper`}>
           {SITE.name}
-          <span className="ml-1.5 text-gradient-gold">2.0</span>
-        </span>
+        </div>
         {showSubtitle && (
-          <span className={`${s.sub} tracking-[0.2em] text-white/40 uppercase`}>
-            {SITE.nameEn}
-          </span>
+          <div className="text-[11px] tracking-wider text-ink-mid">{SITE.positioning}</div>
         )}
       </div>
     </Link>

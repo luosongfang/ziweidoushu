@@ -39,6 +39,17 @@ class Settings(BaseSettings):
     openai_base_url: str = "https://api.openai.com/v1"
     openai_model: str = "gpt-4o-mini"
 
+    # SiliconFlow（OpenAI 兼容）— AI 测试入口专用
+    siliconflow_api_key: str = Field(default="", validation_alias="SILICONFLOW_API_KEY")
+    siliconflow_base_url: str = Field(
+        default="https://api.siliconflow.cn/v1",
+        validation_alias="SILICONFLOW_BASE_URL",
+    )
+    ai_model: str = Field(
+        default="deepseek-ai/DeepSeek-V3",
+        validation_alias="AI_MODEL",
+    )
+
     model_config = SettingsConfigDict(
         env_file=str(_BACKEND_ROOT / ".env"),
         env_file_encoding="utf-8",

@@ -72,8 +72,8 @@ CREATE TABLE IF NOT EXISTS public.star_placement_rules (
     star_name           TEXT NOT NULL,
     base_star           TEXT NOT NULL DEFAULT '',
     direction           TEXT NOT NULL,
-    offset              INTEGER NOT NULL DEFAULT 0,
-    condition           JSONB NOT NULL DEFAULT '{}',
+    "offset"            INTEGER NOT NULL DEFAULT 0,
+    "condition"         JSONB NOT NULL DEFAULT '{}',
     school              TEXT NOT NULL DEFAULT 'sanhe',
     version             TEXT NOT NULL DEFAULT '2026.07.22'
 );

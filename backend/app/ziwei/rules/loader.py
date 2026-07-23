@@ -54,7 +54,13 @@ class RulesLoader:
     def get_nayin(cls, heavenly_stem: str, earthly_branch: str) -> NayinRule:
         for row in cls._cache()["nayin_rules"]:
             if row["heavenly_stem"] == heavenly_stem and row["earthly_branch"] == earthly_branch:
-                return NayinRule(**row)
+                return NayinRule(
+                    heavenly_stem=row["heavenly_stem"],
+                    earthly_branch=row["earthly_branch"],
+                    nayin=row["nayin"],
+                    element=row["element"],
+                    bureau_number=row["bureau_number"],
+                )
         raise RuleNotFoundError(f"纳音规则未找到：{heavenly_stem}{earthly_branch}")
 
     @classmethod

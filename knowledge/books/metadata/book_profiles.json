@@ -1,0 +1,237 @@
+[
+  {
+    "book_name": "⑨、紫微斗数全书【完整版】",
+    "book_type": "classic_formula",
+    "authority_level": 5,
+    "main_topics": [
+      "星曜",
+      "宫位",
+      "格局",
+      "基础"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality",
+      "life_stage"
+    ],
+    "description": "经典总论/汇编，适合基础与综合查阅"
+  },
+  {
+    "book_name": "天纪--紫微斗数",
+    "book_type": "star_theory",
+    "authority_level": 4,
+    "main_topics": [
+      "星曜",
+      "命理"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality",
+      "life_stage"
+    ],
+    "description": "星曜命理深化资料"
+  },
+  {
+    "book_name": "紫微",
+    "book_type": "classic_formula",
+    "authority_level": 3,
+    "main_topics": [
+      "综合"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality"
+    ],
+    "description": "紫微经典资料画像（自动生成）"
+  },
+  {
+    "book_name": "紫微斗数-结构与概念班讲义",
+    "book_type": "foundation",
+    "authority_level": 4,
+    "main_topics": [
+      "结构",
+      "概念",
+      "基础"
+    ],
+    "suitable_questions": [
+      "personality",
+      "study",
+      "career"
+    ],
+    "description": "结构概念与教学讲义"
+  },
+  {
+    "book_name": "紫微斗数 张开卷",
+    "book_type": "classic_formula",
+    "authority_level": 3,
+    "main_topics": [
+      "综合"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality"
+    ],
+    "description": "紫微经典资料画像（自动生成）"
+  },
+  {
+    "book_name": "紫微斗数 涂曾生",
+    "book_type": "classic_formula",
+    "authority_level": 3,
+    "main_topics": [
+      "综合"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality"
+    ],
+    "description": "紫微经典资料画像（自动生成）"
+  },
+  {
+    "book_name": "紫微斗数 股票预测",
+    "book_type": "modern_analysis",
+    "authority_level": 2,
+    "main_topics": [
+      "财富",
+      "现代应用"
+    ],
+    "suitable_questions": [
+      "wealth"
+    ],
+    "description": "现代应用向资料，仅作文化参考"
+  },
+  {
+    "book_name": "紫微斗数 蔡明宏",
+    "book_type": "classic_formula",
+    "authority_level": 3,
+    "main_topics": [
+      "综合"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality"
+    ],
+    "description": "紫微经典资料画像（自动生成）"
+  },
+  {
+    "book_name": "紫微斗数内部讲义",
+    "book_type": "foundation",
+    "authority_level": 4,
+    "main_topics": [
+      "结构",
+      "概念",
+      "基础"
+    ],
+    "suitable_questions": [
+      "personality",
+      "study",
+      "career"
+    ],
+    "description": "结构概念与教学讲义"
+  },
+  {
+    "book_name": "紫微斗数原理与宫位说明",
+    "book_type": "palace_theory",
+    "authority_level": 4,
+    "main_topics": [
+      "宫位",
+      "原理"
+    ],
+    "suitable_questions": [
+      "career",
+      "relationship",
+      "wealth"
+    ],
+    "description": "宫位与原理说明类"
+  },
+  {
+    "book_name": "紫微斗数命理学",
+    "book_type": "star_theory",
+    "authority_level": 4,
+    "main_topics": [
+      "星曜",
+      "命理"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality",
+      "life_stage"
+    ],
+    "description": "星曜命理深化资料"
+  },
+  {
+    "book_name": "紫微斗数精成",
+    "book_type": "star_theory",
+    "authority_level": 4,
+    "main_topics": [
+      "星曜",
+      "命理"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality",
+      "life_stage"
+    ],
+    "description": "星曜命理深化资料"
+  },
+  {
+    "book_name": "紫微斗数集成全书",
+    "book_type": "classic_formula",
+    "authority_level": 5,
+    "main_topics": [
+      "星曜",
+      "宫位",
+      "格局",
+      "基础"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality",
+      "life_stage"
+    ],
+    "description": "经典总论/汇编，适合基础与综合查阅"
+  },
+  {
+    "book_name": "紫微斗數南北派斷訣 (朱雲山)",
+    "book_type": "classic_formula",
+    "authority_level": 3,
+    "main_topics": [
+      "综合"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality"
+    ],
+    "description": "紫微经典资料画像（自动生成）"
+  },
+  {
+    "book_name": "钦天四化紫微斗数命理学",
+    "book_type": "star_theory",
+    "authority_level": 4,
+    "main_topics": [
+      "星曜",
+      "命理"
+    ],
+    "suitable_questions": [
+      "career",
+      "personality",
+      "life_stage"
+    ],
+    "description": "星曜命理深化资料"
+  },
+  {
+    "book_name": "陆斌兆紫微斗数斗数讲义评注",
+    "book_type": "foundation",
+    "authority_level": 4,
+    "main_topics": [
+      "结构",
+      "概念",
+      "基础"
+    ],
+    "suitable_questions": [
+      "personality",
+      "study",
+      "career"
+    ],
+    "description": "结构概念与教学讲义"
+  }
+]

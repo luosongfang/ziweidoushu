@@ -5,15 +5,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-glow/50 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/40 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-purple-glow text-white hover:bg-purple-glow/90 shadow-glow",
-        gold: "bg-gradient-to-r from-gold-dark via-gold to-gold-light text-void font-semibold hover:opacity-90 shadow-glow-gold",
-        outline: "border border-white/15 bg-white/5 hover:bg-white/10 text-white",
-        ghost: "hover:bg-white/10 text-white/80 hover:text-white",
-        destructive: "bg-red-500/20 text-red-300 border border-red-500/30 hover:bg-red-500/30",
+        default: "bg-ink-mid text-paper hover:bg-ink-mid/90",
+        gold: "bg-gold-shimmer text-ink font-semibold hover:opacity-95 shadow-gold",
+        outline: "border border-paper/20 bg-transparent text-paper hover:bg-paper/5",
+        ghost: "text-paper/75 hover:bg-paper/10 hover:text-paper",
+        secondary: "bg-paper text-ink hover:bg-paper-soft",
+        destructive: "border border-red-400/30 bg-red-500/10 text-red-200 hover:bg-red-500/20",
       },
       size: {
         default: "h-10 px-5 py-2",

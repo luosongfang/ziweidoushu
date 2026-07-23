@@ -1,58 +1,85 @@
 export const SITE = {
-  name: "紫微AI",
-  nameEn: "Ziwei AI",
-  tagline: "以千年星象智慧，洞见人生轨迹",
-  description: "基于紫微斗数十二宫命盘，结合 AI 大语言模型的人生分析平台",
+  name: "Ziwei AI",
+  nameZh: "紫微 AI",
+  tagline: "探索传统智慧，发现更好的自己",
+  subtitle:
+    "基于紫微斗数传统知识体系，结合 AI 技术，帮助你进行人生规划与自我成长。",
+  positioning: "传统文化学习 + 人生规划 AI 导师",
+  notice:
+    "本产品提供传统文化视角与自我认知参考，不作绝对预测，不替代专业咨询。",
 } as const;
 
 export const NAV_LINKS = [
-  { label: "产品介绍", href: "#features" },
-  { label: "AI 规划", href: "#ai-planning" },
-  { label: "关于", href: "#about" },
+  { label: "首页", href: "/" },
+  { label: "排盘", href: "/chart" },
+  { label: "AI 人生导师", href: "/advisor" },
+  { label: "成长档案", href: "/profile" },
+  { label: "会员中心", href: "/member" },
 ] as const;
 
-export const FEATURES = [
+export const LIFE_DOMAINS = [
+  { key: "career", label: "事业", hint: "方向与节奏" },
+  { key: "wealth", label: "财富", hint: "资源与结构" },
+  { key: "relationship", label: "关系", hint: "相处与边界" },
+  { key: "growth", label: "学习成长", hint: "能力与习惯" },
+  { key: "family", label: "家庭", hint: "支持与责任" },
+  { key: "choice", label: "人生选择", hint: "决策辅助" },
+] as const;
+
+export const ANALYSIS_MODULES = [
+  { id: "personality", label: "性格优势", question: "请从传统文化视角分析我的性格优势与成长空间" },
+  { id: "career", label: "事业方向", question: "请分析适合我的事业方向与现阶段可行动作" },
+  { id: "wealth", label: "财富模式", question: "请分析我的财富结构特点与稳健理财建议" },
+  { id: "relationship", label: "人际关系", question: "请分析我的人际相处模式与关系经营建议" },
+  { id: "stage", label: "当前阶段", question: "请结合当前人生阶段给出规划参考" },
+  { id: "growth", label: "成长建议", question: "请给出可执行的自我成长建议与反思问题" },
+] as const;
+
+export const MEMBERSHIP_PLANS = [
   {
-    icon: "palace",
-    title: "十二宫命盘",
-    description:
-      "精准排盘，呈现命宫、财帛、官禄等十二宫位，还原传统紫微斗数完整结构。",
+    id: "basic",
+    name: "普通会员",
+    price: "29.9",
+    period: "月",
+    features: ["每月 10 次专家级解盘", "事业 / 财富 / 关系 / 阶段分析", "查看部分知识来源"],
+    recommended: false,
   },
   {
-    icon: "star",
-    title: "十四主星解析",
-    description:
-      "紫微、天机、太阳、武曲等主星落宫解读，揭示性格底色与天赋潜能。",
+    id: "vip",
+    name: "VIP 会员",
+    price: "299",
+    period: "年",
+    features: [
+      "不限次数解盘",
+      "开启 AI 人生导师",
+      "赠送 300 积分 / 月",
+      "连续上下文记忆 · 成长档案",
+    ],
+    recommended: true,
+    pointsNote: "每次 AI 交流消耗 2 积分",
   },
   {
-    icon: "sihua",
-    title: "四化飞星",
-    description:
-      "禄、权、科、忌四化飞星动态追踪，洞察运势流转与人生关键节点。",
-  },
-  {
-    icon: "timeline",
-    title: "大限流年",
-    description:
-      "十年大运与流年运势联动分析，把握事业、感情、财富的时间节奏。",
+    id: "svip",
+    name: "SVIP 会员",
+    price: "699",
+    period: "年",
+    features: ["不限解盘", "不限 AI 交流", "高级模型优先", "完整知识引用 · 人生成长报告"],
+    recommended: false,
   },
 ] as const;
 
-export const AI_PLANNING_ITEMS = [
-  {
-    title: "性格深度画像",
-    description: "AI 综合命盘主星与宫位，生成多维度性格雷达图与核心特质报告。",
-  },
-  {
-    title: "事业财富规划",
-    description: "结合官禄宫、财帛宫与大限走势，提供个性化职业发展建议。",
-  },
-  {
-    title: "情感关系洞察",
-    description: "分析夫妻宫、福德宫配置，解读感情模式与相处之道。",
-  },
-  {
-    title: "流年运势预警",
-    description: "AI 实时解读流年四化，提前洞察机遇与挑战，辅助决策。",
-  },
+export const FREE_BENEFITS = [
+  "注册即可一次完整排盘",
+  "首次赠送一次专业解盘",
+] as const;
+
+export const FREE_LIMITS = [
+  "无法查看完整引用体系",
+  "无法连续 AI 咨询",
+] as const;
+
+/** 安全表达提示 — 前端展示用 */
+export const SAFE_PHRASE_HINTS = [
+  "传统理论分析认为……",
+  "可以作为自我探索参考……",
 ] as const;

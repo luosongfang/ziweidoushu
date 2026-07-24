@@ -88,6 +88,9 @@ class StarPlacementEngine:
             return (base_index - offset + 12) % 12
         if direction == "opposite":
             return (base_index + 6) % 12
+        # 安天府：寅申轴镜像（与 calc_tianfu_branch_index 一致）
+        if direction == "mirror":
+            return (4 - base_index) % 12
         raise ValueError(f"未知方向：{direction}")
 
     @classmethod

@@ -39,9 +39,17 @@ def build_analyze_user_prompt(
     strengths: list[str],
     knowledge_text: str,
     chart_digest: str,
+    star_analysis: list[dict[str, str]] | None = None,
 ) -> str:
     strength_line = "、".join(strengths) if strengths else "（待补充）"
     palace_line = "、".join(related_palaces) if related_palaces else "命盘整体"
+    star_lines = ""
+    if star_analysis:
+        star_lines = "\n".join(
+            f"- {item.get('star', '')}：{item.get('meaning', '')}"
+            for item in star_analysis
+            if item.get("star")
+        )
     return f"""用户问题：
 {question}
 
@@ -50,6 +58,9 @@ def build_analyze_user_prompt(
 
 命盘摘要：
 {chart_digest}
+
+星曜知识库（请优先引用以下内容解释命宫/相关星曜特点）：
+{star_lines or "（暂无结构化星曜条目）"}
 
 规则引擎参考（传统）：
 {traditional_analysis}
@@ -62,4 +73,4 @@ def build_analyze_user_prompt(
 相关知识库摘录：
 {knowledge_text or "（暂无额外摘录）"}
 
-请基于以上材料，生成人生规划参考报告。强调自我认知、优势发挥与可执行建议，避免绝对化预测。"""
+请基于以上材料，生成人生规划参考报告。强调自我认知、优势发挥与可执行建议，避免绝对化预测。若命盘含紫微、天府等主星，请明确引用知识库中的管理/资源整合等倾向表述。"""

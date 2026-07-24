@@ -1,0 +1,25 @@
+{
+  "version": "1.6",
+  "rule_id": "FOURTEEN_MAIN",
+  "source": ["紫微斗数全书", "星曜秘诀", "三合派安星诀"],
+  "school": "三合派",
+  "ziwei_series": [
+    {"star": "紫微", "base": "ziwei_table", "direction": "self", "offset": 0, "rule_id": "STAR_ZW_001"},
+    {"star": "天机", "base": "紫微", "direction": "backward", "offset": 1, "rule_id": "STAR_TJ_001", "formula": "紫微逆行1"},
+    {"star": "太阳", "base": "紫微", "direction": "backward", "offset": 3, "rule_id": "STAR_TY_001", "formula": "紫微逆行3"},
+    {"star": "武曲", "base": "紫微", "direction": "backward", "offset": 4, "rule_id": "STAR_WQ_001", "formula": "紫微逆行4"},
+    {"star": "天同", "base": "紫微", "direction": "backward", "offset": 5, "rule_id": "STAR_TT_001", "formula": "紫微逆行5"},
+    {"star": "廉贞", "base": "紫微", "direction": "backward", "offset": 8, "rule_id": "STAR_LZ_001", "formula": "紫微逆行8"}
+  ],
+  "tianfu_series": [
+    {"star": "天府", "base": "tianfu_config", "direction": "configured", "offset": 0, "rule_id": "STAR_TF_001"},
+    {"star": "太阴", "base": "天府", "direction": "forward", "offset": 1, "rule_id": "STAR_TYN_001", "formula": "天府顺行1"},
+    {"star": "贪狼", "base": "天府", "direction": "forward", "offset": 2, "rule_id": "STAR_TL_001", "formula": "天府顺行2"},
+    {"star": "巨门", "base": "天府", "direction": "forward", "offset": 3, "rule_id": "STAR_JM_001", "formula": "天府顺行3"},
+    {"star": "天相", "base": "天府", "direction": "forward", "offset": 4, "rule_id": "STAR_TX_001", "formula": "天府顺行4"},
+    {"star": "天梁", "base": "天府", "direction": "forward", "offset": 5, "rule_id": "STAR_TLG_001", "formula": "天府顺行5"},
+    {"star": "七杀", "base": "天府", "direction": "forward", "offset": 6, "rule_id": "STAR_QS_001", "formula": "天府顺行6"},
+    {"star": "破军", "base": "天府", "direction": "forward", "offset": 10, "rule_id": "STAR_PJ_001", "formula": "天府顺行10"}
+  ],
+  "validation": "required"
+}

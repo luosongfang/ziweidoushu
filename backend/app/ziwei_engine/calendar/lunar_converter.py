@@ -73,3 +73,31 @@ class LunarConverter:
             lunar_text=f"{result.lunar_year_cn}年{result.lunar_month_cn}{result.lunar_day_cn}",
         )
         return lunar, result.true_solar_datetime
+
+    @classmethod
+    def lunar_to_solar(
+        cls,
+        lunar_date: str,
+        *,
+        is_leap: bool = False,
+    ) -> str:
+        """
+        农历日期 → 公历 YYYY-MM-DD。
+
+        Parameters
+        ----------
+        lunar_date : YYYY-MM-DD（农历年月日）
+        is_leap : 是否闰月
+        """
+        from lunar_python import Lunar
+
+        year, month, day = map(int, lunar_date.split("-"))
+        if not (1 <= month <= 12 and 1 <= day <= 30):
+            raise ValueError("农历日期无效：月份须 1–12，日期须 1–30")
+        lunar_month = -abs(month) if is_leap else month
+        try:
+            lunar = Lunar.fromYmd(year, lunar_month, day)
+        except Exception as exc:  # noqa: BLE001
+            raise ValueError(f"农历日期无法转换：{lunar_date}") from exc
+        solar = lunar.getSolar()
+        return f"{solar.getYear():04d}-{solar.getMonth():02d}-{solar.getDay():02d}"

@@ -1,0 +1,17 @@
+{
+  "rules": [
+    {
+      "id": "PALACE_SHEN_001",
+      "name": "身宫安置规则",
+      "category": "palace",
+      "source": ["紫微斗数全书", "三合派安星诀"],
+      "school": "三合派",
+      "priority": "critical",
+      "formula": "寅起正月，顺数生月得月支；自月支顺数生时得身宫",
+      "input": ["lunar_month", "hour_branch_index"],
+      "output": "shen_gong_branch",
+      "code_formula": "month_idx=(寅+month-1)%12; shen=(month_idx+hour)%12",
+      "validation": "required"
+    }
+  ]
+}

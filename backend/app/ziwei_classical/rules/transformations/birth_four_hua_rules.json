@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "id": "HUA_BIRTH_001",
+      "name": "生年四化",
+      "category": "transformations",
+      "source": ["钦天四化", "紫微斗数全书"],
+      "school": "三合派",
+      "priority": "critical",
+      "formula": "年干查禄权科忌",
+      "input": ["year_stem"],
+      "output": ["lu", "quan", "ke", "ji"],
+      "validation": "required"
+    }
+  ]
+}

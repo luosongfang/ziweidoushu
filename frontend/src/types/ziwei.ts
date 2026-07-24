@@ -12,6 +12,8 @@ export interface ChartCreateRequest {
   solar_date: string;
   time: string;
   location?: string;
+  calendar_type?: CalendarType;
+  is_leap_month?: boolean;
   persist?: boolean;
   user_id?: string;
   reference_year?: number;

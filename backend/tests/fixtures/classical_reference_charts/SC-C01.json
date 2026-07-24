@@ -1,0 +1,73 @@
+{
+  "id": "SC-C01",
+  "source": "reference_charts.json REF-01；lunar_python；Sprint6 权威交叉核对",
+  "verified_by": "internal REF-01 / lunar_python cross-check",
+  "verification_level": "verified_professional",
+  "gender": "male",
+  "true_solar_time": true,
+  "location": "深圳",
+  "birth": {
+    "solar": "1990-05-15",
+    "time": "14:30",
+    "location": "深圳",
+    "longitude": 114.0579,
+    "shichen": "未时"
+  },
+  "calendar": {
+    "type": "solar",
+    "lunar": "1990-04-21",
+    "ganzhi": {
+      "year": "庚午",
+      "month": "辛巳",
+      "day": "庚辰",
+      "hour": "癸未"
+    }
+  },
+  "meta": {
+    "minggong": "戌",
+    "shengong": "子",
+    "wuxingju": "土五局",
+    "minggong_ganzhi": "丙戌",
+    "mingzhu": "禄存",
+    "shenzhu": "火星",
+    "ziwei_position": "巳",
+    "tianfu_position": "亥"
+  },
+  "palaces": [
+    {"name": "命宫", "branch": "戌", "main_stars": [], "transformations": []},
+    {"name": "兄弟", "branch": "酉", "main_stars": ["廉贞", "破军"], "transformations": []},
+    {"name": "夫妻", "branch": "申", "main_stars": [], "transformations": []},
+    {"name": "子女", "branch": "未", "main_stars": [], "transformations": []},
+    {"name": "财帛", "branch": "午", "main_stars": [], "transformations": []},
+    {"name": "疾厄", "branch": "巳", "main_stars": ["紫微", "七杀"], "transformations": []},
+    {"name": "迁移", "branch": "辰", "main_stars": ["天机", "天梁"], "transformations": []},
+    {"name": "交友", "branch": "卯", "main_stars": ["天相"], "transformations": []},
+    {"name": "官禄", "branch": "寅", "main_stars": ["太阳", "巨门"], "transformations": [{"star": "太阳", "type": "禄"}]},
+    {"name": "田宅", "branch": "丑", "main_stars": ["武曲", "贪狼"], "transformations": [{"star": "武曲", "type": "权"}]},
+    {"name": "福德", "branch": "子", "main_stars": ["天同", "太阴"], "transformations": [{"star": "太阴", "type": "科"}, {"star": "天同", "type": "忌"}]},
+    {"name": "父母", "branch": "亥", "main_stars": ["天府"], "transformations": []}
+  ],
+  "fourteen_stars": {
+    "紫微": {"branch": "巳", "palace": "疾厄"},
+    "天机": {"branch": "辰", "palace": "迁移"},
+    "太阳": {"branch": "寅", "palace": "官禄"},
+    "武曲": {"branch": "丑", "palace": "田宅"},
+    "天同": {"branch": "子", "palace": "福德"},
+    "廉贞": {"branch": "酉", "palace": "兄弟"},
+    "天府": {"branch": "亥", "palace": "父母"},
+    "太阴": {"branch": "子", "palace": "福德"},
+    "贪狼": {"branch": "丑", "palace": "田宅"},
+    "巨门": {"branch": "寅", "palace": "官禄"},
+    "天相": {"branch": "卯", "palace": "交友"},
+    "天梁": {"branch": "辰", "palace": "迁移"},
+    "七杀": {"branch": "巳", "palace": "疾厄"},
+    "破军": {"branch": "酉", "palace": "兄弟"}
+  },
+  "four_transform": {
+    "yearStem": "庚",
+    "lu": {"star": "太阳", "palace": "官禄"},
+    "quan": {"star": "武曲", "palace": "田宅"},
+    "ke": {"star": "太阴", "palace": "福德"},
+    "ji": {"star": "天同", "palace": "福德"}
+  }
+}

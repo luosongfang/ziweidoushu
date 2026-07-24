@@ -11,6 +11,7 @@ from app.ziwei_ai.knowledge_base import (
     load_star,
 )
 from app.ziwei_ai.schemas import PalaceFocus, RuleAnalysis
+from app.ziwei_data import build_star_analysis, get_star
 
 
 def _as_dict(chart_data: dict[str, Any] | str) -> dict[str, Any]:
@@ -63,7 +64,13 @@ def extract_palace_stars(chart: dict[str, Any]) -> dict[str, list[str]]:
                 s if isinstance(s, str) else str(s.get("name", ""))
                 for s in stars_raw
             ]
-            names = [n for n in names if n]
+            # V2：main_stars / lucky_stars 等
+            for bucket in ("main_stars", "lucky_stars", "sha_stars", "za_stars"):
+                for s in p.get(bucket) or []:
+                    n = s if isinstance(s, str) else str(s.get("name", ""))
+                    if n:
+                        names.append(n)
+            names = list(dict.fromkeys(n for n in names if n))
             if pname and names:
                 result[pname] = names
 
@@ -98,6 +105,34 @@ def _detect_patterns(palace_stars: dict[str, list[str]]) -> list[str]:
     return patterns
 
 
+def _knowledge_snippets_from_star_db(star_names: list[str]) -> list[str]:
+    """把 ziwei_data 条目转成可供 Prompt 引用的文本块。"""
+    blocks: list[str] = []
+    for name in dict.fromkeys(star_names):
+        entry = get_star(name)
+        if not entry:
+            continue
+        kws = "、".join(entry.get("keywords") or [])
+        strengths = "、".join(entry.get("strengths") or [])
+        challenges = "、".join(entry.get("challenges") or [])
+        traditional = entry.get("traditional") or entry.get("meaning") or ""
+        modern = entry.get("modern") or ""
+        blocks.append(
+            "\n".join(
+                [
+                    f"## 星曜知识库 · {name}",
+                    f"类型：{entry.get('type', '')}",
+                    f"传统：{traditional}",
+                    f"现代：{modern}",
+                    f"关键词：{kws}" if kws else "",
+                    f"优势倾向：{strengths}" if strengths else "",
+                    f"可能挑战：{challenges}" if challenges else "",
+                ]
+            ).strip()
+        )
+    return blocks
+
+
 def analyze_chart(
     chart_data: dict[str, Any] | str,
     related_palaces: list[str],
@@ -127,17 +162,25 @@ def analyze_chart(
     patterns = _detect_patterns(palace_stars)
     luck_topics = [p for p in related_palaces if p in {"大限", "流年"}]
 
+    # Markdown 旧知识库 + 结构化星曜库
     knowledge = gather_context(
         stars=list(dict.fromkeys(focus_stars)),
         palaces=[f.name for f in focuses],
         patterns=patterns,
         luck=luck_topics,
     )
+    knowledge.extend(_knowledge_snippets_from_star_db(focus_stars))
 
-    # 关键词摘要
+    star_analysis = build_star_analysis(focus_stars)
+
+    # 关键词摘要：优先结构化库
     kw_bits: list[str] = []
     for s in dict.fromkeys(focus_stars):
-        kw_bits.extend(extract_keywords_section(load_star(s))[:4])
+        entry = get_star(s)
+        if entry and entry.get("keywords"):
+            kw_bits.extend(list(entry["keywords"])[:4])
+        else:
+            kw_bits.extend(extract_keywords_section(load_star(s))[:4])
 
     pattern_notes = []
     for pt in patterns:
@@ -155,6 +198,9 @@ def analyze_chart(
     )
     if pattern_notes:
         traditional += f" 格局线索上，可见与「{'、'.join(pattern_notes)}」相关的象征组合。"
+    if star_analysis:
+        bits = "；".join(f"{x['star']}（{x['meaning']}）" for x in star_analysis[:6])
+        traditional += f" 知识库提示：{bits}。"
 
     modern_parts = [
         "现实中可以理解为：更适合从组织协调、专业深耕或资源整合等方向认识自身优势；",
@@ -169,11 +215,20 @@ def analyze_chart(
     strengths = list(dict.fromkeys(kw_bits))[:6]
     if not strengths:
         strengths = ["规划意识", "执行能力", "自我觉察"]
+    for item in star_analysis[:4]:
+        entry = get_star(item["star"])
+        if entry:
+            for s in entry.get("strengths") or []:
+                if s not in strengths:
+                    strengths.append(s)
+                if len(strengths) >= 8:
+                    break
 
     return RuleAnalysis(
         traditional_analysis=traditional,
         modern_interpretation="".join(modern_parts),
-        strengths=strengths,
+        strengths=strengths[:8],
         focused_palaces=focuses,
         knowledge_snippets=knowledge,
+        star_analysis=star_analysis,
     )

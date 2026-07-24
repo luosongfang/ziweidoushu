@@ -1,0 +1,25 @@
+{
+  "id": "SC-C43",
+  "verification_level": "pending",
+  "source": {
+    "name": "slot",
+    "type": "manual"
+  },
+  "birth": {
+    "solar_date": "1963-08-16",
+    "time": "14:00",
+    "gender": "female",
+    "location": null,
+    "true_solar_time": false
+  },
+  "expected": {
+    "ming_gong": "",
+    "shen_gong": "",
+    "wuxing": "",
+    "ziwei": "",
+    "fourteen_stars": {},
+    "aux_stars": {},
+    "transformations": {}
+  },
+  "notes": "pending professional screenshot — not for auto accuracy claim"
+}

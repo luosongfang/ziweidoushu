@@ -5,7 +5,7 @@ from __future__ import annotations
 from app.ziwei.constants import EARTHLY_BRANCHES
 from app.ziwei.rules.auxiliary_star_rules import generate_auxiliary_star_rules
 
-RULES_VERSION = "2026.07.23"
+RULES_VERSION = "2026.07.24"
 SCHOOL = "sanhe"
 
 # 六十甲子纳音全名
@@ -134,6 +134,19 @@ def calc_ziwei_branch_index(lunar_day: int, bureau: int) -> int:
     return (2 + index) % 12  # 寅=2
 
 
+def calc_tianfu_branch_index(ziwei_index: int) -> int:
+    """
+    安天府星（三合派）。
+
+    以寅–申为轴作地支镜像：寅申同宫，其余对称。
+    口诀对应：子↔辰、丑↔卯、寅=寅、卯↔丑、辰↔子、巳↔亥、
+    午↔戌、未↔酉、申=申、酉↔未、戌↔午、亥↔巳。
+    等价公式：index = (4 - ziwei_index) % 12
+    注意：不可用对宫(+6)；仅紫微在巳/亥时碰巧与对宫相同。
+    """
+    return (4 - ziwei_index) % 12
+
+
 def generate_nayin_rules() -> list[dict]:
     rows = []
     for gz, (element, bureau) in NAYIN_ELEMENT_BUREAU.items():
@@ -189,7 +202,8 @@ def generate_star_placement_rules() -> list[dict]:
         ("廉贞", "紫微", "backward", 8),
     ]
     tianfu_group = [
-        ("天府", "紫微", "opposite", 0),
+        # mirror = 寅申轴镜像（非对宫）
+        ("天府", "紫微", "mirror", 0),
         ("太阴", "天府", "forward", 1),
         ("贪狼", "天府", "forward", 2),
         ("巨门", "天府", "forward", 3),
@@ -325,6 +339,10 @@ def generate_star_combination_rules() -> list[dict]:
         ("禄马交驰", ["禄存", "天马"], "aux_combo", ["动中求财", "事业奔波", "财富流动"], "same_palace", None),
         ("火铃同宫", ["火星", "铃星"], "aux_combo", ["性格急躁", "突发变动", "需注意情绪"], "same_palace", None),
         ("羊陀夹命", ["擎羊", "陀罗"], "aux_combo", ["波折较多", "需防刑伤", "坚韧考验"], "flank_ming", None),
+        ("府相朝垣", ["天府", "天相"], "main_combo", ["辅佐得力", "稳守资源", "协作管理"], "both_present", None),
+        ("昌曲夹命", ["文昌", "文曲"], "aux_combo", ["文才加持", "学习机遇", "表达优势"], "flank_ming", None),
+        ("左右夹命", ["左辅", "右弼"], "aux_combo", ["贵人扶持", "团队协作", "左右逢源"], "flank_ming", None),
+        ("羊陀夹忌", ["擎羊", "陀罗"], "aux_combo", ["忌星受夹", "需谨慎规划", "压力管理"], "flank_ji", None),
         ("紫微独坐", ["紫微"], "main_combo", ["独立领导", "自我要求高", "权威气质"], "sole_main_star", None),
         ("廉贞七杀", ["廉贞", "七杀"], "main_combo", ["权力欲望", "竞争意识", "事业冲劲"], "same_palace", None),
         ("武曲贪狼", ["武曲", "贪狼"], "main_combo", ["财富追求", "社交能力", "多元发展"], "same_palace", None),

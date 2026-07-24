@@ -12,12 +12,21 @@ class ChartCreateRequest(BaseModel):
 
     name: str = Field(default="测试用户", max_length=64)
     gender: Literal["male", "female"] = "male"
-    solar_date: str = Field(..., description="YYYY-MM-DD", examples=["1990-05-20"])
+    solar_date: str = Field(..., description="YYYY-MM-DD；calendar_type=lunar 时表示农历日期", examples=["1990-05-20"])
     time: str = Field(..., description="HH:mm", examples=["14:30"])
     location: Optional[str] = Field(default=None, examples=["北京"])
+    calendar_type: Literal["solar", "lunar"] = Field(
+        default="solar",
+        description="solar=公历；lunar=农历（solar_date 按农历解释并自动转公历）",
+    )
+    is_leap_month: bool = Field(default=False, description="农历闰月标记")
     persist: bool = Field(default=True, description="是否写入 Supabase 数据库")
     user_id: Optional[str] = Field(default=None, description="关联用户 ID（登录后传入）")
     reference_year: Optional[int] = None
+    schema_version: Literal["3.0", "2.5"] = Field(
+        default="2.5",
+        description="2.5=StandardChartSchema（校准默认）；3.0=ProfessionalChartSchema",
+    )
 
     @field_validator("time")
     @classmethod
@@ -25,6 +34,14 @@ class ChartCreateRequest(BaseModel):
         parts = value.split(":")
         if len(parts) != 2:
             raise ValueError("time 格式必须为 HH:mm")
+        return value
+
+    @field_validator("solar_date")
+    @classmethod
+    def validate_date(cls, value: str) -> str:
+        parts = value.split("-")
+        if len(parts) != 3:
+            raise ValueError("日期格式必须为 YYYY-MM-DD")
         return value
 
 

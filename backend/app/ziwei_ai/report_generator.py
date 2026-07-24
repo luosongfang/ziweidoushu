@@ -16,6 +16,7 @@ from app.ziwei_ai.prompts import ZIWEI_AI_SYSTEM_PROMPT, build_analyze_user_prom
 from app.ziwei_ai.question_router import route_question
 from app.ziwei_ai.safety_filter import apply_safety_filter
 from app.ziwei_ai.schemas import AnalyzeResponse, QuestionRoute, RuleAnalysis
+from app.ziwei.core.chart_accuracy_validator import ChartAccuracyValidator
 
 
 def _chart_digest(chart_data: dict[str, Any] | str) -> str:
@@ -34,6 +35,40 @@ def _chart_digest(chart_data: dict[str, Any] | str) -> str:
 class ZiweiAiReportGenerator:
     """紫微AI分析引擎 V1 报告生成器。"""
 
+    @staticmethod
+    def _accuracy_from_chart(chart_data: dict[str, Any] | str) -> dict[str, Any] | None:
+        """若 chart 中已有 accuracy 则复用；否则尝试从 birth 字段重算。"""
+        if isinstance(chart_data, str):
+            return None
+        if isinstance(chart_data.get("accuracy"), dict):
+            return chart_data["accuracy"]
+        # 尝试 meta/birth
+        birth = chart_data.get("birth") or {}
+        solar = birth.get("solar") or birth.get("solar_date") or ""
+        shichen = birth.get("shichen")
+        time_str = ""
+        if isinstance(shichen, dict):
+            # 无法从时辰名精确还原分钟时跳过门槛（避免误杀）
+            return None
+        if "T" in str(solar):
+            # ISO datetime
+            try:
+                from datetime import datetime
+
+                dt = datetime.fromisoformat(str(solar).replace("Z", ""))
+                time_str = f"{dt.hour:02d}:{dt.minute:02d}"
+                solar = dt.strftime("%Y-%m-%d")
+            except ValueError:
+                return None
+        if not solar or not time_str:
+            return None
+        gender = chart_data.get("gender") or (chart_data.get("meta") or {}).get("gender") or "male"
+        return ChartAccuracyValidator.validate_birth(
+            birth_date=solar,
+            birth_time=time_str,
+            gender=gender,
+        )
+
     @classmethod
     async def generate(
         cls,
@@ -46,6 +81,38 @@ class ZiweiAiReportGenerator:
 
         if not SiliconFlowClient.is_configured():
             return AnalyzeResponse(success=False, error="AI服务未配置")
+
+        # V1.2.6：排盘准确率 < 95 禁止进入 AI
+        accuracy_gate = cls._accuracy_from_chart(chart_data)
+        if accuracy_gate is not None and not accuracy_gate.get("allowed_for_ai", True):
+            return AnalyzeResponse(
+                success=False,
+                error=(
+                    f"排盘准确率不足（{accuracy_gate.get('accuracy_score')}），"
+                    f"禁止 AI 分析。errors={accuracy_gate.get('errors')}"
+                ),
+            )
+
+        # Classical Rule Engine V1.0：经典门禁 < 98% → 命盘校准中
+        if isinstance(chart_data, dict):
+            from app.ziwei_classical.validator.classical_validator import (
+                ClassicalAccuracyGate,
+            )
+
+            classical_meta = chart_data.get("classical_accuracy") or chart_data.get(
+                "classical_gate"
+            )
+            if isinstance(classical_meta, dict):
+                gate = ClassicalAccuracyGate().evaluate(
+                    accuracy_score=classical_meta.get("accuracy_score"),
+                    compare_result=classical_meta.get("compare_result"),
+                    chart_meta=classical_meta,
+                )
+                if not gate.get("allowed_for_ai", True):
+                    return AnalyzeResponse(
+                        success=False,
+                        error=gate.get("message") or "命盘校准中，请勿生成解释",
+                    )
 
         route: QuestionRoute = route_question(question)
         analysis: RuleAnalysis = analyze_chart(chart_data, route.related_palaces)
@@ -60,6 +127,7 @@ class ZiweiAiReportGenerator:
             strengths=analysis.strengths,
             knowledge_text=knowledge_text,
             chart_digest=_chart_digest(chart_data),
+            star_analysis=analysis.star_analysis,
         )
 
         messages = [
@@ -101,4 +169,5 @@ class ZiweiAiReportGenerator:
             related_palaces=route.related_palaces,
             report=report,
             model=SiliconFlowClient.get_model(),
+            star_analysis=analysis.star_analysis,
         )

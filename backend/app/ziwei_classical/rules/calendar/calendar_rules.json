@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "id": "CAL_LUNAR_001",
+      "name": "公历转农历与四柱",
+      "category": "calendar",
+      "source": ["万年历/节气体系", "紫微斗数全书"],
+      "school": "通用",
+      "priority": "critical",
+      "formula": "公历→农历年月日；节气定月令；立春换年；子初换日；五鼠遁时",
+      "input": ["solar_date", "birth_time", "location"],
+      "output": ["lunar_ymd", "jieqi", "year_ganzhi", "month_ganzhi", "day_ganzhi", "hour_ganzhi"],
+      "validation": "required"
+    }
+  ]
+}

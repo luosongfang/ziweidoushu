@@ -1,0 +1,256 @@
+{
+  "version": "classical_1.0",
+  "cases": [
+    {
+      "id": "SC-C01",
+      "verification_level": "verified_professional",
+      "file": "../../debug/classical_reference_charts/SC-C01.json",
+      "note": "canonical in ziwei.debug"
+    },
+    {
+      "id": "SC-C02",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C03",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C04",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C05",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C06",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C07",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C08",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C09",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C10",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C11",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C12",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C13",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C14",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C15",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C16",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C17",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C18",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C19",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C20",
+      "verification_level": "pending",
+      "ref": "ziwei.debug.classical_reference_charts"
+    },
+    {
+      "id": "SC-C21",
+      "verification_level": "pending",
+      "file": "SC-C21.json"
+    },
+    {
+      "id": "SC-C22",
+      "verification_level": "pending",
+      "file": "SC-C22.json"
+    },
+    {
+      "id": "SC-C23",
+      "verification_level": "pending",
+      "file": "SC-C23.json"
+    },
+    {
+      "id": "SC-C24",
+      "verification_level": "pending",
+      "file": "SC-C24.json"
+    },
+    {
+      "id": "SC-C25",
+      "verification_level": "pending",
+      "file": "SC-C25.json"
+    },
+    {
+      "id": "SC-C26",
+      "verification_level": "pending",
+      "file": "SC-C26.json"
+    },
+    {
+      "id": "SC-C27",
+      "verification_level": "pending",
+      "file": "SC-C27.json"
+    },
+    {
+      "id": "SC-C28",
+      "verification_level": "pending",
+      "file": "SC-C28.json"
+    },
+    {
+      "id": "SC-C29",
+      "verification_level": "pending",
+      "file": "SC-C29.json"
+    },
+    {
+      "id": "SC-C30",
+      "verification_level": "pending",
+      "file": "SC-C30.json"
+    },
+    {
+      "id": "SC-C31",
+      "verification_level": "pending",
+      "file": "SC-C31.json"
+    },
+    {
+      "id": "SC-C32",
+      "verification_level": "pending",
+      "file": "SC-C32.json"
+    },
+    {
+      "id": "SC-C33",
+      "verification_level": "pending",
+      "file": "SC-C33.json"
+    },
+    {
+      "id": "SC-C34",
+      "verification_level": "pending",
+      "file": "SC-C34.json"
+    },
+    {
+      "id": "SC-C35",
+      "verification_level": "pending",
+      "file": "SC-C35.json"
+    },
+    {
+      "id": "SC-C36",
+      "verification_level": "pending",
+      "file": "SC-C36.json"
+    },
+    {
+      "id": "SC-C37",
+      "verification_level": "pending",
+      "file": "SC-C37.json"
+    },
+    {
+      "id": "SC-C38",
+      "verification_level": "pending",
+      "file": "SC-C38.json"
+    },
+    {
+      "id": "SC-C39",
+      "verification_level": "pending",
+      "file": "SC-C39.json"
+    },
+    {
+      "id": "SC-C40",
+      "verification_level": "pending",
+      "file": "SC-C40.json"
+    },
+    {
+      "id": "SC-C41",
+      "verification_level": "pending",
+      "file": "SC-C41.json"
+    },
+    {
+      "id": "SC-C42",
+      "verification_level": "pending",
+      "file": "SC-C42.json"
+    },
+    {
+      "id": "SC-C43",
+      "verification_level": "pending",
+      "file": "SC-C43.json"
+    },
+    {
+      "id": "SC-C44",
+      "verification_level": "pending",
+      "file": "SC-C44.json"
+    },
+    {
+      "id": "SC-C45",
+      "verification_level": "pending",
+      "file": "SC-C45.json"
+    },
+    {
+      "id": "SC-C46",
+      "verification_level": "pending",
+      "file": "SC-C46.json"
+    },
+    {
+      "id": "SC-C47",
+      "verification_level": "pending",
+      "file": "SC-C47.json"
+    },
+    {
+      "id": "SC-C48",
+      "verification_level": "pending",
+      "file": "SC-C48.json"
+    },
+    {
+      "id": "SC-C49",
+      "verification_level": "pending",
+      "file": "SC-C49.json"
+    },
+    {
+      "id": "SC-C50",
+      "verification_level": "pending",
+      "file": "SC-C50.json"
+    }
+  ]
+}

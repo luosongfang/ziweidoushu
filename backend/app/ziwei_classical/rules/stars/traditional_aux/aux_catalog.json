@@ -1,0 +1,58 @@
+{
+  "version": "1.6",
+  "source_policy": "每星必须含安置规则、起点、方向、来源；无来源禁止生产",
+  "groups": {
+    "六吉": {
+      "stars": ["左辅", "右弼", "文昌", "文曲", "天魁", "天钺"],
+      "source": ["紫微斗数全书", "星曜秘诀"]
+    },
+    "六煞": {
+      "stars": ["擎羊", "陀罗", "火星", "铃星", "地空", "地劫"],
+      "source": ["紫微斗数全书", "星曜秘诀"]
+    },
+    "十二长生": {
+      "stars": ["长生", "沐浴", "冠带", "临官", "帝旺", "衰", "病", "死", "墓", "绝", "胎", "养"],
+      "source": ["紫微斗数全书"],
+      "impl": "ziwei_classical.stars.changsheng"
+    },
+    "博士十二神": {
+      "impl": "ziwei_classical.stars.boshi",
+      "source": ["紫微斗数全书"]
+    },
+    "岁前十二神": {
+      "impl": "ziwei_classical.stars.sui_qian",
+      "source": ["紫微斗数全书"]
+    },
+    "将前十二神": {
+      "impl": "ziwei_classical.stars.jiang_qian",
+      "source": ["紫微斗数全书"]
+    },
+    "杂曜": {
+      "stars": ["天刑", "天姚", "红鸾", "天喜", "孤辰", "寡宿", "华盖", "天哭", "天虚"],
+      "source": ["紫微斗数全书", "诸星问答"]
+    }
+  },
+  "star_rules": [
+    {"id": "AUX_ZF_001", "name": "左辅", "start": "辰", "direction": "forward", "by": "lunar_month", "source": ["紫微斗数全书"]},
+    {"id": "AUX_YB_001", "name": "右弼", "start": "戌", "direction": "backward", "by": "lunar_month", "source": ["紫微斗数全书"]},
+    {"id": "AUX_WC_001", "name": "文昌", "start": "戌", "direction": "forward", "by": "hour", "source": ["紫微斗数全书"]},
+    {"id": "AUX_WQ_001", "name": "文曲", "start": "辰", "direction": "backward", "by": "hour", "source": ["紫微斗数全书"]},
+    {"id": "AUX_TK_001", "name": "天魁", "start": "year_stem_table", "direction": "lookup", "source": ["紫微斗数全书"]},
+    {"id": "AUX_TY_001", "name": "天钺", "start": "year_stem_table", "direction": "lookup", "source": ["紫微斗数全书"]},
+    {"id": "SHA_QY_001", "name": "擎羊", "start": "禄存", "direction": "forward", "offset": 1, "source": ["紫微斗数全书"]},
+    {"id": "SHA_TL_001", "name": "陀罗", "start": "禄存", "direction": "backward", "offset": 1, "source": ["紫微斗数全书"]},
+    {"id": "SHA_HX_001", "name": "火星", "start": "year_triad_table", "direction": "forward", "by": "hour", "source": ["紫微斗数全书"]},
+    {"id": "SHA_LX_001", "name": "铃星", "start": "year_triad_table", "direction": "forward", "by": "hour", "source": ["紫微斗数全书"]},
+    {"id": "SHA_DK_001", "name": "地空", "start": "亥", "direction": "backward", "by": "hour", "source": ["紫微斗数全书"]},
+    {"id": "SHA_DJ_001", "name": "地劫", "start": "亥", "direction": "forward", "by": "hour", "source": ["紫微斗数全书"]},
+    {"id": "ZA_TX_001", "name": "天刑", "start": "酉", "direction": "forward", "by": "lunar_month", "source": ["紫微斗数全书"]},
+    {"id": "ZA_TY_001", "name": "天姚", "start": "丑", "direction": "forward", "by": "lunar_month", "source": ["紫微斗数全书"]},
+    {"id": "ZA_HL_001", "name": "红鸾", "start": "卯", "direction": "backward", "by": "year_branch", "source": ["紫微斗数全书"]},
+    {"id": "ZA_TXI_001", "name": "天喜", "start": "红鸾对宫", "direction": "opposite", "source": ["紫微斗数全书"]},
+    {"id": "ZA_GC_001", "name": "孤辰", "start": "year_triad", "direction": "lookup", "source": ["紫微斗数全书"]},
+    {"id": "ZA_GS_001", "name": "寡宿", "start": "year_triad", "direction": "lookup", "source": ["紫微斗数全书"]},
+    {"id": "ZA_HG_001", "name": "华盖", "start": "year_triad_tomb", "direction": "lookup", "source": ["紫微斗数全书"]},
+    {"id": "ZA_TKU_001", "name": "天哭", "start": "午", "direction": "backward", "by": "year_branch", "source": ["紫微斗数全书"]},
+    {"id": "ZA_TXU_001", "name": "天虚", "start": "午", "direction": "forward", "by": "year_branch", "source": ["紫微斗数全书"]}
+  ]
+}

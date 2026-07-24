@@ -7,6 +7,7 @@ from app.config import settings
 from app.api.chart_api import router as chart_engine_router
 from app.api.ai_test import router as ai_test_router
 from app.api.ziwei_analyze import router as ziwei_analyze_router
+from app.api.star_info import router as star_info_router
 from app.api.v1.health import router as health_router
 from app.api.v1.charts import router as charts_router
 from app.api.v1.verification import router as verification_router
@@ -68,6 +69,7 @@ app.add_middleware(
 app.include_router(chart_engine_router)
 app.include_router(ai_test_router)
 app.include_router(ziwei_analyze_router)
+app.include_router(star_info_router)
 app.include_router(health_router, prefix="/api/v1")
 app.include_router(charts_router, prefix="/api/v1")
 app.include_router(verification_router, prefix="/api/v1")

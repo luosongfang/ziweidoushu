@@ -1,0 +1,38 @@
+{
+  "version": "1.6",
+  "title": "Ziwei Classical Rule Catalog — 16 Books Calibration",
+  "principle": "16册经典理论 > 软件实现 > 单一案例",
+  "policy": {
+    "no_single_case_hardcode": true,
+    "no_change_rule_to_pass_test": true,
+    "conflict_auto_select": false,
+    "production_requires_source": true
+  },
+  "books": [
+    "book_001", "book_002", "book_003", "book_004",
+    "book_005", "book_006", "book_007", "book_008",
+    "book_009", "book_010", "book_011", "book_012",
+    "book_013", "book_014", "book_015", "book_016"
+  ],
+  "modules": {
+    "calendar": {"status": "partial", "path": "calendar/"},
+    "palace": {"status": "implemented", "path": "palace/"},
+    "bureau": {"status": "implemented", "path": "bureau/"},
+    "stars": {"status": "implemented", "path": "stars/"},
+    "transformations": {"status": "partial", "path": "transformations/"},
+    "fortune": {"status": "skeleton", "path": "fortune/"},
+    "patterns": {"status": "stub", "path": "patterns/"},
+    "traditional_aux": {"status": "framework", "path": "stars/traditional_aux/"}
+  },
+  "rules": [
+    {"id": "CAL_LUNAR_001", "file": "calendar/calendar_rules.json"},
+    {"id": "PALACE_MING_001", "file": "palace/ming_gong_rules.json"},
+    {"id": "PALACE_SHEN_001", "file": "palace/shen_gong_rules.json"},
+    {"id": "BUREAU_NAYIN_001", "file": "bureau/five_element_table.json"},
+    {"id": "ZIWEI_TABLE", "file": "stars/ziwei_position_table.json"},
+    {"id": "TIANFU_CONFIG", "file": "stars/tianfu_rule_config.json"},
+    {"id": "FOURTEEN_MAIN", "file": "stars/fourteen_star_rule.json"},
+    {"id": "AUX_TRADITIONAL", "file": "stars/traditional_aux/aux_catalog.json"},
+    {"id": "HUA_BIRTH_001", "file": "transformations/birth_four_hua_rules.json"}
+  ]
+}

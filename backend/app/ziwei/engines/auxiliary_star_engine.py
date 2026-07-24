@@ -1,4 +1,4 @@
-"""辅助杂曜安置引擎 — V1.2 Phase 2。"""
+"""辅助杂曜安置引擎 — V1.3：支持年干查表 / 命宫起数 / 天寿。"""
 
 from __future__ import annotations
 
@@ -14,6 +14,9 @@ class AuxiliaryStarContext:
     lunar_month: int
     year_branch: str
     year_branch_index: int
+    year_stem: str = ""
+    ming_gong_branch: str = ""
+    ming_gong_index: int = 0
 
 
 @dataclass
@@ -23,6 +26,7 @@ class AuxiliaryStarResult:
     palace: str
     category: str = "auxiliary"
     source: str = "auxiliary_star_rules"
+    rule_source: str = ""
     trace: dict = field(default_factory=dict)
 
 
@@ -70,12 +74,28 @@ class AuxiliaryStarEngine:
             mapping = expr.get("mapping", {})
             return cls._resolve_group_branch(ctx.year_branch, mapping)
 
+        if rule_type == "stem_lookup":
+            mapping = expr.get("mapping", {})
+            return mapping.get(ctx.year_stem, "")
+
+        if rule_type == "ming_to_year_branch":
+            # 命宫起子，顺数至生年支
+            if not ctx.ming_gong_branch:
+                return ""
+            year_idx = ctx.year_branch_index
+            # 命宫当子(0)，目标年支相对子的步数 = year_idx
+            return EARTHLY_BRANCHES[(ctx.ming_gong_index + year_idx) % 12]
+
         if rule_type == "branch_offset":
-            base_branch = expr.get("base_branch", "寅")
             direction = expr.get("direction", "forward")
             offset = expr.get("offset", 0)
             by = expr.get("by", "year_branch")
-            base_idx = cls._branch_index(base_branch)
+            if expr.get("base_by") == "year_branch":
+                # 天寿：年支起子位，顺数至生月
+                base_idx = ctx.year_branch_index
+            else:
+                base_branch = expr.get("base_branch", "寅")
+                base_idx = cls._branch_index(base_branch)
             if by == "year_branch":
                 step = ctx.year_branch_index + offset
             elif by == "lunar_month":
@@ -92,13 +112,18 @@ class AuxiliaryStarEngine:
         palaces: list[PalaceResult],
         lunar_month: int,
         year_branch: str,
+        year_stem: str = "",
         school: str = RulesLoader.SCHOOL,
     ) -> list[AuxiliaryStarResult]:
         branch_to_palace = {p.branch: p.name for p in palaces}
+        ming = next((p for p in palaces if p.is_ming_gong), None)
         ctx = AuxiliaryStarContext(
             lunar_month=lunar_month,
             year_branch=year_branch,
             year_branch_index=EARTHLY_BRANCHES.index(year_branch),
+            year_stem=year_stem,
+            ming_gong_branch=ming.branch if ming else "",
+            ming_gong_index=ming.branch_index if ming else 0,
         )
         resolved_branches: dict[str, str] = {}
         results: list[AuxiliaryStarResult] = []
@@ -112,6 +137,7 @@ class AuxiliaryStarEngine:
                 continue
             resolved_branches[star_name] = branch
             palace = branch_to_palace.get(branch, "")
+            rule_source = f"{rule.get('source', 'auxiliary_star_rules')}:{rule.get('rule_type')}"
             results.append(
                 AuxiliaryStarResult(
                     name=star_name,
@@ -119,10 +145,12 @@ class AuxiliaryStarEngine:
                     palace=palace,
                     category=rule.get("category", "auxiliary"),
                     source=rule.get("source", "auxiliary_star_rules"),
+                    rule_source=rule_source,
                     trace={
                         "engine": "auxiliary_star",
                         "rule_type": rule.get("rule_type"),
                         "rule_expression": rule.get("rule_expression"),
+                        "rule_source": rule_source,
                         "source": rule.get("source", "auxiliary_star_rules"),
                     },
                 )
@@ -138,6 +166,7 @@ class AuxiliaryStarEngine:
                 "palace": s.palace,
                 "category": s.category,
                 "source": s.source,
+                "rule_source": s.rule_source,
                 "trace": s.trace,
             }
             for s in stars

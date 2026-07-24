@@ -41,10 +41,6 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.calendarType === "lunar") {
-      setError("农历输入即将上线，请暂时使用公历日期");
-      return;
-    }
 
     setLoading(true);
     setShowOverlay(true);
@@ -58,6 +54,7 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
         solar_date: form.date,
         time: form.time,
         location: form.location || undefined,
+        calendar_type: form.calendarType,
         persist: true,
         user_id: isAuthenticated ? user?.id : undefined,
       });
@@ -146,16 +143,21 @@ export default function BirthForm({ onSuccess }: BirthFormProps) {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="date">
-                  <Calendar className="mr-1 inline h-3.5 w-3.5" />
-                  出生日期
-                </Label>
+              <Label htmlFor="date">
+                <Calendar className="mr-1 inline h-3.5 w-3.5" />
+                {form.calendarType === "lunar" ? "农历日期" : "公历日期"}
+              </Label>
                 <Input
                   id="date"
                   type="date"
                   value={form.date}
                   onChange={(e) => update("date", e.target.value)}
                 />
+                {form.calendarType === "lunar" && (
+                  <p className="text-xs text-paper/40">
+                    请按农历年-月-日填写（系统会自动转换为公历排盘）。闰月暂请先选最近的非闰月日期。
+                  </p>
+                )}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="time">

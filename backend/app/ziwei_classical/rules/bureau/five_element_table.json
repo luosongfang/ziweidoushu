@@ -1,0 +1,384 @@
+{
+  "version": "1.6",
+  "rule": "命宫干支纳音→五行局",
+  "source": [
+    "紫微斗数全书",
+    "三合派安星诀"
+  ],
+  "bureau_map": {
+    "金": 4,
+    "木": 3,
+    "水": 2,
+    "火": 6,
+    "土": 5
+  },
+  "bureau_names": {
+    "2": "水二局",
+    "3": "木三局",
+    "4": "金四局",
+    "5": "土五局",
+    "6": "火六局"
+  },
+  "ganzhi_table": {
+    "甲子": {
+      "nayin": "海中金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "乙丑": {
+      "nayin": "海中金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "丙寅": {
+      "nayin": "炉中火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "丁卯": {
+      "nayin": "炉中火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "戊辰": {
+      "nayin": "大林木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "己巳": {
+      "nayin": "大林木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "庚午": {
+      "nayin": "路旁土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "辛未": {
+      "nayin": "路旁土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "壬申": {
+      "nayin": "剑锋金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "癸酉": {
+      "nayin": "剑锋金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "甲戌": {
+      "nayin": "山头火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "乙亥": {
+      "nayin": "山头火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "丙子": {
+      "nayin": "涧下水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "丁丑": {
+      "nayin": "涧下水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "戊寅": {
+      "nayin": "城头土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "己卯": {
+      "nayin": "城头土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "庚辰": {
+      "nayin": "白蜡金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "辛巳": {
+      "nayin": "白蜡金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "壬午": {
+      "nayin": "杨柳木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "癸未": {
+      "nayin": "杨柳木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "甲申": {
+      "nayin": "泉中水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "乙酉": {
+      "nayin": "泉中水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "丙戌": {
+      "nayin": "屋上土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "丁亥": {
+      "nayin": "屋上土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "戊子": {
+      "nayin": "霹雳火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "己丑": {
+      "nayin": "霹雳火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "庚寅": {
+      "nayin": "松柏木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "辛卯": {
+      "nayin": "松柏木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "壬辰": {
+      "nayin": "长流水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "癸巳": {
+      "nayin": "长流水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "甲午": {
+      "nayin": "砂中金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "乙未": {
+      "nayin": "砂中金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "丙申": {
+      "nayin": "山下火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "丁酉": {
+      "nayin": "山下火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "戊戌": {
+      "nayin": "平地木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "己亥": {
+      "nayin": "平地木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "庚子": {
+      "nayin": "壁上土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "辛丑": {
+      "nayin": "壁上土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "壬寅": {
+      "nayin": "金箔金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "癸卯": {
+      "nayin": "金箔金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "甲辰": {
+      "nayin": "覆灯火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "乙巳": {
+      "nayin": "覆灯火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "丙午": {
+      "nayin": "天河水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "丁未": {
+      "nayin": "天河水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "戊申": {
+      "nayin": "大驿土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "己酉": {
+      "nayin": "大驿土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "庚戌": {
+      "nayin": "钗钏金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "辛亥": {
+      "nayin": "钗钏金",
+      "element": "金",
+      "bureau_number": 4,
+      "bureau_name": "金四局"
+    },
+    "壬子": {
+      "nayin": "桑柘木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "癸丑": {
+      "nayin": "桑柘木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "甲寅": {
+      "nayin": "大溪水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "乙卯": {
+      "nayin": "大溪水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "丙辰": {
+      "nayin": "沙中土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "丁巳": {
+      "nayin": "沙中土",
+      "element": "土",
+      "bureau_number": 5,
+      "bureau_name": "土五局"
+    },
+    "戊午": {
+      "nayin": "天上火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "己未": {
+      "nayin": "天上火",
+      "element": "火",
+      "bureau_number": 6,
+      "bureau_name": "火六局"
+    },
+    "庚申": {
+      "nayin": "石榴木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "辛酉": {
+      "nayin": "石榴木",
+      "element": "木",
+      "bureau_number": 3,
+      "bureau_name": "木三局"
+    },
+    "壬戌": {
+      "nayin": "大海水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    },
+    "癸亥": {
+      "nayin": "大海水",
+      "element": "水",
+      "bureau_number": 2,
+      "bureau_name": "水二局"
+    }
+  }
+}

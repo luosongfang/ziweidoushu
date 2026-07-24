@@ -1,0 +1,42 @@
+{
+  "version": "1.6",
+  "school": "sanhe",
+  "true_solar_time": true,
+  "tianfu_rule": "traditional",
+  "ming_gong_rule": "standard",
+  "ziwei_rule": "classic_table",
+  "schools": {
+    "sanhe": {
+      "label": "三合派",
+      "tianfu_rule": "yin_shen_mirror",
+      "ming_gong_rule": "standard",
+      "ziwei_rule": "classic_table"
+    },
+    "feixing": {
+      "label": "飞星派",
+      "tianfu_rule": "opposite",
+      "ming_gong_rule": "standard",
+      "ziwei_rule": "classic_table",
+      "note": "飞星细盘未实现；仅天府对宫配置占位"
+    },
+    "beipai": {
+      "label": "北派",
+      "tianfu_rule": "yin_shen_mirror",
+      "ming_gong_rule": "standard",
+      "ziwei_rule": "classic_table",
+      "note": "北派差异待专业样本标定"
+    }
+  },
+  "tianfu_rules": {
+    "traditional": "默认=寅申镜像",
+    "yin_shen_mirror": "mirror / 寅申轴",
+    "mirror": "alias of yin_shen_mirror",
+    "opposite": "对宫"
+  },
+  "policy": {
+    "formula_change_min_frequency": 0.7,
+    "min_professional_samples": 30,
+    "min_fourteen_accuracy": 98.0,
+    "forbid_single_case_hardcode": true
+  }
+}

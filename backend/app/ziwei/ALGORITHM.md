@@ -203,11 +203,19 @@ palace[i].branch_index = (ming_gong_index - i + 12) % 12
 | 天同 | backward | 5 |
 | 廉贞 | backward | 8 |
 
-### 8.3 天府星系（天府在紫微对宫，顺布）
+### 8.3 天府星系（天府为寅申轴镜像，再顺布）
+
+安天府：**不是**简单对宫。以寅–申为轴镜像紫微地支：
+
+| 紫微 | 子 | 丑 | 寅 | 卯 | 辰 | 巳 | 午 | 未 | 申 | 酉 | 戌 | 亥 |
+|------|----|----|----|----|----|----|----|----|----|----|----|----|
+| 天府 | 辰 | 卯 | 寅 | 丑 | 子 | 亥 | 戌 | 酉 | 申 | 未 | 午 | 巳 |
+
+公式：`tianfu_index = (4 - ziwei_index) % 12`（寅申同宫；仅巳/亥时与对宫重合）。
 
 | 星曜 | 方向 | 偏移 |
 |------|------|------|
-| 天府 | opposite | 0 |
+| 天府 | mirror | 0 |
 | 太阴 | forward | 1 |
 | 贪狼 | forward | 2 |
 | 巨门 | forward | 3 |
@@ -220,6 +228,7 @@ palace[i].branch_index = (ming_gong_index - i + 12) % 12
 - `forward`：顺行 +offset
 - `backward`：逆行 −offset
 - `opposite`：对宫（+6）
+- `mirror`：寅申轴镜像（安天府）
 
 **模块**：`engines/star_placement_engine.py`
 

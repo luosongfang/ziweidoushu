@@ -1,0 +1,1239 @@
+{
+  "version": "1.6",
+  "description": "紫微五局落宫传统表",
+  "source": [
+    "紫微斗数全书",
+    "星曜秘诀",
+    "三合派安星诀"
+  ],
+  "method": "table_lookup_only",
+  "bureaus": {
+    "水二局": {
+      "bureau_number": 2,
+      "days": {
+        "1": "丑",
+        "2": "寅",
+        "3": "寅",
+        "4": "卯",
+        "5": "卯",
+        "6": "辰",
+        "7": "辰",
+        "8": "巳",
+        "9": "巳",
+        "10": "午",
+        "11": "午",
+        "12": "未",
+        "13": "未",
+        "14": "申",
+        "15": "申",
+        "16": "酉",
+        "17": "酉",
+        "18": "戌",
+        "19": "戌",
+        "20": "亥",
+        "21": "亥",
+        "22": "子",
+        "23": "子",
+        "24": "丑",
+        "25": "丑",
+        "26": "寅",
+        "27": "寅",
+        "28": "卯",
+        "29": "卯",
+        "30": "辰"
+      }
+    },
+    "木三局": {
+      "bureau_number": 3,
+      "days": {
+        "1": "丑",
+        "2": "丑",
+        "3": "寅",
+        "4": "寅",
+        "5": "寅",
+        "6": "卯",
+        "7": "卯",
+        "8": "卯",
+        "9": "辰",
+        "10": "辰",
+        "11": "辰",
+        "12": "巳",
+        "13": "巳",
+        "14": "巳",
+        "15": "午",
+        "16": "午",
+        "17": "午",
+        "18": "未",
+        "19": "未",
+        "20": "未",
+        "21": "申",
+        "22": "申",
+        "23": "申",
+        "24": "酉",
+        "25": "酉",
+        "26": "酉",
+        "27": "戌",
+        "28": "戌",
+        "29": "戌",
+        "30": "亥"
+      }
+    },
+    "金四局": {
+      "bureau_number": 4,
+      "days": {
+        "1": "丑",
+        "2": "丑",
+        "3": "丑",
+        "4": "寅",
+        "5": "寅",
+        "6": "寅",
+        "7": "寅",
+        "8": "卯",
+        "9": "卯",
+        "10": "卯",
+        "11": "卯",
+        "12": "辰",
+        "13": "辰",
+        "14": "辰",
+        "15": "辰",
+        "16": "巳",
+        "17": "巳",
+        "18": "巳",
+        "19": "巳",
+        "20": "午",
+        "21": "午",
+        "22": "午",
+        "23": "午",
+        "24": "未",
+        "25": "未",
+        "26": "未",
+        "27": "未",
+        "28": "申",
+        "29": "申",
+        "30": "申"
+      }
+    },
+    "土五局": {
+      "bureau_number": 5,
+      "days": {
+        "1": "丑",
+        "2": "丑",
+        "3": "丑",
+        "4": "丑",
+        "5": "寅",
+        "6": "寅",
+        "7": "寅",
+        "8": "寅",
+        "9": "寅",
+        "10": "卯",
+        "11": "卯",
+        "12": "卯",
+        "13": "卯",
+        "14": "卯",
+        "15": "辰",
+        "16": "辰",
+        "17": "辰",
+        "18": "辰",
+        "19": "辰",
+        "20": "巳",
+        "21": "巳",
+        "22": "巳",
+        "23": "巳",
+        "24": "巳",
+        "25": "午",
+        "26": "午",
+        "27": "午",
+        "28": "午",
+        "29": "午",
+        "30": "未"
+      }
+    },
+    "火六局": {
+      "bureau_number": 6,
+      "days": {
+        "1": "丑",
+        "2": "丑",
+        "3": "丑",
+        "4": "丑",
+        "5": "丑",
+        "6": "寅",
+        "7": "寅",
+        "8": "寅",
+        "9": "寅",
+        "10": "寅",
+        "11": "寅",
+        "12": "卯",
+        "13": "卯",
+        "14": "卯",
+        "15": "卯",
+        "16": "卯",
+        "17": "卯",
+        "18": "辰",
+        "19": "辰",
+        "20": "辰",
+        "21": "辰",
+        "22": "辰",
+        "23": "辰",
+        "24": "巳",
+        "25": "巳",
+        "26": "巳",
+        "27": "巳",
+        "28": "巳",
+        "29": "巳",
+        "30": "午"
+      }
+    }
+  },
+  "entries": [
+    {
+      "id": "ZIWEI_TABLE_001",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 1,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_002",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 2,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_003",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 3,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_004",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 4,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_005",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 5,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_006",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 6,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_007",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 7,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_008",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 8,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_009",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 9,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_010",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 10,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_011",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 11,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_012",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 12,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_013",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 13,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_014",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 14,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_015",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 15,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_016",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 16,
+      "ziwei": "酉"
+    },
+    {
+      "id": "ZIWEI_TABLE_017",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 17,
+      "ziwei": "酉"
+    },
+    {
+      "id": "ZIWEI_TABLE_018",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 18,
+      "ziwei": "戌"
+    },
+    {
+      "id": "ZIWEI_TABLE_019",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 19,
+      "ziwei": "戌"
+    },
+    {
+      "id": "ZIWEI_TABLE_020",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 20,
+      "ziwei": "亥"
+    },
+    {
+      "id": "ZIWEI_TABLE_021",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 21,
+      "ziwei": "亥"
+    },
+    {
+      "id": "ZIWEI_TABLE_022",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 22,
+      "ziwei": "子"
+    },
+    {
+      "id": "ZIWEI_TABLE_023",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 23,
+      "ziwei": "子"
+    },
+    {
+      "id": "ZIWEI_TABLE_024",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 24,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_025",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 25,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_026",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 26,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_027",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 27,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_028",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 28,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_029",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 29,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_030",
+      "bureau": "水二局",
+      "bureau_number": 2,
+      "day": 30,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_031",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 1,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_032",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 2,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_033",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 3,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_034",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 4,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_035",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 5,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_036",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 6,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_037",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 7,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_038",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 8,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_039",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 9,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_040",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 10,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_041",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 11,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_042",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 12,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_043",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 13,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_044",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 14,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_045",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 15,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_046",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 16,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_047",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 17,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_048",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 18,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_049",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 19,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_050",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 20,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_051",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 21,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_052",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 22,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_053",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 23,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_054",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 24,
+      "ziwei": "酉"
+    },
+    {
+      "id": "ZIWEI_TABLE_055",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 25,
+      "ziwei": "酉"
+    },
+    {
+      "id": "ZIWEI_TABLE_056",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 26,
+      "ziwei": "酉"
+    },
+    {
+      "id": "ZIWEI_TABLE_057",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 27,
+      "ziwei": "戌"
+    },
+    {
+      "id": "ZIWEI_TABLE_058",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 28,
+      "ziwei": "戌"
+    },
+    {
+      "id": "ZIWEI_TABLE_059",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 29,
+      "ziwei": "戌"
+    },
+    {
+      "id": "ZIWEI_TABLE_060",
+      "bureau": "木三局",
+      "bureau_number": 3,
+      "day": 30,
+      "ziwei": "亥"
+    },
+    {
+      "id": "ZIWEI_TABLE_061",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 1,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_062",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 2,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_063",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 3,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_064",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 4,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_065",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 5,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_066",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 6,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_067",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 7,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_068",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 8,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_069",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 9,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_070",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 10,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_071",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 11,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_072",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 12,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_073",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 13,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_074",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 14,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_075",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 15,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_076",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 16,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_077",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 17,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_078",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 18,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_079",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 19,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_080",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 20,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_081",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 21,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_082",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 22,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_083",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 23,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_084",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 24,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_085",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 25,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_086",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 26,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_087",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 27,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_088",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 28,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_089",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 29,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_090",
+      "bureau": "金四局",
+      "bureau_number": 4,
+      "day": 30,
+      "ziwei": "申"
+    },
+    {
+      "id": "ZIWEI_TABLE_091",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 1,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_092",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 2,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_093",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 3,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_094",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 4,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_095",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 5,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_096",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 6,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_097",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 7,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_098",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 8,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_099",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 9,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_100",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 10,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_101",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 11,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_102",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 12,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_103",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 13,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_104",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 14,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_105",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 15,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_106",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 16,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_107",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 17,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_108",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 18,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_109",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 19,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_110",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 20,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_111",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 21,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_112",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 22,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_113",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 23,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_114",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 24,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_115",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 25,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_116",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 26,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_117",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 27,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_118",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 28,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_119",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 29,
+      "ziwei": "午"
+    },
+    {
+      "id": "ZIWEI_TABLE_120",
+      "bureau": "土五局",
+      "bureau_number": 5,
+      "day": 30,
+      "ziwei": "未"
+    },
+    {
+      "id": "ZIWEI_TABLE_121",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 1,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_122",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 2,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_123",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 3,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_124",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 4,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_125",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 5,
+      "ziwei": "丑"
+    },
+    {
+      "id": "ZIWEI_TABLE_126",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 6,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_127",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 7,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_128",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 8,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_129",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 9,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_130",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 10,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_131",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 11,
+      "ziwei": "寅"
+    },
+    {
+      "id": "ZIWEI_TABLE_132",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 12,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_133",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 13,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_134",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 14,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_135",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 15,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_136",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 16,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_137",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 17,
+      "ziwei": "卯"
+    },
+    {
+      "id": "ZIWEI_TABLE_138",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 18,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_139",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 19,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_140",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 20,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_141",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 21,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_142",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 22,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_143",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 23,
+      "ziwei": "辰"
+    },
+    {
+      "id": "ZIWEI_TABLE_144",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 24,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_145",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 25,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_146",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 26,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_147",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 27,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_148",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 28,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_149",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 29,
+      "ziwei": "巳"
+    },
+    {
+      "id": "ZIWEI_TABLE_150",
+      "bureau": "火六局",
+      "bureau_number": 6,
+      "day": 30,
+      "ziwei": "午"
+    }
+  ]
+}

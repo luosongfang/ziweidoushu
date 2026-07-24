@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "id": "PALACE_MING_001",
+      "name": "命宫安置规则",
+      "category": "palace",
+      "source": ["紫微斗数全书", "斗数骨髓赋", "三合派安星诀"],
+      "school": "三合派",
+      "priority": "critical",
+      "formula": "寅起正月，顺数生月得月支；自月支逆数生时得命宫",
+      "formula_aliases": [
+        "寅起正月顺数至生月，逆数至生时"
+      ],
+      "disputed_wording": {
+        "note": "部分传抄写作「逆数生月，顺数生时」；与全书通行安法及本引擎校验命例不一致，列入冲突待文献核对，禁止因单软件改公式",
+        "status": "conflict_documented"
+      },
+      "input": ["lunar_month", "hour_branch_index", "year_stem"],
+      "output": "ming_gong_branch",
+      "code_formula": "month_idx=(寅+month-1)%12; ming=(month_idx-hour+12)%12",
+      "validation": "required"
+    }
+  ]
+}

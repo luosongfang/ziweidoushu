@@ -1,0 +1,656 @@
+{
+  "version": "1.6",
+  "description": "Professional wenmo reference samples",
+  "cases": [
+    {
+      "id": "SC-P001",
+      "source": "wenmo",
+      "verification_level": "verified_professional",
+      "birth": {
+        "date": "1990-05-15",
+        "time": "14:30",
+        "gender": "male",
+        "location": "深圳",
+        "true_solar_time": true
+      },
+      "file": "SC-P001.json"
+    },
+    {
+      "id": "SC-P002",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1984-03-15",
+        "time": "00:30",
+        "gender": "male",
+        "location": "北京",
+        "true_solar_time": true
+      },
+      "file": "SC-P002.json"
+    },
+    {
+      "id": "SC-P003",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1985-06-20",
+        "time": "02:00",
+        "gender": "male",
+        "location": "上海",
+        "true_solar_time": true
+      },
+      "file": "SC-P003.json"
+    },
+    {
+      "id": "SC-P004",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1986-09-08",
+        "time": "04:00",
+        "gender": "male",
+        "location": "深圳",
+        "true_solar_time": true
+      },
+      "file": "SC-P004.json"
+    },
+    {
+      "id": "SC-P005",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1987-01-12",
+        "time": "06:15",
+        "gender": "male",
+        "location": "广州",
+        "true_solar_time": true
+      },
+      "file": "SC-P005.json"
+    },
+    {
+      "id": "SC-P006",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1988-04-04",
+        "time": "08:00",
+        "gender": "male",
+        "location": "杭州",
+        "true_solar_time": true
+      },
+      "file": "SC-P006.json"
+    },
+    {
+      "id": "SC-P007",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1989-07-18",
+        "time": "10:00",
+        "gender": "male",
+        "location": "成都",
+        "true_solar_time": true
+      },
+      "file": "SC-P007.json"
+    },
+    {
+      "id": "SC-P008",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1990-05-15",
+        "time": "12:00",
+        "gender": "male",
+        "location": "武汉",
+        "true_solar_time": true
+      },
+      "file": "SC-P008.json"
+    },
+    {
+      "id": "SC-P009",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1991-11-03",
+        "time": "14:00",
+        "gender": "male",
+        "location": null,
+        "true_solar_time": true
+      },
+      "file": "SC-P009.json"
+    },
+    {
+      "id": "SC-P010",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1992-02-22",
+        "time": "14:30",
+        "gender": "male",
+        "location": "北京",
+        "true_solar_time": true
+      },
+      "file": "SC-P010.json"
+    },
+    {
+      "id": "SC-P011",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1993-08-09",
+        "time": "16:00",
+        "gender": "male",
+        "location": "上海",
+        "true_solar_time": true
+      },
+      "file": "SC-P011.json"
+    },
+    {
+      "id": "SC-P012",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1985-03-15",
+        "time": "18:45",
+        "gender": "male",
+        "location": "深圳",
+        "true_solar_time": true
+      },
+      "file": "SC-P012.json"
+    },
+    {
+      "id": "SC-P013",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1986-06-20",
+        "time": "20:00",
+        "gender": "male",
+        "location": "广州",
+        "true_solar_time": true
+      },
+      "file": "SC-P013.json"
+    },
+    {
+      "id": "SC-P014",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1987-09-08",
+        "time": "22:50",
+        "gender": "male",
+        "location": "杭州",
+        "true_solar_time": true
+      },
+      "file": "SC-P014.json"
+    },
+    {
+      "id": "SC-P015",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1988-01-12",
+        "time": "00:30",
+        "gender": "male",
+        "location": "成都",
+        "true_solar_time": true
+      },
+      "file": "SC-P015.json"
+    },
+    {
+      "id": "SC-P016",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1989-04-04",
+        "time": "02:00",
+        "gender": "male",
+        "location": "武汉",
+        "true_solar_time": true
+      },
+      "file": "SC-P016.json"
+    },
+    {
+      "id": "SC-P017",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1990-07-18",
+        "time": "04:00",
+        "gender": "male",
+        "location": null,
+        "true_solar_time": true
+      },
+      "file": "SC-P017.json"
+    },
+    {
+      "id": "SC-P018",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1991-05-15",
+        "time": "06:15",
+        "gender": "male",
+        "location": "北京",
+        "true_solar_time": true
+      },
+      "file": "SC-P018.json"
+    },
+    {
+      "id": "SC-P019",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1992-11-03",
+        "time": "08:00",
+        "gender": "male",
+        "location": "上海",
+        "true_solar_time": true
+      },
+      "file": "SC-P019.json"
+    },
+    {
+      "id": "SC-P020",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1993-02-22",
+        "time": "10:00",
+        "gender": "male",
+        "location": "深圳",
+        "true_solar_time": true
+      },
+      "file": "SC-P020.json"
+    },
+    {
+      "id": "SC-P021",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1994-08-09",
+        "time": "12:00",
+        "gender": "male",
+        "location": "广州",
+        "true_solar_time": true
+      },
+      "file": "SC-P021.json"
+    },
+    {
+      "id": "SC-P022",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1986-03-15",
+        "time": "14:00",
+        "gender": "male",
+        "location": "杭州",
+        "true_solar_time": true
+      },
+      "file": "SC-P022.json"
+    },
+    {
+      "id": "SC-P023",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1987-06-20",
+        "time": "14:30",
+        "gender": "male",
+        "location": "成都",
+        "true_solar_time": true
+      },
+      "file": "SC-P023.json"
+    },
+    {
+      "id": "SC-P024",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1988-09-08",
+        "time": "16:00",
+        "gender": "male",
+        "location": "武汉",
+        "true_solar_time": true
+      },
+      "file": "SC-P024.json"
+    },
+    {
+      "id": "SC-P025",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1989-01-12",
+        "time": "18:45",
+        "gender": "male",
+        "location": null,
+        "true_solar_time": true
+      },
+      "file": "SC-P025.json"
+    },
+    {
+      "id": "SC-P026",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1990-04-04",
+        "time": "20:00",
+        "gender": "female",
+        "location": "北京",
+        "true_solar_time": true
+      },
+      "file": "SC-P026.json"
+    },
+    {
+      "id": "SC-P027",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1991-07-18",
+        "time": "22:50",
+        "gender": "female",
+        "location": "上海",
+        "true_solar_time": true
+      },
+      "file": "SC-P027.json"
+    },
+    {
+      "id": "SC-P028",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1992-05-15",
+        "time": "00:30",
+        "gender": "female",
+        "location": "深圳",
+        "true_solar_time": true
+      },
+      "file": "SC-P028.json"
+    },
+    {
+      "id": "SC-P029",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1993-11-03",
+        "time": "02:00",
+        "gender": "female",
+        "location": "广州",
+        "true_solar_time": true
+      },
+      "file": "SC-P029.json"
+    },
+    {
+      "id": "SC-P030",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1994-02-22",
+        "time": "04:00",
+        "gender": "female",
+        "location": "杭州",
+        "true_solar_time": true
+      },
+      "file": "SC-P030.json"
+    },
+    {
+      "id": "SC-P031",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1995-08-09",
+        "time": "06:15",
+        "gender": "female",
+        "location": "成都",
+        "true_solar_time": true
+      },
+      "file": "SC-P031.json"
+    },
+    {
+      "id": "SC-P032",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1987-03-15",
+        "time": "08:00",
+        "gender": "female",
+        "location": "武汉",
+        "true_solar_time": true
+      },
+      "file": "SC-P032.json"
+    },
+    {
+      "id": "SC-P033",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1988-06-20",
+        "time": "10:00",
+        "gender": "female",
+        "location": null,
+        "true_solar_time": true
+      },
+      "file": "SC-P033.json"
+    },
+    {
+      "id": "SC-P034",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1989-09-08",
+        "time": "12:00",
+        "gender": "female",
+        "location": "北京",
+        "true_solar_time": true
+      },
+      "file": "SC-P034.json"
+    },
+    {
+      "id": "SC-P035",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1990-01-12",
+        "time": "14:00",
+        "gender": "female",
+        "location": "上海",
+        "true_solar_time": true
+      },
+      "file": "SC-P035.json"
+    },
+    {
+      "id": "SC-P036",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1991-04-04",
+        "time": "14:30",
+        "gender": "female",
+        "location": "深圳",
+        "true_solar_time": true
+      },
+      "file": "SC-P036.json"
+    },
+    {
+      "id": "SC-P037",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1992-07-18",
+        "time": "16:00",
+        "gender": "female",
+        "location": "广州",
+        "true_solar_time": true
+      },
+      "file": "SC-P037.json"
+    },
+    {
+      "id": "SC-P038",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1993-05-15",
+        "time": "18:45",
+        "gender": "female",
+        "location": "杭州",
+        "true_solar_time": true
+      },
+      "file": "SC-P038.json"
+    },
+    {
+      "id": "SC-P039",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1994-11-03",
+        "time": "20:00",
+        "gender": "female",
+        "location": "成都",
+        "true_solar_time": true
+      },
+      "file": "SC-P039.json"
+    },
+    {
+      "id": "SC-P040",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1995-02-22",
+        "time": "22:50",
+        "gender": "female",
+        "location": "武汉",
+        "true_solar_time": true
+      },
+      "file": "SC-P040.json"
+    },
+    {
+      "id": "SC-P041",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1996-08-09",
+        "time": "00:30",
+        "gender": "female",
+        "location": null,
+        "true_solar_time": true
+      },
+      "file": "SC-P041.json"
+    },
+    {
+      "id": "SC-P042",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1988-03-15",
+        "time": "02:00",
+        "gender": "female",
+        "location": "北京",
+        "true_solar_time": true
+      },
+      "file": "SC-P042.json"
+    },
+    {
+      "id": "SC-P043",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1989-06-20",
+        "time": "04:00",
+        "gender": "female",
+        "location": "上海",
+        "true_solar_time": true
+      },
+      "file": "SC-P043.json"
+    },
+    {
+      "id": "SC-P044",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1990-09-08",
+        "time": "06:15",
+        "gender": "female",
+        "location": "深圳",
+        "true_solar_time": true
+      },
+      "file": "SC-P044.json"
+    },
+    {
+      "id": "SC-P045",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1991-01-12",
+        "time": "08:00",
+        "gender": "female",
+        "location": "广州",
+        "true_solar_time": true
+      },
+      "file": "SC-P045.json"
+    },
+    {
+      "id": "SC-P046",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1992-04-04",
+        "time": "10:00",
+        "gender": "female",
+        "location": "杭州",
+        "true_solar_time": true
+      },
+      "file": "SC-P046.json"
+    },
+    {
+      "id": "SC-P047",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1993-07-18",
+        "time": "12:00",
+        "gender": "female",
+        "location": "成都",
+        "true_solar_time": true
+      },
+      "file": "SC-P047.json"
+    },
+    {
+      "id": "SC-P048",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1994-05-15",
+        "time": "14:00",
+        "gender": "female",
+        "location": "武汉",
+        "true_solar_time": true
+      },
+      "file": "SC-P048.json"
+    },
+    {
+      "id": "SC-P049",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1995-11-03",
+        "time": "14:30",
+        "gender": "female",
+        "location": null,
+        "true_solar_time": true
+      },
+      "file": "SC-P049.json"
+    },
+    {
+      "id": "SC-P050",
+      "source": "wenmo",
+      "verification_level": "pending",
+      "birth": {
+        "date": "1996-02-22",
+        "time": "16:00",
+        "gender": "female",
+        "location": "北京",
+        "true_solar_time": true
+      },
+      "file": "SC-P050.json"
+    }
+  ]
+}

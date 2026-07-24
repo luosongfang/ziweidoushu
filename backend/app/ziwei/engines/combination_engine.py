@@ -89,6 +89,24 @@ class CombinationEngine:
                 return True, [left, right]
             return False, []
 
+        if match_type == "flank_ji" and len(stars) == 2:
+            # 羊陀夹忌：擎羊/陀罗夹住化忌星所在宫
+            ji_palace = ""
+            for sname, hua in star_sihua.items():
+                if hua == "忌":
+                    ji_palace = star_to_palace.get(sname, "")
+                    break
+            if not ji_palace or ji_palace not in palace_order:
+                return False, []
+            idx = palace_order.index(ji_palace)
+            left = palace_order[(idx - 1) % 12]
+            right = palace_order[(idx + 1) % 12]
+            p0 = star_to_palace.get(stars[0])
+            p1 = star_to_palace.get(stars[1])
+            if p0 and p1 and {p0, p1} == {left, right}:
+                return True, [left, ji_palace, right]
+            return False, []
+
         if match_type == "sole_main_star" and stars == ["紫微"]:
             palace = star_to_palace.get("紫微")
             if not palace:

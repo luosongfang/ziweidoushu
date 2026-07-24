@@ -20,6 +20,7 @@ SHA_STAR_NAMES: tuple[str, ...] = (
 ZA_STAR_NAMES: tuple[str, ...] = ("天马",)
 AUXILIARY_STAR_NAMES: tuple[str, ...] = (
     "天刑", "天姚", "红鸾", "天喜", "孤辰", "寡宿", "华盖", "天哭", "天虚",
+    "咸池", "天官", "天福", "天寿", "天才", "天月",
 )
 BRIGHTNESS_LEVELS: tuple[str, ...] = ("庙", "旺", "得", "利", "平", "陷", "不得")
 

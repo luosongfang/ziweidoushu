@@ -1,0 +1,247 @@
+{
+  "version": "1.4.1",
+  "description": "Golden Dataset V1.4.1 — only verified_professional enters auto tests",
+  "cases": [
+    {
+      "id": "SC-C01",
+      "verification_level": "verified_professional",
+      "file": "SC-C01.json",
+      "birth": {
+        "solar_date": "1990-05-15",
+        "time": "14:30",
+        "gender": "male",
+        "location": "深圳",
+        "true_solar_time": true,
+        "longitude": 114.0579
+      }
+    },
+    {
+      "id": "SC-C02",
+      "verification_level": "pending",
+      "file": "SC-C02.json",
+      "birth": {
+        "solar_date": "1982-02-22",
+        "time": "14:00",
+        "gender": "male",
+        "location": "北京",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C03",
+      "verification_level": "pending",
+      "file": "SC-C03.json",
+      "birth": {
+        "solar_date": "1988-11-08",
+        "time": "09:20",
+        "gender": "male",
+        "location": "上海",
+        "true_solar_time": true
+      }
+    },
+    {
+      "id": "SC-C04",
+      "verification_level": "pending",
+      "file": "SC-C04.json",
+      "birth": {
+        "solar_date": "1975-03-12",
+        "time": "23:40",
+        "gender": "female",
+        "location": "北京",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C05",
+      "verification_level": "pending",
+      "file": "SC-C05.json",
+      "birth": {
+        "solar_date": "2000-01-01",
+        "time": "00:30",
+        "gender": "male",
+        "location": null,
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C06",
+      "verification_level": "pending",
+      "file": "SC-C06.json",
+      "birth": {
+        "solar_date": "1995-07-20",
+        "time": "16:00",
+        "gender": "female",
+        "location": "上海",
+        "true_solar_time": true
+      }
+    },
+    {
+      "id": "SC-C07",
+      "verification_level": "pending",
+      "file": "SC-C07.json",
+      "birth": {
+        "solar_date": "1968-09-09",
+        "time": "06:15",
+        "gender": "male",
+        "location": "广州",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C08",
+      "verification_level": "pending",
+      "file": "SC-C08.json",
+      "birth": {
+        "solar_date": "1985-12-25",
+        "time": "12:00",
+        "gender": "female",
+        "location": "广州",
+        "true_solar_time": true
+      }
+    },
+    {
+      "id": "SC-C09",
+      "verification_level": "pending",
+      "file": "SC-C09.json",
+      "birth": {
+        "solar_date": "1992-04-04",
+        "time": "03:00",
+        "gender": "male",
+        "location": "成都",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C10",
+      "verification_level": "pending",
+      "file": "SC-C10.json",
+      "birth": {
+        "solar_date": "1979-08-18",
+        "time": "18:45",
+        "gender": "female",
+        "location": "杭州",
+        "true_solar_time": true
+      }
+    },
+    {
+      "id": "SC-C11",
+      "verification_level": "pending",
+      "file": "SC-C11.json",
+      "birth": {
+        "solar_date": "1998-06-01",
+        "time": "08:00",
+        "gender": "female",
+        "location": "深圳",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C12",
+      "verification_level": "pending",
+      "file": "SC-C12.json",
+      "birth": {
+        "solar_date": "1960-01-15",
+        "time": "11:30",
+        "gender": "male",
+        "location": "西安",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C13",
+      "verification_level": "pending",
+      "file": "SC-C13.json",
+      "birth": {
+        "solar_date": "2005-10-10",
+        "time": "21:00",
+        "gender": "female",
+        "location": "武汉",
+        "true_solar_time": true
+      }
+    },
+    {
+      "id": "SC-C14",
+      "verification_level": "pending",
+      "file": "SC-C14.json",
+      "birth": {
+        "solar_date": "1972-05-05",
+        "time": "05:00",
+        "gender": "male",
+        "location": "南京",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C15",
+      "verification_level": "pending",
+      "file": "SC-C15.json",
+      "birth": {
+        "solar_date": "1991-09-30",
+        "time": "19:20",
+        "gender": "female",
+        "location": "天津",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C16",
+      "verification_level": "pending",
+      "file": "SC-C16.json",
+      "birth": {
+        "solar_date": "1980-03-08",
+        "time": "01:10",
+        "gender": "male",
+        "location": "重庆",
+        "true_solar_time": true
+      }
+    },
+    {
+      "id": "SC-C17",
+      "verification_level": "pending",
+      "file": "SC-C17.json",
+      "birth": {
+        "solar_date": "1993-12-12",
+        "time": "22:50",
+        "gender": "female",
+        "location": "苏州",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C18",
+      "verification_level": "pending",
+      "file": "SC-C18.json",
+      "birth": {
+        "solar_date": "1965-07-07",
+        "time": "07:40",
+        "gender": "male",
+        "location": "厦门",
+        "true_solar_time": false
+      }
+    },
+    {
+      "id": "SC-C19",
+      "verification_level": "pending",
+      "file": "SC-C19.json",
+      "birth": {
+        "solar_date": "2001-02-14",
+        "time": "15:15",
+        "gender": "female",
+        "location": "青岛",
+        "true_solar_time": true
+      }
+    },
+    {
+      "id": "SC-C20",
+      "verification_level": "pending",
+      "file": "SC-C20.json",
+      "birth": {
+        "solar_date": "1977-11-11",
+        "time": "04:30",
+        "gender": "male",
+        "location": "长沙",
+        "true_solar_time": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.6",
+  "rule_id": "TIANFU_CONFIG",
+  "name": "天府定位多规则模型",
+  "source": ["紫微斗数全书", "三合派安星诀", "飞星赋", "北派斗数要诀"],
+  "conflict": true,
+  "auto_select": false,
+  "note": "禁止自动选择；由 classical_config.json 显式指定",
+  "options": {
+    "yanshen_mirror": {
+      "id": "TIANFU_A_YANSHEN",
+      "label": "寅申轴镜像",
+      "formula": "index=(4-ziwei_index)%12",
+      "description": "以寅申为轴镜像紫微地支；寅申同宫；巳亥恰为对宫",
+      "school_hint": ["三合派", "北派"],
+      "alias": ["yin_shen_mirror", "traditional", "mirror_yanshen"]
+    },
+    "opposite": {
+      "id": "TIANFU_B_OPPOSITE",
+      "label": "紫微对宫",
+      "formula": "index=(ziwei_index+6)%12",
+      "description": "天府安于紫微对宫",
+      "school_hint": ["部分飞星/简化流派"],
+      "alias": ["dui_gong", "mirror"]
+    }
+  },
+  "naming_warning": {
+    "issue": "部分文档将 mirror 写作「对宫」；本配置以 option id 为准，不依赖中文别名",
+    "resolution": "classical_config.tianfu_rule ∈ {traditional, yin_shen_mirror, opposite, yanshen_mirror}"
+  },
+  "default_for_sanhe": "yanshen_mirror",
+  "validation": "required_via_config"
+}

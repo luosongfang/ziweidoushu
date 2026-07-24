@@ -1,0 +1,176 @@
+{
+  "id": "SC-C13",
+  "verification_level": "pending",
+  "source": {
+    "name": "birth slot SC-C13",
+    "type": "manual"
+  },
+  "birth": {
+    "solar_date": "2005-10-10",
+    "time": "21:00",
+    "gender": "female",
+    "location": "武汉",
+    "true_solar_time": true
+  },
+  "expected": {
+    "_note": "engine_snapshot_for_coverage_only_not_professional",
+    "calendar": {
+      "lunar": "2005-9-8",
+      "ganzhi": {
+        "year": "乙酉",
+        "month": "丙戌",
+        "day": "丁卯",
+        "hour": "辛亥"
+      },
+      "shichen": {
+        "name": "亥时",
+        "index": 11,
+        "branch": "亥"
+      }
+    },
+    "meta": {
+      "ming_gong": "亥",
+      "shen_gong": "酉",
+      "wuxing_ju": "土五局",
+      "ming_zhu": "巨门",
+      "shen_zhu": "天同",
+      "ziwei_position": "寅",
+      "tianfu_position": "寅"
+    },
+    "palaces": [
+      {
+        "name": "命宫",
+        "branch": "亥",
+        "main_stars": [
+          "太阳"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "兄弟",
+        "branch": "戌",
+        "main_stars": [
+          "武曲"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "夫妻",
+        "branch": "酉",
+        "main_stars": [
+          "天同"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "子女",
+        "branch": "申",
+        "main_stars": [
+          "七杀"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "财帛",
+        "branch": "未",
+        "main_stars": [
+          "天梁"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "疾厄",
+        "branch": "午",
+        "main_stars": [
+          "天相",
+          "廉贞"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "迁移",
+        "branch": "巳",
+        "main_stars": [
+          "巨门"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "交友",
+        "branch": "辰",
+        "main_stars": [
+          "贪狼"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "官禄",
+        "branch": "卯",
+        "main_stars": [
+          "太阴"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "田宅",
+        "branch": "寅",
+        "main_stars": [
+          "天府",
+          "紫微"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "福德",
+        "branch": "丑",
+        "main_stars": [
+          "天机"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      },
+      {
+        "name": "父母",
+        "branch": "子",
+        "main_stars": [
+          "破军"
+        ],
+        "lucky_stars": [],
+        "sha_stars": [],
+        "za_stars": []
+      }
+    ],
+    "four_transform": {
+      "lu": "天机",
+      "quan": "天梁",
+      "ke": "紫微",
+      "ji": "太阴"
+    },
+    "fortune": {
+      "daxian": "",
+      "liunian": ""
+    }
+  },
+  "notes": "禁止入测直至 verification_level=verified_professional 且经专业软件确认"
+}

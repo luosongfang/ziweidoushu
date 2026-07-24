@@ -25,6 +25,10 @@ class RuleAnalysis(BaseModel):
     strengths: list[str] = Field(default_factory=list)
     focused_palaces: list[PalaceFocus] = Field(default_factory=list)
     knowledge_snippets: list[str] = Field(default_factory=list)
+    star_analysis: list[dict[str, str]] = Field(
+        default_factory=list,
+        description="来自 ziwei_data 星曜库的结构化释义",
+    )
 
 
 class AnalyzeRequest(BaseModel):
@@ -42,3 +46,7 @@ class AnalyzeResponse(BaseModel):
     report: str | None = None
     model: str | None = None
     error: str | None = None
+    star_analysis: list[dict[str, str]] = Field(
+        default_factory=list,
+        description="命盘相关星曜知识库摘录（增量字段）",
+    )

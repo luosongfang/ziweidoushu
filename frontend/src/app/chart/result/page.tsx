@@ -104,7 +104,10 @@ export default function ChartResultPage() {
               你的 ZiweiX AI 分析档案
             </h1>
             <p className="mt-2 text-sm text-paper/50">
-              {chart.name || "访客"} · {chart.gender === "male" ? "男" : "女"} · {chart.birth.shichen}
+              {chart.name || "访客"} · {chart.gender === "male" ? "男" : "女"} ·{" "}
+              {typeof chart.birth.shichen === "string"
+                ? chart.birth.shichen
+                : chart.birth.shichen?.name ?? ""}
             </p>
             <PrivacyNotice className="mt-2" />
             {isGuest && (

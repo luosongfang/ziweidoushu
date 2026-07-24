@@ -1,0 +1,80 @@
+{
+  "id": "SC-P022",
+  "source": "wenmo",
+  "verification_level": "pending",
+  "birth": {
+    "date": "1986-03-15",
+    "time": "14:00",
+    "gender": "male",
+    "location": "杭州",
+    "true_solar_time": true
+  },
+  "settings": {
+    "calendar": "solar",
+    "school": "sanhe",
+    "tianfu_rule": "traditional"
+  },
+  "chart_reference": {
+    "ming_gong": "",
+    "shen_gong": "",
+    "wuxing": "",
+    "ziwei": "",
+    "tianfu": "",
+    "palaces": {
+      "命宫": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "兄弟": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "夫妻": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "子女": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "财帛": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "疾厄": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "迁移": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "交友": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "官禄": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "田宅": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "福德": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "父母": {
+        "main_stars": [],
+        "aux_stars": []
+      }
+    }
+  },
+  "coverage_tags": {
+    "gender": "male",
+    "planned_year_stem": "甲",
+    "hour_slot": "14:00"
+  },
+  "notes": "pending wenmo — 填满 chart_reference 后升 verified_professional"
+}

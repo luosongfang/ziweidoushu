@@ -1,0 +1,103 @@
+{
+  "id": "SC-P001",
+  "source": "wenmo",
+  "verification_level": "verified_professional",
+  "verified_by": "mapped from SC-C01 / REF-01 cross-check (pending fresh wenmo screenshot)",
+  "birth": {
+    "date": "1990-05-15",
+    "time": "14:30",
+    "gender": "male",
+    "location": "深圳",
+    "true_solar_time": true
+  },
+  "settings": {
+    "calendar": "solar",
+    "school": "sanhe",
+    "tianfu_rule": "traditional"
+  },
+  "chart_reference": {
+    "ming_gong": "戌",
+    "shen_gong": "子",
+    "wuxing": "土五局",
+    "ziwei": "巳",
+    "tianfu": "亥",
+    "palaces": {
+      "命宫": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "兄弟": {
+        "main_stars": [
+          "廉贞",
+          "破军"
+        ],
+        "aux_stars": []
+      },
+      "夫妻": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "子女": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "财帛": {
+        "main_stars": [],
+        "aux_stars": []
+      },
+      "疾厄": {
+        "main_stars": [
+          "紫微",
+          "七杀"
+        ],
+        "aux_stars": []
+      },
+      "迁移": {
+        "main_stars": [
+          "天机",
+          "天梁"
+        ],
+        "aux_stars": []
+      },
+      "交友": {
+        "main_stars": [
+          "天相"
+        ],
+        "aux_stars": []
+      },
+      "官禄": {
+        "main_stars": [
+          "太阳",
+          "巨门"
+        ],
+        "aux_stars": []
+      },
+      "田宅": {
+        "main_stars": [
+          "武曲",
+          "贪狼"
+        ],
+        "aux_stars": []
+      },
+      "福德": {
+        "main_stars": [
+          "天同",
+          "太阴"
+        ],
+        "aux_stars": []
+      },
+      "父母": {
+        "main_stars": [
+          "天府"
+        ],
+        "aux_stars": []
+      }
+    }
+  },
+  "coverage_tags": {
+    "gender": "male",
+    "bureau": "earth5",
+    "hour": "wei",
+    "year_stem": "庚"
+  }
+}

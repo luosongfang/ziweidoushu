@@ -7,7 +7,15 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
 
-export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+const PLACEHOLDER_MARKERS = ["your-project", "your-anon-key", "example.supabase", "placeholder"];
+
+function looksConfigured(url: string, key: string): boolean {
+  if (!url.trim() || !key.trim()) return false;
+  const lower = `${url} ${key}`.toLowerCase();
+  return !PLACEHOLDER_MARKERS.some((m) => lower.includes(m));
+}
+
+export const isSupabaseConfigured = looksConfigured(supabaseUrl, supabaseAnonKey);
 
 export type AuthMode = "supabase" | "dev";
 

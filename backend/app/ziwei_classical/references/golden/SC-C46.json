@@ -1,0 +1,25 @@
+{
+  "id": "SC-C46",
+  "verification_level": "pending",
+  "source": {
+    "name": "slot",
+    "type": "manual"
+  },
+  "birth": {
+    "solar_date": "1966-11-19",
+    "time": "20:00",
+    "gender": "male",
+    "location": null,
+    "true_solar_time": false
+  },
+  "expected": {
+    "ming_gong": "",
+    "shen_gong": "",
+    "wuxing": "",
+    "ziwei": "",
+    "fourteen_stars": {},
+    "aux_stars": {},
+    "transformations": {}
+  },
+  "notes": "pending professional screenshot — not for auto accuracy claim"
+}

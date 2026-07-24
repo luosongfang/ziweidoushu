@@ -1,0 +1,24 @@
+{
+  "id": "SC-C10",
+  "source": "pending_reference",
+  "verified_by": "",
+  "verification_level": "pending",
+  "gender": "female",
+  "true_solar_time": false,
+  "location": "杭州",
+  "birth": {
+    "solar": "1979-08-18",
+    "time": "18:45",
+    "location": "杭州",
+    "longitude": null,
+    "shichen": null
+  },
+  "calendar": {
+    "type": "solar",
+    "lunar": "",
+    "ganzhi": {}
+  },
+  "meta": {},
+  "palaces": [],
+  "notes": "禁止进入自动测试直至 verification_level=verified_professional 且 meta/palaces 完整"
+}

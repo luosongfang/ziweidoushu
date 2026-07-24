@@ -1,18 +1,21 @@
-"""命盘组装器 — Phase 2 核心入口。"""
+"""命盘组装器 — Ziwei Core Engine V1.3。"""
 
 from __future__ import annotations
 
 from datetime import datetime
 
-from app.ziwei.constants import EARTHLY_BRANCHES, MING_ZHU_BY_BRANCH, SHEN_ZHU_BY_YEAR_BRANCH
+from app.ziwei.constants import MING_ZHU_BY_BRANCH, SHEN_ZHU_BY_YEAR_BRANCH
 from app.ziwei.engines.auxiliary_star_engine import AuxiliaryStarEngine
 from app.ziwei.engines.calendar_engine import CalendarEngine
+from app.ziwei.engines.combination_engine import CombinationEngine
 from app.ziwei.engines.fortune_engine import FortuneEngine
+from app.ziwei.engines.minor_star_placement_engine import MinorStarPlacementEngine
 from app.ziwei.engines.palace_engine import PalaceEngine
 from app.ziwei.engines.star_placement_engine import StarPlacementEngine, StarPlacementResult
 from app.ziwei.fortune.xiaoxian import XiaoxianCalculator
 from app.ziwei.rules.loader import RulesLoader
 from app.ziwei.transformation.daxian_hua import DaxianTransformCalculator
+from app.ziwei.transformation.four_transform_engine_v2 import FourTransformEngineV2
 from app.ziwei.transformation.liunian_hua import LiunianTransformCalculator
 from app.ziwei_engine.calendar.ganzhi import GanzhiCalculator
 from app.ziwei_engine.calendar.lunar_converter import LunarConverter
@@ -25,15 +28,15 @@ from app.ziwei_engine.palace.twelve_palace import Palace, TwelvePalaceBuilder
 from app.ziwei_engine.stars.fourteen_stars import FourteenStarsCalculator
 from app.ziwei_engine.stars.tianfu import TianfuStarCalculator
 from app.ziwei_engine.stars.ziwei import ZiweiStarCalculator
+from app.ziwei_engine.stars.debug_snapshot import build_algorithm_debug
 from app.ziwei_engine.transformation.four_hua import FourHuaCalculator
 
 
 class ChartBuilder:
     """
-    紫微斗数命盘组装器 V1.2。
+    紫微斗数命盘组装器 V1.3。
 
-    编排：历法 → 干支 → 十二宫 → 五行局 → 主星/辅煞 → 杂曜 → 四化 → 运限。
-    算法源：app.ziwei 引擎 + RulesLoader（DB 规则驱动）。
+    编排：历法 → 干支 → 十二宫 → 五行局 → 主星/辅煞 → 杂曜 → 四化V2 → 格局 → 运限。
     """
 
     @classmethod
@@ -80,9 +83,20 @@ class ChartBuilder:
         lucky = cls._lucky_stars_from_placement(placement)
         evil = cls._evil_stars_from_placement(placement)
 
-        auxiliary = AuxiliaryStarEngine.compute(
-            palace_results, cal.lunar_month, cal.year_branch
+        minor_stars = MinorStarPlacementEngine.compute(
+            palace_results,
+            cal.lunar_month,
+            cal.year_branch,
+            year_stem=cal.year_stem,
         )
+        auxiliary = AuxiliaryStarEngine.compute(
+            palace_results,
+            cal.lunar_month,
+            cal.year_branch,
+            year_stem=cal.year_stem,
+        )
+        for m in minor_stars:
+            star_to_palace.setdefault(m.star, m.palace)
 
         four_hua = FourHuaCalculator.calculate(cal.year_stem, star_to_palace)
         daxian_ranges, daxian_direction = DaXianCalculator.calculate(
@@ -105,17 +119,56 @@ class ChartBuilder:
         )
         annual_transform = LiunianTransformCalculator.compute(ref_year, star_to_palace)
 
+        four_transform_v2 = FourTransformEngineV2.compute(
+            year_stem=cal.year_stem,
+            star_to_palace=star_to_palace,
+            palaces=palace_results,
+            daxian_map=daxian_map,
+            gender=gender,
+            virtual_age=virtual_age,
+            reference_year=ref_year,
+        )
+
+        sihua_map = {
+            four_hua.hua_lu["star"]: "禄",
+            four_hua.hua_quan["star"]: "权",
+            four_hua.hua_ke["star"]: "科",
+            four_hua.hua_ji["star"]: "忌",
+        }
+        combinations = CombinationEngine.compute(palace_results, placement, sihua_map)
+        combo_dicts = [
+            {
+                "name": p.name,
+                "palaces": p.palaces,
+                "stars": p.stars,
+                "source": "traditional",
+                "match_type": p.category,
+                "tags": p.tags,
+            }
+            for p in combinations.patterns
+        ]
+
         _, _, palaces = TwelvePalaceBuilder.build(
             cal.lunar_month, cal.shichen_index, cal.year_stem
         )
         cls._attach_stars_to_palaces(palaces, placement, four_hua, daxian_ranges)
+        palace_dicts = []
+        enriched = {p.name: p for p in palace_results}
+        for p in palaces:
+            d = p.to_dict()
+            src = enriched.get(p.name)
+            if src:
+                d["opposite"] = src.opposite
+                d["sanhe"] = list(src.sanhe)
+            palace_dicts.append(d)
 
         trace_steps = [
             {"engine": "calendar", "output": {"yearGanzhi": cal.year_ganzhi}},
             {"engine": "palace", "output": {"mingGong": ming_branch, "shenGong": shen_branch}},
             {"engine": "star_placement", "output": {"mainStarCount": len(main_stars)}},
-            {"engine": "auxiliary_star", "output": {"count": len(auxiliary)}},
-            {"engine": "four_transform", "output": {"yearStem": cal.year_stem}},
+            {"engine": "minor_star", "output": {"count": len(minor_stars)}},
+            {"engine": "four_transform_v2", "output": four_transform_v2.trace},
+            {"engine": "combination", "output": {"count": len(combo_dicts)}},
             {"engine": "xiaoxian", "output": xiaoxian.trace},
             {"engine": "daxian_transform", "output": daxian_transform.trace if daxian_transform else {}},
             {"engine": "annual_transform", "output": annual_transform.trace},
@@ -151,7 +204,10 @@ class ChartBuilder:
                 "lucky_stars": lucky,
                 "evil_stars": evil,
                 "auxiliary_stars": AuxiliaryStarEngine.to_dict_list(auxiliary),
+                "minor_stars": MinorStarPlacementEngine.to_dict_list(minor_stars),
                 "four_hua": four_hua.to_dict(),
+                "four_transform_v2": four_transform_v2.to_dict(),
+                "combinations": combo_dicts,
                 "daxian_direction": daxian_direction,
                 "daxian_ranges": [
                     {"palace": r.palace, "start_age": r.start_age, "end_age": r.end_age}
@@ -165,10 +221,17 @@ class ChartBuilder:
                 },
                 "xiaoxian": xiaoxian.to_dict(),
                 "daxian_transform": daxian_transform.to_dict() if daxian_transform else None,
-                "palaces": [p.to_dict() for p in palaces],
+                "palaces": palace_dicts,
             },
+            "algorithm_debug": build_algorithm_debug(
+                lunar_date=lunar.lunar_text,
+                ju=five_element.bureau_name,
+                ziwei_position=ziwei.branch,
+                tianfu_position=tianfu.branch,
+                star_branches=placement.star_branches,
+            ),
             "trace_steps": trace_steps,
-            "engine_version": "1.2",
+            "engine_version": "1.3",
             "rules_version": RulesLoader.RULES_VERSION,
         }
 
@@ -211,7 +274,6 @@ class ChartBuilder:
         four_hua,
         daxian_ranges: list,
     ) -> None:
-        """将星曜与四化写入各宫。"""
         daxian_map = {r.palace: r for r in daxian_ranges}
         sihua_map = {
             four_hua.hua_lu["star"]: "禄",

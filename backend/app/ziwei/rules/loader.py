@@ -43,7 +43,7 @@ class RulesLoader:
     Sprint 2+：优先 Supabase 查询，缓存失效时回退内存。
     """
 
-    RULES_VERSION = "2026.07.23"
+    RULES_VERSION = "2026.07.24"
     SCHOOL = "sanhe"
 
     @classmethod

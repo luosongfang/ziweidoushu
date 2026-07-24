@@ -67,7 +67,7 @@ class ChartValidator:
                 if name not in aux_names:
                     warnings.append(f"辅助杂曜缺失：{name}")
             for star in chart.stars.auxiliary:
-                if star.category != "auxiliary":
+                if star.category not in {"auxiliary", "peach", "minor"}:
                     warnings.append(f"辅助星分类异常：{star.name}={star.category}")
                 if not star.trace:
                     warnings.append(f"辅助星 trace 缺失：{star.name}")

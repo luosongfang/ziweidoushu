@@ -36,16 +36,32 @@ class TestMainStarPlacement:
     def test_ref01_all_fourteen_stars(self):
         cal, palaces, bureau = _build_palaces(1990, 5, 15, 14, 30)
         result = StarPlacementEngine.compute(
-            palaces, cal.lunar_day, bureau.bureau_number
+            palaces,
+            cal.lunar_day,
+            bureau.bureau_number,
+            cal.year_stem,
+            cal.year_branch,
+            cal.shichen_index,
+            cal.lunar_month,
         )
-        assert len(result.star_branches) == 14
+        main14 = {
+            "紫微", "天机", "太阳", "武曲", "天同", "廉贞",
+            "天府", "太阴", "贪狼", "巨门", "天相", "天梁", "七杀", "破军",
+        }
+        assert main14.issubset(result.star_branches.keys())
         assert result.ziwei_branch == "巳"
         assert result.star_branches["紫微"] == "巳"
 
     def test_ref01_palace_mapping(self):
         cal, palaces, bureau = _build_palaces(1990, 5, 15, 14, 30)
         result = StarPlacementEngine.compute(
-            palaces, cal.lunar_day, bureau.bureau_number
+            palaces,
+            cal.lunar_day,
+            bureau.bureau_number,
+            cal.year_stem,
+            cal.year_branch,
+            cal.shichen_index,
+            cal.lunar_month,
         )
         assert result.main_star_names("疾厄") == ["紫微", "七杀"]
         assert result.main_star_names("兄弟") == ["廉贞", "破军"]
@@ -63,20 +79,58 @@ class TestMainStarPlacement:
     def test_tianji_backward_from_ziwei(self):
         cal, palaces, bureau = _build_palaces(1990, 5, 15, 14, 30)
         result = StarPlacementEngine.compute(
-            palaces, cal.lunar_day, bureau.bureau_number
+            palaces,
+            cal.lunar_day,
+            bureau.bureau_number,
+            cal.year_stem,
+            cal.year_branch,
+            cal.shichen_index,
+            cal.lunar_month,
         )
         ziwei_idx = EARTHLY_BRANCHES.index(result.ziwei_branch)
         tianji_idx = EARTHLY_BRANCHES.index(result.star_branches["天机"])
         assert tianji_idx == (ziwei_idx - 1 + 12) % 12
 
-    def test_tianfu_opposite_ziwei(self):
+    def test_tianfu_yin_shen_mirror(self):
+        """天府为寅申轴镜像，非对宫（紫微巳时碰巧与对宫同为亥）。"""
         cal, palaces, bureau = _build_palaces(1990, 5, 15, 14, 30)
         result = StarPlacementEngine.compute(
-            palaces, cal.lunar_day, bureau.bureau_number
+            palaces,
+            cal.lunar_day,
+            bureau.bureau_number,
+            cal.year_stem,
+            cal.year_branch,
+            cal.shichen_index,
+            cal.lunar_month,
         )
         ziwei_idx = EARTHLY_BRANCHES.index(result.ziwei_branch)
         tianfu_idx = EARTHLY_BRANCHES.index(result.star_branches["天府"])
-        assert tianfu_idx == (ziwei_idx + 6) % 12
+        assert tianfu_idx == (4 - ziwei_idx) % 12
+
+    def test_1982_wei_hour_matches_classical(self):
+        """1982-02-22 未时：水二局，紫微卯，天府丑，命宫廉贞七杀。"""
+        cal, palaces, bureau = _build_palaces(1982, 2, 22, 14, 0)
+        result = StarPlacementEngine.compute(
+            palaces,
+            cal.lunar_day,
+            bureau.bureau_number,
+            cal.year_stem,
+            cal.year_branch,
+            cal.shichen_index,
+            cal.lunar_month,
+        )
+        assert cal.lunar_month == 1 and cal.lunar_day == 29
+        assert bureau.bureau_name == "水二局"
+        assert result.ziwei_branch == "卯"
+        assert result.star_branches["天府"] == "丑"
+        assert result.main_star_names("命宫") == ["廉贞", "七杀"]
+        main14 = {
+            "紫微", "天机", "太阳", "武曲", "天同", "廉贞",
+            "天府", "太阴", "贪狼", "巨门", "天相", "天梁", "七杀", "破军",
+        }
+        assert main14.issubset(result.star_branches.keys())
+        assert result.star_branches["破军"] == "亥"
+        assert result.star_branches["贪狼"] == "卯"
 
 
 class TestChartIntegration:

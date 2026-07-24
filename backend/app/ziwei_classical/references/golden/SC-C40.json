@@ -1,0 +1,25 @@
+{
+  "id": "SC-C40",
+  "verification_level": "pending",
+  "source": {
+    "name": "slot",
+    "type": "manual"
+  },
+  "birth": {
+    "solar_date": "1960-05-13",
+    "time": "08:00",
+    "gender": "male",
+    "location": null,
+    "true_solar_time": false
+  },
+  "expected": {
+    "ming_gong": "",
+    "shen_gong": "",
+    "wuxing": "",
+    "ziwei": "",
+    "fourteen_stars": {},
+    "aux_stars": {},
+    "transformations": {}
+  },
+  "notes": "pending professional screenshot — not for auto accuracy claim"
+}
